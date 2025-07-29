@@ -75,7 +75,7 @@ class AgentSelector:
         # Get available agents from registry
         from agents.agent_registry import agent_registry  # Lazy import
         available_agents = [
-            agent_id for agent_id, config in agent_registry.agent_configs.items()
+            agent_id for agent_id, config in agent_registry.agents.items()
             if input_type in config.get('input_types', []) and config.get('enabled', True)
         ]
 

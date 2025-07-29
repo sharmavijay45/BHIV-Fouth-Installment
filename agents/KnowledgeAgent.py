@@ -1,0 +1,202 @@
+from vedabase_retriever import VedabaseRetriever
+from utils.file_based_retriever import file_retriever
+from utils.logger import get_logger
+import uuid
+import requests
+from datetime import datetime
+from reinforcement.rl_context import RLContext
+from reinforcement.reward_functions import get_reward_from_output
+from typing import Dict, Any
+
+logger = get_logger(__name__)
+
+class KnowledgeAgent:
+    def __init__(self):
+        # Always try file-based retriever first since it's more reliable
+        self.file_retriever_available = True
+
+        # Try Qdrant-based retriever as secondary option
+        try:
+            self.retriever = VedabaseRetriever()
+            self.qdrant_available = True
+            logger.info("KnowledgeAgent initialized with both file-based and Qdrant support")
+        except Exception as e:
+            logger.info(f"Qdrant not available, using file-based retriever only: {str(e)}")
+            self.retriever = None
+            self.qdrant_available = False
+
+        self.rl_context = RLContext()
+
+    def query(self, query_text: str, filters: dict = None, task_id: str = None) -> dict:
+        task_id = task_id or str(uuid.uuid4())
+
+        # Always try file-based retriever first (more reliable)
+        if self.file_retriever_available:
+            logger.info(f"KnowledgeAgent query {task_id}: Using file-based retriever (primary)")
+            try:
+                file_results = file_retriever.search(query_text, limit=5)
+                if file_results:
+                    # Format results for consistency
+                    formatted_results = [result['text'] for result in file_results]
+                    sources = [result['source'] for result in file_results]
+
+                    return {
+                        "query_id": task_id,
+                        "query": query_text,
+                        "response": formatted_results,
+                        "sources": sources,
+                        "timestamp": datetime.now().isoformat(),
+                        "endpoint": "knowledge",
+                        "status": 200,
+                        "metadata": {
+                            "tags": ["semantic_search", "file_based"],
+                            "retriever": "file_based",
+                            "total_results": len(file_results)
+                        }
+                    }
+                else:
+                    # No results found, return empty for LLM fallback
+                    return {
+                        "query_id": task_id,
+                        "query": query_text,
+                        "response": [],
+                        "sources": [],
+                        "timestamp": datetime.now().isoformat(),
+                        "endpoint": "knowledge",
+                        "status": 200,
+                        "metadata": {"tags": ["semantic_search", "vedabase"], "fallback_mode": True}
+                    }
+            except Exception as e:
+                logger.error(f"File-based retriever failed: {str(e)}")
+                return {
+                    "query_id": task_id,
+                    "query": query_text,
+                    "response": [],
+                    "sources": [],
+                    "timestamp": datetime.now().isoformat(),
+                    "endpoint": "knowledge",
+                    "status": 200,
+                    "metadata": {"tags": ["semantic_search", "vedabase"], "fallback_mode": True}
+                }
+
+        try:
+            results = self.retriever.get_relevant_docs(query_text, filters)
+            response = {
+                "query_id": task_id,
+                "query": query_text,
+                "response": results,
+                "sources": [],
+                "timestamp": datetime.now().isoformat(),
+                "endpoint": "knowledge",
+                "status": 200,
+                "metadata": {"tags": ["semantic_search", "vedabase"]}
+            }
+            reward = get_reward_from_output(response, task_id)
+            self.rl_context.log_action(
+                task_id=task_id,
+                agent="knowledge_agent",
+                model="none",
+                action="query_vedabase",
+                metadata={"query": query_text, "filters": filters}
+            )
+            logger.info(f"KnowledgeAgent query {task_id}: {len(results) if isinstance(results, list) else 1} results")
+            return response
+        except Exception as e:
+            logger.error(f"KnowledgeAgent query {task_id} failed: {str(e)}")
+            return {
+                "query_id": task_id,
+                "query": query_text,
+                "response": [],
+                "sources": [],
+                "timestamp": datetime.now().isoformat(),
+                "endpoint": "knowledge",
+                "status": 200,
+                "metadata": {"tags": ["semantic_search", "vedabase"], "fallback_mode": True},
+                "error": str(e)
+            }
+
+    def enhance_with_llm(self, query: str, knowledge_context: str) -> str:
+        """Use Groq to enhance the knowledge base response with better formatting and context."""
+        try:
+            # Call the simple_api to get enhanced response
+            response = requests.post(
+                "http://localhost:8004/ask-vedas",
+                json={
+                    "query": f"Based on this Vedic knowledge: {knowledge_context}\n\nQuestion: {query}\n\nPlease provide a comprehensive answer using the provided knowledge.",
+                    "user_id": "knowledge_agent"
+                },
+                timeout=30
+            )
+
+            if response.status_code == 200:
+                result = response.json()
+                return result.get("response", knowledge_context)
+            else:
+                logger.warning(f"LLM enhancement failed with status {response.status_code}")
+                return knowledge_context
+
+        except Exception as e:
+            logger.error(f"LLM enhancement failed: {str(e)}")
+            return knowledge_context
+
+    def run(self, input_path: str, live_feed: str = "", model: str = "knowledge_agent", input_type: str = "text", task_id: str = None) -> Dict[str, Any]:
+        """Main entry point for agent execution - compatible with existing agent interface."""
+        task_id = task_id or str(uuid.uuid4())
+        logger.info(f"KnowledgeAgent processing task {task_id}, query: {input_path}")
+
+        # Use input_path as the query text
+        query_result = self.query(input_path, task_id=task_id)
+
+        # Format response to match expected agent output format
+        if query_result["status"] == 200 and query_result.get("response"):
+            # Combine knowledge base results
+            if isinstance(query_result["response"], list) and query_result["response"]:
+                combined_text = "\n\n".join(query_result["response"][:3])
+            else:
+                combined_text = str(query_result["response"])
+
+            # Enhance with LLM for better formatting and context
+            enhanced_response = self.enhance_with_llm(input_path, combined_text)
+
+            return {
+                "response": enhanced_response,
+                "query_id": task_id,
+                "query": input_path,
+                "sources": query_result.get("sources", []),
+                "metadata": query_result.get("metadata", {}),
+                "timestamp": query_result["timestamp"],
+                "status": 200,
+                "model": model,
+                "knowledge_base_results": len(query_result.get("response", [])) if isinstance(query_result.get("response"), list) else 1,
+                "endpoint": "knowledge_agent"
+            }
+        else:
+            # Fallback to LLM only if no knowledge base results
+            try:
+                fallback_response = self.enhance_with_llm(input_path, "No specific knowledge found in database.")
+                return {
+                    "response": fallback_response,
+                    "query_id": task_id,
+                    "query": input_path,
+                    "sources": [],
+                    "metadata": {},
+                    "timestamp": datetime.now().isoformat(),
+                    "status": 200,
+                    "model": model,
+                    "knowledge_base_results": 0,
+                    "fallback": True,
+                    "endpoint": "knowledge_agent"
+                }
+            except Exception as e:
+                return {
+                    "response": "I couldn't find relevant information in the knowledge base for your query.",
+                    "query_id": task_id,
+                    "query": input_path,
+                    "sources": [],
+                    "metadata": {},
+                    "timestamp": datetime.now().isoformat(),
+                    "status": 404,
+                    "model": model,
+                    "error": query_result.get("error", "No results found"),
+                    "endpoint": "knowledge_agent"
+                }

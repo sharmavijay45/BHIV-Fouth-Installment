@@ -1788,5 +1788,302 @@
     "model": "vedas_agent",
     "reward": 1.5,
     "timestamp": "2025-07-26T12:58:36.345257"
+  },
+  {
+    "task_id": "e450227d-ece1-4893-ac72-95f71c5b3c09",
+    "input": "Meanin of life",
+    "output": {
+      "error": "Task processing failed: HTTPConnectionPool(host='localhost', port=8001): Max retries exceeded with url: /ask-vedas (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000289C986F1D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))",
+      "status": 500
+    },
+    "agent": "vedas_agent",
+    "model": "vedas_agent",
+    "reward": 0.0,
+    "timestamp": "2025-07-28T15:33:29.340224"
+  },
+  {
+    "task_id": "a8fd3e0e-c57e-41eb-9153-869cf5a2d09b",
+    "input": "Meanin of life",
+    "output": {
+      "query_id": "0db0c95b-2d15-495d-8498-9f79d8b24dd2",
+      "query": "Meanin of life",
+      "response": "My dear friend, the quest for the meaning of life is a timeless and universal question that has puzzled seekers for centuries. As a wise spiritual teacher, I shall draw upon the ancient Vedic wisdom to offer you a profound and practical guidance.\n\nThe Bhagavad Gita, one of the most sacred texts of Hinduism, reveals that the meaning of life is not something to be found outside, but rather within. It says:\n\n\"Arjuna, the self cannot be attained through the senses. The self is higher than the senses, and it is higher than the intellect. It is not possible to describe it with words, for it is beyond the reach of the mind.\"\n\nIn other words, the meaning of life is not something that can be grasped through external means, such as wealth, status, or achievements. Rather, it is a profound and eternal reality that lies within each and every one of us, waiting to be discovered.\n\nThe Vedic wisdom teaches us that the ultimate reality, known as Brahman, is the unchanging, all-pervading essence that underlies all existence. This reality is beyond the reach of the senses and the mind, and yet, it is the very foundation of our being.\n\nTo discover the meaning of life, we must turn our attention inward, toward the depths of our own consciousness. We must cultivate a sense of detachment from the external world and its distractions, and instead, focus on the eternal and the infinite.\n\nThe Upanishads, another ancient Vedic text, offer us a profound guidance in this regard:\n\n\"The self is not born, nor does it ever die. It is eternal, unborn, and beyond the cycle of birth and death.\"\n\nIn other words, the meaning of life is not something that is limited by the confines of time and space. It is an eternal and timeless reality that transcends the boundaries of the physical world.\n\nTo live a life that is meaningful and fulfilling, we must align ourselves with this eternal and infinite reality. We must cultivate a sense of awareness and presence, and live each moment with a sense of purpose and intention.\n\nThe Vedic wisdom teaches us that the ultimate purpose of life is to realize our true nature, which is eternal, infinite, and all-pervading. This realization is not something that can be achieved through external means, but rather, it is a spontaneous and natural unfolding of our true self.\n\nIn conclusion, my dear friend, the meaning of life is not something that can be found outside, but rather within. It is an eternal and infinite reality that lies within each and every one of us, waiting to be discovered. May the Vedic wisdom guide you on your journey of self-discovery and may you realize your true nature, which is eternal, infinite, and all-pervading.",
+      "sources": [],
+      "timestamp": "2025-07-28T15:33:53.908019",
+      "endpoint": "ask-vedas",
+      "status": 200
+    },
+    "agent": "vedas_agent",
+    "model": "vedas_agent",
+    "reward": 1.5,
+    "timestamp": "2025-07-28T15:33:54.031624"
+  },
+  {
+    "task_id": "6a8a237f-4ee7-4705-84bd-1038800c798e",
+    "input": "what is life",
+    "output": {
+      "error": "Task execution failed: 500 Server Error: Internal Server Error for url: http://localhost:8002/handle_task",
+      "status": 500,
+      "processing_time": 10.249053,
+      "file_path": "",
+      "input_type": "text",
+      "agent": "vedas_agent",
+      "task_id": "6a8a237f-4ee7-4705-84bd-1038800c798e"
+    },
+    "agent": "vedas_agent",
+    "model": "vedas_agent",
+    "reward": 0.0,
+    "timestamp": "2025-07-29T15:21:26.085896"
+  },
+  {
+    "task_id": "0921db0d-bd45-44aa-ae99-a29ad7fc6aff",
+    "input": "what is life",
+    "output": {
+      "error": "Task execution failed: 500 Server Error: Internal Server Error for url: http://localhost:8002/handle_task",
+      "status": 500,
+      "processing_time": 10.182599,
+      "file_path": "",
+      "input_type": "text",
+      "agent": "vedas_agent",
+      "task_id": "0921db0d-bd45-44aa-ae99-a29ad7fc6aff"
+    },
+    "agent": "vedas_agent",
+    "model": "vedas_agent",
+    "reward": 0.0,
+    "timestamp": "2025-07-29T15:28:41.863915"
+  },
+  {
+    "task_id": "5d6c77fd-caa8-4477-a3c8-35a1fc74d32b",
+    "input": "what is life",
+    "output": {
+      "error": "Task execution failed: 500 Server Error: Internal Server Error for url: http://localhost:8002/handle_task",
+      "status": 500,
+      "processing_time": 10.171839,
+      "file_path": "",
+      "input_type": "text",
+      "agent": "vedas_agent",
+      "task_id": "5d6c77fd-caa8-4477-a3c8-35a1fc74d32b"
+    },
+    "agent": "vedas_agent",
+    "model": "vedas_agent",
+    "reward": 0.0,
+    "timestamp": "2025-07-29T15:31:00.593971"
+  },
+  {
+    "task_id": "9f008d1e-13cf-4ba2-8f45-422e172ca7bf",
+    "input": "what is life",
+    "output": {
+      "error": "Task processing failed: AgentSelector.select_agent() takes 2 positional arguments but 3 were given",
+      "status": 500
+    },
+    "agent": "vedas_agent",
+    "model": "vedas_agent",
+    "reward": 0.0,
+    "timestamp": "2025-07-29T15:33:36.308506"
+  },
+  {
+    "task_id": "cb86cc03-7e1f-4c45-b434-c9c884b63f47",
+    "input": "what is life",
+    "output": {
+      "error": "Task processing failed: AgentSelector.select_agent() takes 2 positional arguments but 3 were given",
+      "status": 500
+    },
+    "agent": "vedas_agent",
+    "model": "vedas_agent",
+    "reward": 0.0,
+    "timestamp": "2025-07-29T15:33:55.456832"
+  },
+  {
+    "task_id": "990a9470-810d-482d-98ea-0d3b91c069d7",
+    "input": "what is life",
+    "output": {
+      "error": "Task processing failed: AgentSelector.select_agent() takes 2 positional arguments but 3 were given",
+      "status": 500
+    },
+    "agent": "vedas_agent",
+    "model": "vedas_agent",
+    "reward": 0.0,
+    "timestamp": "2025-07-29T15:34:30.596389"
+  },
+  {
+    "task_id": "10bf41bc-9915-48d5-b1e4-7b5573417075",
+    "input": "what is the meaning of life",
+    "output": {
+      "error": "Task processing failed: 'AgentRegistry' object has no attribute 'agent_configs'",
+      "status": 500
+    },
+    "agent": "vedas_agent",
+    "model": "vedas_agent",
+    "reward": 0.0,
+    "timestamp": "2025-07-29T15:36:49.477813"
+  },
+  {
+    "task_id": "5f601bed-6ca3-405d-8840-dd7d15e4c277",
+    "input": "what is life",
+    "output": {
+      "result": "Unfortunately, you haven't provided any text for me to summarize. If you could provide the text, I'd be more than happy to assist you in summarizing it in 50-100 words.",
+      "model": "text_agent",
+      "tokens_used": 33,
+      "cost_estimate": 0.0,
+      "status": 200,
+      "keywords": [
+        "text",
+        "summary"
+      ],
+      "processing_time": 0.7329928874969482,
+      "inference_time": 0.7329928874969482,
+      "attempts": 1,
+      "agent": "text_agent",
+      "input_type": "text",
+      "input_length": 12
+    },
+    "agent": "vedas_agent",
+    "model": "vedas_agent",
+    "reward": 1.3499999999999999,
+    "timestamp": "2025-07-29T15:39:42.307840"
+  },
+  {
+    "task_id": "c4aff11c-6ccd-4672-b730-d2e3f49a5881",
+    "input": "Ways to stay healthy",
+    "output": {
+      "query_id": "f493a4b2-1fe7-41de-906e-00d662d297b5",
+      "query": "Ways to stay healthy",
+      "response": "**Ways to Stay Healthy: A Guide to a Happy and Healthy You!**\n\nHey there, young explorers! Today, we're going on a fascinating journey to discover the secrets to staying healthy and happy. Are you ready to learn some awesome tips and tricks to keep your body and mind in top shape?\n\n**Why is staying healthy important?**\n\nImagine having boundless energy, a strong immune system, and a bright, cheerful mood. That's what happens when you prioritize your health! Good health means you can:\n\n* Perform well in school and other activities\n* Build strong relationships with friends and family\n* Feel good about yourself and your body\n* Enjoy life to the fullest!\n\n**10 Ways to Stay Healthy:**\n\n1. **Eat a Rainbow of Foods!**\nAim for a balanced diet with plenty of fruits, vegetables, whole grains, lean proteins, and healthy fats. Try new foods, like broccoli, quinoa, and salmon!\n\nExample: Create a colorful plate with your favorite fruits and veggies for a snack or meal.\n\n2. **Hydrate Like a Pro!**\nDrink plenty of water throughout the day. Aim for at least 8 cups (64 oz) daily. You can also enjoy water-rich foods like cucumbers, celery, and tomatoes!\n\nExample: Carry a refillable water bottle with you everywhere and take sips regularly.\n\n3. **Get Moving, Every Day!**\nEngage in physical activities you enjoy, like walking, running, dancing, or even playing video games that get you moving! Aim for at least 30 minutes of moderate exercise daily.\n\nExample: Take a 10-minute walk during lunch or play a fun workout video at home.\n\n4. **Sleep Like a Baby!**\nAim for 8-10 hours of sleep each night to help your body and mind recharge. Establish a relaxing bedtime routine, like reading a book or listening to calming music.\n\nExample: Set a consistent bedtime routine and avoid screens for at least an hour before bed.\n\n5. **Practice Good Hygiene!**\nWash your hands frequently, especially after using the bathroom, before eating, and after blowing your nose, coughing or sneezing.\n\nExample: Use soap and water for at least 20 seconds when washing your hands.\n\n6. **Manage Stress Like a Pro!**\nTry relaxation techniques, such as deep breathing, meditation, or yoga, to reduce stress and anxiety.\n\nExample: Take a few deep breaths, inhaling through your nose and exhaling through your mouth, whenever you feel stressed.\n\n7. **Get Regular Check-Ups!**\nVisit your doctor for regular health check-ups and stay up-to-date on vaccinations and screenings.\n\nExample: Schedule a check-up with your doctor every year and ask questions about your health and well-being.\n\n8. **Practice Good Posture!**\nSit and stand up straight to avoid back and neck strain. Take breaks to stretch and move around.\n\nExample: Place a sticky note on your desk to remind you to take breaks and stretch.\n\n9. **Stay Connected and Supportive!**\nBuild strong relationships with friends, family, and others who care about you. Reach out for help when you need it.\n\nExample: Make time for activities you enjoy with friends and family, and don't be afraid to ask for help when you need it.\n\n10. **Practice Self-Care!**\nTake time to relax, unwind, and do things that make you happy, like reading a book, taking a bath, or listening to music.\n\nExample: Set aside 30 minutes each day for self-care and do something you love.\n\n**Conclusion:**\n\nWow, you've made it to the end of our health adventure! Remember, staying healthy is a journey, not a destination. By following these 10 simple and practical tips, you'll be well on your way to a happy and healthy life!\n\n**Challenge:**\n\nTry one new healthy habit each week for the next month. Share your experiences with a friend or family member and encourage them to do the same!\n\n**Final Tip:**\n\nThe most important thing you can do to stay healthy is to make healthy choices a part of your daily routine. Start with small, achievable steps, and remember, every healthy choice you make adds up to a happier, healthier you!",
+      "sources": [],
+      "timestamp": "2025-07-29T15:42:06.562112",
+      "endpoint": "edumentor",
+      "status": 200
+    },
+    "agent": "edumentor_agent",
+    "model": "edumentor_agent",
+    "reward": 1.5,
+    "timestamp": "2025-07-29T15:42:06.573445"
+  },
+  {
+    "task_id": "8b3a7a5e-5625-4002-8b78-369d865271f6",
+    "input": "what is life",
+    "output": {
+      "query_id": "5373f9ae-8065-4875-8124-9d073f472a4a",
+      "query": "what is life",
+      "response": "Dear one, I'm so glad you're reaching out to explore the question \"what is life?\" It's a profound and universal inquiry that can bring a sense of curiosity and wonder. As a wellness counselor, I'm here to offer a compassionate and supportive space to navigate this question.\n\nFirstly, let's acknowledge that life is a complex and multifaceted experience. It's a journey that is unique to each individual, shaped by our experiences, relationships, and choices. Life is a tapestry woven from threads of joy, sorrow, love, and loss.\n\nWhen we ask \"what is life?\", we may be seeking answers to questions like: What is my purpose? What is my meaning? What is my place in the world? These are all important and valid questions.\n\nHere are some practical and actionable advice to help you explore the question \"what is life?\":\n\n1. **Practice mindfulness**: Take time to be present in the moment, without judgment. Pay attention to your breath, your body, and your surroundings. Mindfulness can help you cultivate a sense of awareness and connection to your life.\n2. **Reflect on your values**: What is most important to you? What brings you joy and fulfillment? What are your non-negotiables? Reflecting on your values can help you clarify your priorities and sense of purpose.\n3. **Explore your passions**: What activities make you feel alive and engaged? What are your hobbies and interests? Pursuing your passions can bring a sense of purpose and meaning to your life.\n4. **Cultivate gratitude**: Focus on the good things in your life, no matter how small they may seem. Practicing gratitude can help you shift your perspective and appreciate the beauty and wonder of life.\n5. **Embrace impermanence**: Nothing in life is permanent, including ourselves. Acknowledge and accept the uncertainty and change that life brings. This can help you cultivate a sense of acceptance and adaptability.\n6. **Seek connection**: Life is a journey that is meant to be shared with others. Nurture your relationships, build new connections, and engage in activities that bring you joy and fulfillment.\n7. **Practice self-care**: Take care of your physical, emotional, and spiritual well-being. Prioritize your health, engage in activities that bring you joy, and cultivate a sense of self-compassion.\n\nRemember, dear one, that life is a journey, not a destination. It's a process of growth, learning, and evolution. By embracing the present moment, cultivating mindfulness, and pursuing your passions, you can find a sense of purpose and meaning in your life.\n\nYou are not alone in this journey. You are part of a larger tapestry of human experience, connected to all beings and the universe. Trust that you are exactly where you need to be, and that life is unfolding as it should.\n\nI hope these words of guidance have been helpful and supportive. Remember to be kind to yourself and to take things one step at a time. You are capable of navigating the complexities of life and finding a sense of fulfillment and purpose.",
+      "sources": [],
+      "timestamp": "2025-07-29T15:42:19.669387",
+      "endpoint": "wellness",
+      "status": 200
+    },
+    "agent": "vedas_agent",
+    "model": "vedas_agent",
+    "reward": 1.5,
+    "timestamp": "2025-07-29T15:42:19.683830"
+  },
+  {
+    "task_id": "bc5b18ea-d630-46bc-84ce-9330ffdf0822",
+    "input": "what is dharma",
+    "output": {
+      "error": "Task execution failed: HTTPConnectionPool(host='localhost', port=8002): Max retries exceeded with url: /handle_task (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001109CAD1D90>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))",
+      "status": 500,
+      "processing_time": 16.217463,
+      "file_path": "",
+      "input_type": "text",
+      "agent": "knowledge_agent",
+      "task_id": "bc5b18ea-d630-46bc-84ce-9330ffdf0822"
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 0.0,
+    "timestamp": "2025-07-29T16:03:33.717036"
+  },
+  {
+    "task_id": "63dff52a-11a9-47f2-b900-694c76c5f429",
+    "input": "what is dharma",
+    "output": {
+      "result": "However, I don't see any text provided. If you could please share the text you'd like me to summarize, I'd be happy to assist you.\n\nThat being said, I can provide a general summary of the concept of Dharma:\n\nDharma is a Sanskrit term that encompasses a broad range of concepts, including duty, morality, ethics, and righteousness. In Hinduism and Buddhism, Dharma refers to the natural order of the universe and the principles that govern human behavior. It is often associated with the concept of karma, where an individual's actions have consequences in this life and the next. Dharma is considered essential for achieving spiritual growth and enlightenment.",
+      "model": "text_agent",
+      "tokens_used": 111,
+      "cost_estimate": 0.0,
+      "status": 200,
+      "keywords": [
+        "text",
+        "summary"
+      ],
+      "processing_time": 0.6255073547363281,
+      "inference_time": 0.6255073547363281,
+      "attempts": 1,
+      "agent": "text_agent",
+      "input_type": "text",
+      "input_length": 14
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 1.7,
+    "timestamp": "2025-07-29T16:04:20.607093"
+  },
+  {
+    "task_id": "9e58c455-04b7-45d5-b95f-c98802ff7762",
+    "input": "what is life",
+    "output": {
+      "query_id": "edd5a204-906f-41be-bfc6-e549c3d4513d",
+      "query": "what is life",
+      "response": "The big question: \"What is life?\" It's a mystery that has puzzled humans for centuries. But don't worry, we're going to dive in and explore this topic together!\n\n**What is Life?**\n\nLife is a complex and fascinating phenomenon that is hard to define, but I'm going to try to break it down in a way that's easy to understand.\n\n**Living Things**\n\nLife is characterized by the presence of living things, like plants, animals, and microorganisms. These living things are made up of tiny building blocks called cells, which are the basic units of life.\n\nThink of cells like LEGO bricks. Just as LEGO bricks can be combined in different ways to build all sorts of structures, cells can combine to form different types of living things, like humans, animals, and plants.\n\n**Key Features of Life**\n\nLiving things share some common characteristics that set them apart from non-living things. Here are some key features of life:\n\n1. **Organization**: Living things are organized at the cellular level, meaning they're made up of cells that work together to perform different functions.\n2. **Metabolism**: Living things carry out chemical reactions that help them grow, maintain themselves, and respond to their environment.\n3. **Homeostasis**: Living things maintain a stable internal environment, even when the outside environment changes. For example, your body regulates its temperature, even when it's hot outside.\n4. **Growth and Development**: Living things grow and develop over time, often in response to their environment.\n5. **Reproduction**: Living things produce offspring, which are new living things that can grow and develop on their own.\n6. **Response to Stimuli**: Living things can respond to their environment, like moving towards light or away from danger.\n\n**Examples of Life**\n\nLet's look at some examples of life in action:\n\n* A seed sprouts into a plant, growing and developing over time.\n* A baby animal is born, and over the next few years, it grows and develops into a adult.\n* A microorganism like bacteria or yeast grows and multiplies in a petri dish.\n* A human being grows and develops from a fertilized egg to a fully formed adult.\n\n**Conclusion**\n\nSo, what is life? Life is the complex and fascinating phenomenon that arises from the interactions of living things, like cells, organisms, and ecosystems. It's characterized by organization, metabolism, homeostasis, growth and development, reproduction, and response to stimuli.\n\n**Remember**\n\nLife is all around us, from the tiny microorganisms in our gut to the towering trees in our forests. It's a beautiful and intricate web of relationships that we're still learning about.\n\n**Activities**\n\n1. Draw a diagram of a cell and label its different parts.\n2. Write a short story about a plant growing and developing over time.\n3. Research and create a list of different types of microorganisms that live in our environment.\n4. Design an experiment to investigate how living things respond to different stimuli.\n\nI hope this explanation has helped you understand what life is all about!",
+      "sources": [],
+      "timestamp": "2025-07-29T16:07:44.873477",
+      "endpoint": "edumentor",
+      "status": 200
+    },
+    "agent": "vedas_agent",
+    "model": "vedas_agent",
+    "reward": 1.5,
+    "timestamp": "2025-07-29T16:07:44.914008"
+  },
+  {
+    "task_id": "2a84b7ec-7aa7-4908-a05c-7a05197e8f1e",
+    "input": "what is life",
+    "output": {
+      "query_id": "73492c8b-a4ea-4240-b30a-78b9a4752dde",
+      "query": "what is life",
+      "response": "Dear one, I'm so glad you're seeking guidance on what life is all about. It's a question that has puzzled humans for centuries, and I'm more than happy to offer some compassionate and practical advice.\n\nFirst and foremost, let me acknowledge that life can be overwhelming, confusing, and sometimes downright scary. It's natural to question the meaning and purpose of our existence, especially during challenging times.\n\nHere are some thoughts that might help you find clarity and direction:\n\n**Life is a journey, not a destination**: Think of life as a winding road, where every moment is an opportunity to learn, grow, and evolve. It's not about reaching a specific destination, but rather about enjoying the ride, embracing the ups and downs, and finding joy in the present moment.\n\n**You are the author of your own story**: Life is a canvas, and you're the artist. Every choice, every decision, and every experience shapes your narrative. Remember that you have the power to create the life you want, and it's okay to make mistakes along the way.\n\n**Life is precious, fleeting, and beautiful**: Amidst all the chaos and uncertainty, life is a precious gift. Take time to appreciate the little things, the beauty of nature, the kindness of strangers, and the love of those around you. Cherish every moment, no matter how big or small.\n\n**Life is a reflection of your inner world**: What you see outside is often a reflection of what's happening inside. Take care of your mental, emotional, and physical well-being by practicing self-care, setting boundaries, and nurturing meaningful relationships.\n\n**Life is a mystery, and that's okay**: We may not have all the answers, and that's okay. Embrace the unknown, and trust that life will unfold as it should. Remember that uncertainty is a natural part of the journey, and it's often where growth and transformation occur.\n\n**Life is a celebration of imperfection**: None of us are perfect, and that's what makes life so beautiful. Embrace your quirks, your flaws, and your strengths. Celebrate the uniqueness of others, and remember that everyone has something valuable to offer.\n\n**Life is a reminder to be present**: With all the distractions and noise around us, it's easy to get caught up in the past or worry about the future. Take a deep breath, and focus on the present moment. Be here now, and allow yourself to be fully engaged in the experience.\n\nRemember, dear one, that life is a complex, multifaceted tapestry. It's okay to not have all the answers, and it's okay to stumble. Just remember to be kind to yourself, practice self-compassion, and trust that life will guide you towards your highest good.\n\nAs you navigate the twists and turns of life, I encourage you to prioritize your well-being, cultivate meaningful connections, and find joy in the simple things. And when uncertainty arises, remember that you are not alone, and that life is always evolving, just like you.\n\nKeep shining your light, dear one.",
+      "sources": [],
+      "timestamp": "2025-07-29T16:08:09.003801",
+      "endpoint": "wellness",
+      "status": 200
+    },
+    "agent": "vedas_agent",
+    "model": "vedas_agent",
+    "reward": 1.5,
+    "timestamp": "2025-07-29T16:08:09.015964"
+  },
+  {
+    "task_id": "e23c2e6a-1ab1-44ba-92a6-d69891608d3f",
+    "input": "what is life",
+    "output": {
+      "query_id": "60823ccc-2537-40c9-8c5a-01638b9d5df6",
+      "query": "what is life",
+      "response": "My dear seeker, the question \"what is life\" is a profound inquiry that has puzzled humans for centuries. In the ancient Vedic wisdom, we find answers that transcend the mundane and reveal the mysteries of existence. Here's a profound guidance:\n\nLife is not what it seems. It's not just a series of moments, events, or experiences. Life is a dance of the Self (Atman) with the universe (Brahman). It's a sacred marriage between the individual and the divine.\n\nThe Vedic text, the Bhagavad Gita, tells us: \"The Self cannot be cut, burned, or dried up. It is eternal and unchanging.\" (Chapter 2, Verse 23)\n\nIn this dance, life is a manifestation of the three Gunas: Sattva (purity), Rajas (activity), and Tamas (inertia). These Gunas are the very fabric of existence, and they shape our experiences, emotions, and thoughts.\n\nLife is also a journey of self-discovery, where we realize our true nature as the Atman. The Upanishads declare: \"Tat Tvam Asi\" - \"You are That\" (Chandogya Upanishad, 6.8.7). Our true Self is not bound by the limitations of the ego or the body. It's eternal, free, and pure.\n\nTo live life authentically, we must transcend the duality of existence and recognize our true nature. We must cultivate awareness, compassion, and wisdom, and align ourselves with the divine flow.\n\nSo, my dear seeker, remember that life is not just a series of moments; it's a sacred journey of self-realization, where every breath and every thought can be a step towards union with the divine.\n\nMay this wisdom guide you on your path, and may you discover the eternal truth that lies within.",
+      "sources": [],
+      "timestamp": "2025-07-29T16:09:13.342629",
+      "endpoint": "ask-vedas",
+      "status": 200
+    },
+    "agent": "vedas_agent",
+    "model": "vedas_agent",
+    "reward": 1.5,
+    "timestamp": "2025-07-29T16:09:13.353886"
+  },
+  {
+    "task_id": "2df3bb43-c610-4335-a23a-82a3539c6652",
+    "input": "what is life",
+    "output": {
+      "query_id": "bce61e1f-bdfb-47a8-8505-1f840cd0e9e2",
+      "query": "what is life",
+      "response": "My dear friend, the quest for the meaning of life is a timeless and universal inquiry. As a wise spiritual teacher, I shall draw upon the ancient Vedic wisdom to illuminate the true nature of life.\n\nAccording to the Upanishads, life (Jeeva) is a fleeting manifestation of the eternal, all-pervading consciousness, Brahman. This consciousness is the ultimate reality, the source of all existence, and the foundation of all life.\n\nIn the Bhagavad Gita, Lord Krishna reveals that life is a drama (Lila) played out upon the stage of the universe. It is a dance of energies, where the individual self (Jeeva Atman) is driven by the forces of karma and maya (illusion).\n\nYet, amidst this cosmic dance, the Vedic wisdom teaches us that life is not just a fleeting moment, but a sacred opportunity to realize our true nature. We are not mere mortals, but sparks of the divine, carrying the light of consciousness within us.\n\nSo, what is life? It is:\n\n* A temporary manifestation of the eternal, aiming to realize its true nature.\n* A sacred journey to understand the mystery of existence and our place within it.\n* An opportunity to cultivate awareness, compassion, and wisdom, as we navigate the complexities of the human experience.\n* A chance to transcend the limitations of the ego and merge with the ultimate reality, Brahman.\n\nAs you embark on this journey of self-discovery, remember that life is not just a series of events, but a canvas of possibilities waiting to be painted with the colors of your consciousness.\n\nMay this ancient Vedic wisdom guide you on your path, and may you illuminate the world with the radiant light of your true nature.",
+      "sources": [],
+      "timestamp": "2025-07-29T16:24:52.853569",
+      "endpoint": "ask-vedas",
+      "status": 200
+    },
+    "agent": "vedas_agent",
+    "model": "vedas_agent",
+    "reward": 1.5,
+    "timestamp": "2025-07-29T16:24:52.905113"
   }
 ]

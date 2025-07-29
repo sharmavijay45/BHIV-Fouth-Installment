@@ -1,4 +1,4 @@
-# BHIV Core Complete Usage Guide
+`# BHIV Core Complete Usage Guide
 
 ## 📋 Table of Contents
 1. [Project Overview](#project-overview)
@@ -725,3 +725,341 @@ Your BHIV Core system is working correctly when:
 8. **✅ API Stable**: REST endpoints respond within timeout limits
 
 **Congratulations! Your BHIV Core system is production-ready! 🎉**
+
+---
+
+# 🚀 **Knowledge Base System Startup & Testing Guide**
+
+## **Step 1: Start the Core API Server**
+
+```powershell
+# Terminal 1 - Start the main API with knowledge base
+python simple_api.py --port 8004
+```
+
+**Expected Output:**
+```
+INFO - Knowledge base built: 136 chunks
+INFO - Simple Orchestration API ready!
+INFO: Uvicorn running on http://0.0.0.0:8004
+```
+
+## **Step 2: Start the MCP Bridge**
+
+```powershell
+# Terminal 2 - Start the MCP bridge for agent routing
+python mcp_bridge.py
+```
+
+**Expected Output:**
+```
+INFO - Loaded 8 agents from config/agent_configs.json
+INFO: Uvicorn running on http://0.0.0.0:8002
+```
+
+## **Step 3: System Health Check**
+
+### **3.1 Check API Status**
+```powershell
+Invoke-RestMethod -Uri "http://localhost:8004/" -Method GET
+```
+
+**Expected Response:**
+```json
+{
+  "message": "Simple Orchestration API",
+  "endpoints": {
+    "query-kb": "Knowledge base queries"
+  }
+}
+```
+
+### **3.2 Check MCP Bridge Status**
+```powershell
+Invoke-RestMethod -Uri "http://localhost:8002/health" -Method GET
+```
+
+## **Step 4: Test Knowledge Base Functionality**
+
+### **4.1 Test Direct Knowledge Base Query**
+```powershell
+Invoke-RestMethod -Uri "http://localhost:8004/query-kb" -Method POST -ContentType "application/json" -Body '{"query": "reinforcement learning", "user_id": "test_user"}'
+```
+
+**Expected Response:**
+```json
+{
+  "response": "Enhanced response about reinforcement learning...",
+  "query_id": "uuid-here",
+  "sources": ["Task1.pdf", "README_RL.md"],
+  "knowledge_base_results": 5,
+  "status": 200
+}
+```
+
+### **4.2 Test Different Query Types**
+```powershell
+# Test with your PDF content
+Invoke-RestMethod -Uri "http://localhost:8004/query-kb" -Method POST -ContentType "application/json" -Body '{"query": "agent selection", "user_id": "test_user"}'
+
+# Test with documentation content
+Invoke-RestMethod -Uri "http://localhost:8004/query-kb" -Method POST -ContentType "application/json" -Body '{"query": "learning dashboard", "user_id": "test_user"}'
+
+# Test with general query
+Invoke-RestMethod -Uri "http://localhost:8004/query-kb" -Method POST -ContentType "application/json" -Body '{"query": "what is BHIV", "user_id": "test_user"}'
+```
+
+## **Step 5: Test MCP Bridge Integration**
+
+### **5.1 Test via CLI Runner**
+```powershell
+python cli_runner.py explain "what is reinforcement learning" knowledge_agent --input-type text
+```
+
+**Expected Output:**
+```json
+[
+  {
+    "task_id": "uuid-here",
+    "agent_output": {
+      "response": "Enhanced response...",
+      "knowledge_base_results": 5
+    },
+    "status": "success"
+  }
+]
+```
+
+### **5.2 Test Different Agents**
+```powershell
+# Test vedas agent
+python cli_runner.py explain "meaning of life" vedas_agent --input-type text
+
+# Test knowledge agent
+python cli_runner.py explain "agent architecture" knowledge_agent --input-type text
+```
+
+## **Step 6: Verify Knowledge Base Content**
+
+### **6.1 Check Knowledge Base Stats**
+Create a simple test script:
+
+```powershell
+# Create test script
+@"
+from utils.file_based_retriever import file_retriever
+import json
+
+stats = file_retriever.get_stats()
+print("Knowledge Base Statistics:")
+print(json.dumps(stats, indent=2))
+
+# Test search
+results = file_retriever.search("reinforcement learning", limit=3)
+print(f"\nSample search results: {len(results)} found")
+for i, result in enumerate(results):
+    print(f"{i+1}. Source: {result['source']}")
+    print(f"   Score: {result['similarity_score']:.3f}")
+    print(f"   Text: {result['text'][:100]}...")
+"@ | Out-File -FilePath test_kb.py -Encoding UTF8
+
+python test_kb.py
+```
+
+## **Step 7: Performance & Load Testing**
+
+### **7.1 Response Time Test**
+```powershell
+# Measure response time
+Measure-Command {
+    Invoke-RestMethod -Uri "http://localhost:8004/query-kb" -Method POST -ContentType "application/json" -Body '{"query": "test query", "user_id": "perf_test"}'
+}
+```
+
+### **7.2 Multiple Concurrent Requests**
+```powershell
+# Test multiple requests
+1..5 | ForEach-Object -Parallel {
+    Invoke-RestMethod -Uri "http://localhost:8004/query-kb" -Method POST -ContentType "application/json" -Body "{`"query`": `"test query $_`", `"user_id`": `"user_$_`"}"
+} -ThrottleLimit 5
+```
+
+## **Step 8: Integration Testing**
+
+### **8.1 Test API Documentation**
+```powershell
+# Open API docs in browser
+Start-Process "http://localhost:8004/docs"
+```
+
+### **8.2 Test All Endpoints**
+```powershell
+# Test vedas endpoint
+Invoke-RestMethod -Uri "http://localhost:8004/ask-vedas" -Method POST -ContentType "application/json" -Body '{"query": "what is dharma", "user_id": "test"}'
+
+# Test edumentor endpoint
+Invoke-RestMethod -Uri "http://localhost:8004/edumentor" -Method POST -ContentType "application/json" -Body '{"query": "explain machine learning", "user_id": "test"}'
+
+# Test wellness endpoint
+Invoke-RestMethod -Uri "http://localhost:8004/wellness" -Method POST -ContentType "application/json" -Body '{"query": "meditation benefits", "user_id": "test"}'
+```
+
+## **Step 9: Error Handling & Edge Cases**
+
+### **9.1 Test Invalid Queries**
+```powershell
+# Empty query
+Invoke-RestMethod -Uri "http://localhost:8004/query-kb" -Method POST -ContentType "application/json" -Body '{"query": "", "user_id": "test"}'
+
+# Very long query
+Invoke-RestMethod -Uri "http://localhost:8004/query-kb" -Method POST -ContentType "application/json" -Body '{"query": "' + ("test " * 100) + '", "user_id": "test"}'
+```
+
+### **9.2 Test System Resilience**
+```powershell
+# Test with malformed JSON
+try {
+    Invoke-RestMethod -Uri "http://localhost:8004/query-kb" -Method POST -ContentType "application/json" -Body '{"query": "test"'
+} catch {
+    Write-Host "Expected error: $($_.Exception.Message)"
+}
+```
+
+## **Step 10: Monitoring & Logs**
+
+### **10.1 Check Log Files**
+```powershell
+# View recent logs
+Get-Content logs/learning_log.json -Tail 10 | ConvertFrom-Json | Format-Table
+
+# Check for errors
+Select-String -Path "*.log" -Pattern "ERROR" -SimpleMatch
+```
+
+### **10.2 Monitor System Resources**
+```powershell
+# Check memory usage
+Get-Process python | Select-Object ProcessName, WorkingSet, CPU
+
+# Check port usage
+netstat -ano | findstr ":8004"
+netstat -ano | findstr ":8002"
+```
+
+## **✅ Success Indicators**
+
+Your system is working correctly if you see:
+
+1. **✅ Both servers start without errors**
+2. **✅ Knowledge base loads 136 chunks**
+3. **✅ API returns structured JSON responses**
+4. **✅ Knowledge queries find relevant content from your files**
+5. **✅ MCP bridge routes requests correctly**
+6. **✅ Response times are under 5 seconds**
+7. **✅ Sources are properly attributed**
+8. **✅ Groq enhancement works**
+
+## **🔧 Troubleshooting**
+
+If something doesn't work:
+
+```powershell
+# Restart everything
+# Stop all Python processes
+taskkill /F /IM python.exe
+
+# Clear cache if needed
+Remove-Item knowledge_cache.json -ErrorAction SilentlyContinue
+
+# Restart servers
+python simple_api.py --port 8004
+# In new terminal:
+python mcp_bridge.py
+```
+
+## **🎯 Quick Verification Script**
+
+Create this all-in-one test:
+
+```powershell
+@"
+import requests
+import json
+
+def test_system():
+    print("🧪 Testing BHIV Knowledge Base System...")
+
+    # Test 1: API Health
+    try:
+        response = requests.get("http://localhost:8004/")
+        print("✅ API Server: Running")
+    except:
+        print("❌ API Server: Not responding")
+        return
+
+    # Test 2: Knowledge Base Query
+    try:
+        response = requests.post("http://localhost:8004/query-kb",
+            json={"query": "reinforcement learning", "user_id": "test"})
+        result = response.json()
+
+        if result.get("knowledge_base_results", 0) > 0:
+            print(f"✅ Knowledge Base: Found {result['knowledge_base_results']} results")
+            print(f"   Sources: {len(result.get('sources', []))}")
+        else:
+            print("⚠️ Knowledge Base: No results found")
+    except Exception as e:
+        print(f"❌ Knowledge Base: Error - {e}")
+
+    # Test 3: MCP Bridge
+    try:
+        response = requests.get("http://localhost:8002/health")
+        print("✅ MCP Bridge: Running")
+    except:
+        print("❌ MCP Bridge: Not responding")
+
+    print("\n🎉 System test complete!")
+
+if __name__ == "__main__":
+    test_system()
+"@ | Out-File -FilePath system_test.py -Encoding UTF8
+
+python system_test.py
+```
+
+## **🚀 Knowledge Base Architecture Summary**
+
+### **Current System Architecture:**
+```
+Your Data Files (PDF/MD) → File-Based Retriever → Semantic Search → Groq Enhancement → API Response
+     ↓                           ↓                      ↓                ↓
+Task1.pdf (42 chunks)    SentenceTransformer    Cosine Similarity   Enhanced Text
+README_RL.md (26 chunks)     Embeddings         Top 5 Results      + Formatting
+Other docs (68 chunks)        (Cached)          Source Attribution  + Context
+```
+
+### **Integration Points:**
+
+**For Gurukul Frontend:**
+```javascript
+const response = await fetch('http://localhost:8004/query-kb', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+        query: "your question",
+        user_id: "gurukul_user"
+    })
+});
+```
+
+**For MCP/FinBot:**
+```python
+# Via MCP Bridge (port 8002)
+result = requests.post('http://localhost:8002/handle_task', {
+    'input': 'your question',
+    'agent': 'knowledge_agent',
+    'input_type': 'text'
+})
+```
+
+This comprehensive testing guide will verify that your entire knowledge base system is working correctly! 🚀

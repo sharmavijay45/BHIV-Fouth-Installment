@@ -14,6 +14,8 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from dotenv import load_dotenv
 from config.settings import MODEL_CONFIG
+from agents.KnowledgeAgent import KnowledgeAgent
+from utils.file_utils import secure_file_access
 
 load_dotenv()
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -114,6 +116,12 @@ engine = SimpleOrchestrationEngine()
 
 class QueryRequest(BaseModel):
     query: str
+    user_id: Optional[str] = "anonymous"
+
+class QueryKBRequest(BaseModel):
+    query: str
+    filters: Optional[Dict[str, Any]] = None
+    limit: Optional[int] = 5
     user_id: Optional[str] = "anonymous"
 
 class SimpleResponse(BaseModel):
@@ -271,6 +279,63 @@ Provide supportive guidance that:
         logger.error(f"Error in wellness: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
+# ==================== KNOWLEDGE BASE ENDPOINTS ====================
+
+# Initialize KnowledgeAgent
+knowledge_agent = KnowledgeAgent()
+
+@app.get("/query-kb")
+async def query_knowledge_base_get(
+    query: str = Query(..., description="Your knowledge base query"),
+    filters: Optional[str] = Query(None, description="JSON string of filters"),
+    limit: int = Query(5, description="Number of results to return"),
+    user_id: str = Query("anonymous", description="User ID")
+):
+    """GET method for knowledge base queries"""
+    try:
+        # Parse filters if provided
+        parsed_filters = None
+        if filters:
+            import json
+            parsed_filters = json.loads(filters)
+
+        return await process_knowledge_query(query, parsed_filters, limit, user_id)
+    except json.JSONDecodeError:
+        raise HTTPException(status_code=400, detail="Invalid filters JSON format")
+
+@app.post("/query-kb")
+async def query_knowledge_base_post(request: QueryKBRequest):
+    """POST method for knowledge base queries"""
+    return await process_knowledge_query(request.query, request.filters, request.limit, request.user_id)
+
+async def process_knowledge_query(query: str, filters: Optional[Dict[str, Any]], limit: int, user_id: str):
+    """Process knowledge base query and return enhanced response."""
+    try:
+        # Generate unique query ID
+        query_id = str(uuid.uuid4())
+
+        # Query the knowledge base using KnowledgeAgent
+        result = knowledge_agent.run(
+            input_path=query,
+            model="knowledge_agent",
+            input_type="text",
+            task_id=query_id
+        )
+
+        # Log the query for analytics
+        logger.info(f"Knowledge base query {query_id}: {query} -> {result.get('status', 'unknown')}")
+
+        # Update health stats
+        health_data["total_requests"] += 1
+        if result.get("status") == 200:
+            health_data["successful_requests"] += 1
+
+        return result
+
+    except Exception as e:
+        logger.error(f"Error in knowledge base query: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
 @app.get("/")
 async def root():
     return {
@@ -282,12 +347,16 @@ async def root():
                 "POST": "/ask-vedas with JSON body"
             },
             "edumentor": {
-                "GET": "/edumentor?query=your_question&user_id=optional", 
+                "GET": "/edumentor?query=your_question&user_id=optional",
                 "POST": "/edumentor with JSON body"
             },
             "wellness": {
                 "GET": "/wellness?query=your_question&user_id=optional",
                 "POST": "/wellness with JSON body"
+            },
+            "query-kb": {
+                "GET": "/query-kb?query=your_question&filters=optional&limit=5&user_id=optional",
+                "POST": "/query-kb with JSON body including query, filters, limit, user_id"
             }
         },
         "documentation": "/docs"

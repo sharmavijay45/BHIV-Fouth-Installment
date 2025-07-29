@@ -5,7 +5,9 @@ requests-toolbelt
 pydantic
 motor
 pyPDF2
+pdfplumber
 python-dotenv
+qdrant-client
 langchain-core
 langchain-groq
 langchain-huggingface

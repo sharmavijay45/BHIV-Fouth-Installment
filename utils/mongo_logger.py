@@ -36,7 +36,8 @@ class MongoLogger:
                 'model_performance': self.db.model_performance,
                 'agent_performance': self.db.agent_performance,
                 'fallback_logs': self.db.fallback_logs,
-                'nlo_collection': self.db.nlo_collection
+                'nlo_collection': self.db.nlo_collection,
+                'kb_logs': self.db.kb_logs  # Knowledge base specific logs
             }
             
             logger.info("MongoDB logger initialized successfully")
@@ -259,6 +260,109 @@ class MongoLogger:
             logger.error(f"Error getting RL performance summary: {e}")
             return {}
     
+    async def log_kb_query(self, kb_data: Dict[str, Any]) -> Optional[str]:
+        """Log knowledge base queries for analytics and RL feedback."""
+        try:
+            kb_entry = {
+                'query_id': kb_data.get('query_id'),
+                'user_id': kb_data.get('user_id', 'anonymous'),
+                'query': kb_data.get('query'),
+                'filters': kb_data.get('filters', {}),
+                'results_count': kb_data.get('results_count', 0),
+                'sources': kb_data.get('sources', []),
+                'retriever_type': kb_data.get('retriever_type', 'unknown'),  # 'qdrant', 'file_based'
+                'response_time': kb_data.get('response_time', 0.0),
+                'similarity_scores': kb_data.get('similarity_scores', []),
+                'enhanced_by_llm': kb_data.get('enhanced_by_llm', False),
+                'feedback': None,  # For future RL feedback
+                'rating': None,    # For user rating
+                'timestamp': datetime.now(),
+                'log_type': 'kb_query'
+            }
+
+            result = await self.collections['kb_logs'].insert_one(kb_entry)
+            logger.debug(f"Logged KB query: {result.inserted_id}")
+            return str(result.inserted_id)
+        except Exception as e:
+            logger.error(f"Error logging KB query: {e}")
+            return None
+
+    async def update_kb_feedback(self, query_id: str, feedback: Dict[str, Any]) -> bool:
+        """Update KB query with user feedback for RL training."""
+        try:
+            update_data = {
+                'feedback': feedback,
+                'feedback_timestamp': datetime.now()
+            }
+
+            if 'rating' in feedback:
+                update_data['rating'] = feedback['rating']
+
+            result = await self.collections['kb_logs'].update_one(
+                {'query_id': query_id},
+                {'$set': update_data}
+            )
+
+            return result.modified_count > 0
+        except Exception as e:
+            logger.error(f"Error updating KB feedback: {e}")
+            return False
+
+    async def get_kb_analytics(self, time_range_hours: int = 24) -> Dict[str, Any]:
+        """Get knowledge base analytics for the specified time range."""
+        try:
+            start_time = datetime.now() - timedelta(hours=time_range_hours)
+
+            # Query statistics
+            pipeline = [
+                {'$match': {'timestamp': {'$gte': start_time}}},
+                {'$group': {
+                    '_id': None,
+                    'total_queries': {'$sum': 1},
+                    'avg_results': {'$avg': '$results_count'},
+                    'avg_response_time': {'$avg': '$response_time'},
+                    'unique_users': {'$addToSet': '$user_id'},
+                    'retriever_usage': {'$push': '$retriever_type'}
+                }}
+            ]
+
+            stats = await self.collections['kb_logs'].aggregate(pipeline).to_list(1)
+
+            # Top queries
+            top_queries = await self.collections['kb_logs'].aggregate([
+                {'$match': {'timestamp': {'$gte': start_time}}},
+                {'$group': {
+                    '_id': '$query',
+                    'count': {'$sum': 1},
+                    'avg_results': {'$avg': '$results_count'}
+                }},
+                {'$sort': {'count': -1}},
+                {'$limit': 10}
+            ]).to_list(10)
+
+            # Source popularity
+            source_stats = await self.collections['kb_logs'].aggregate([
+                {'$match': {'timestamp': {'$gte': start_time}}},
+                {'$unwind': '$sources'},
+                {'$group': {
+                    '_id': '$sources',
+                    'usage_count': {'$sum': 1}
+                }},
+                {'$sort': {'usage_count': -1}},
+                {'$limit': 10}
+            ]).to_list(10)
+
+            return {
+                'time_range_hours': time_range_hours,
+                'query_stats': stats[0] if stats else {},
+                'top_queries': top_queries,
+                'popular_sources': source_stats,
+                'generated_at': datetime.now()
+            }
+        except Exception as e:
+            logger.error(f"Error getting KB analytics: {e}")
+            return {}
+
     async def close_connection(self):
         """Close MongoDB connection."""
         if self.client:

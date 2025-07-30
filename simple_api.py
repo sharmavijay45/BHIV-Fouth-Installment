@@ -16,6 +16,8 @@ from dotenv import load_dotenv
 from config.settings import MODEL_CONFIG
 from agents.KnowledgeAgent import KnowledgeAgent
 from utils.file_utils import secure_file_access
+from utils.mongo_logger import mongo_logger
+import time
 
 load_dotenv()
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -310,10 +312,10 @@ async def query_knowledge_base_post(request: QueryKBRequest):
 
 async def process_knowledge_query(query: str, filters: Optional[Dict[str, Any]], limit: int, user_id: str):
     """Process knowledge base query and return enhanced response."""
-    try:
-        # Generate unique query ID
-        query_id = str(uuid.uuid4())
+    start_time = time.time()
+    query_id = str(uuid.uuid4())
 
+    try:
         # Query the knowledge base using KnowledgeAgent
         result = knowledge_agent.run(
             input_path=query,
@@ -322,8 +324,35 @@ async def process_knowledge_query(query: str, filters: Optional[Dict[str, Any]],
             task_id=query_id
         )
 
+        response_time = time.time() - start_time
+
+        # Extract metadata for logging
+        sources = result.get("sources", [])
+        results_count = result.get("knowledge_base_results", 0)
+        retriever_type = result.get("metadata", {}).get("retriever", "unknown")
+
+        # Log to MongoDB for analytics
+        kb_log_data = {
+            'query_id': query_id,
+            'user_id': user_id,
+            'query': query,
+            'filters': filters or {},
+            'results_count': results_count,
+            'sources': sources,
+            'retriever_type': retriever_type,
+            'response_time': response_time,
+            'enhanced_by_llm': not result.get("fallback", False),
+            'status': result.get("status", 200)
+        }
+
+        # Async log to MongoDB
+        try:
+            await mongo_logger.log_kb_query(kb_log_data)
+        except Exception as log_error:
+            logger.warning(f"Failed to log KB query to MongoDB: {log_error}")
+
         # Log the query for analytics
-        logger.info(f"Knowledge base query {query_id}: {query} -> {result.get('status', 'unknown')}")
+        logger.info(f"Knowledge base query {query_id}: {query} -> {result.get('status', 'unknown')} ({response_time:.2f}s)")
 
         # Update health stats
         health_data["total_requests"] += 1
@@ -333,7 +362,27 @@ async def process_knowledge_query(query: str, filters: Optional[Dict[str, Any]],
         return result
 
     except Exception as e:
+        response_time = time.time() - start_time
         logger.error(f"Error in knowledge base query: {e}")
+
+        # Log failed query
+        try:
+            await mongo_logger.log_kb_query({
+                'query_id': query_id,
+                'user_id': user_id,
+                'query': query,
+                'filters': filters or {},
+                'results_count': 0,
+                'sources': [],
+                'retriever_type': 'error',
+                'response_time': response_time,
+                'enhanced_by_llm': False,
+                'status': 500,
+                'error': str(e)
+            })
+        except Exception:
+            pass
+
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/")
@@ -402,6 +451,48 @@ async def health_check():
             "error": str(e),
             "timestamp": datetime.now().isoformat()
         }
+
+@app.get("/kb-analytics")
+async def get_kb_analytics(hours: int = Query(24, description="Time range in hours")):
+    """Get knowledge base analytics and usage statistics."""
+    try:
+        analytics = await mongo_logger.get_kb_analytics(hours)
+        return {
+            "status": "success",
+            "analytics": analytics,
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Error getting KB analytics: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/kb-feedback")
+async def submit_kb_feedback(feedback_data: Dict[str, Any]):
+    """Submit feedback for a knowledge base query."""
+    try:
+        query_id = feedback_data.get("query_id")
+        feedback = feedback_data.get("feedback", {})
+
+        if not query_id:
+            raise HTTPException(status_code=400, detail="query_id is required")
+
+        success = await mongo_logger.update_kb_feedback(query_id, feedback)
+
+        if success:
+            return {
+                "status": "success",
+                "message": "Feedback recorded successfully",
+                "query_id": query_id
+            }
+        else:
+            return {
+                "status": "error",
+                "message": "Failed to record feedback",
+                "query_id": query_id
+            }
+    except Exception as e:
+        logger.error(f"Error submitting KB feedback: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
     import uvicorn

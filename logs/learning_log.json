@@ -2085,5 +2085,342 @@
     "model": "vedas_agent",
     "reward": 1.5,
     "timestamp": "2025-07-29T16:24:52.905113"
+  },
+  {
+    "task_id": "60365be9-a4b9-4294-82c5-93eb7fcf14a2",
+    "input": "what is life",
+    "output": {
+      "query_id": "df805324-413d-49e2-9a58-a912f9e36340",
+      "query": "what is life",
+      "response": "Dear one, I'm so glad you're seeking guidance on what life is all about. It's a question that has puzzled many of us, and it's completely normal to feel uncertain or overwhelmed.\n\nFirst and foremost, please know that you're not alone in this inquiry. We're all on this journey together, and it's okay to ask for help and guidance. As your wellness counselor, I'm here to support and empower you.\n\nSo, what is life? Well, my friend, life is a complex and multifaceted tapestry that's woven from threads of joy, sorrow, beauty, and struggle. It's a journey that's full of twists and turns, ups and downs, and moments of wonder and awe.\n\nLife is a series of experiences, emotions, and interactions that shape us into the unique individuals we are today. It's a time of growth, learning, and exploration, where we get to discover our passions, values, and purpose.\n\nBut, what does it mean to truly live? Ah, that's the million-dollar question! Living life to the fullest means embracing every moment, no matter how big or small, with intention, purpose, and presence. It means letting go of fear, doubt, and anxiety, and instead, embracing curiosity, creativity, and courage.\n\nHere are some practical tips to help you cultivate a deeper sense of life and living:\n\n1. **Practice mindfulness**: Take time to pause, breathe, and be present in the moment. Pay attention to your thoughts, emotions, and surroundings without judgment. This will help you stay grounded and focused.\n2. **Embrace impermanence**: Life is constantly changing, and nothing lasts forever. Embracing impermanence can help you let go of attachment and fear, and instead, cultivate a sense of acceptance and gratitude.\n3. **Connect with nature**: Spend time outdoors, in nature, and connect with the rhythms and cycles of the earth. This can help you feel more grounded, centered, and connected to the world around you.\n4. **Practice self-care**: Take care of your physical, emotional, and spiritual well-being. This includes getting enough rest, eating nourishing foods, exercising regularly, and engaging in activities that bring you joy and fulfillment.\n5. **Cultivate gratitude**: Focus on the good things in your life, no matter how small they may seem. Practice gratitude by writing in a journal, sharing with friends, or simply taking a moment to acknowledge the blessings in your life.\n\nRemember, my friend, life is a journey, not a destination. It's a series of experiences, emotions, and interactions that shape us into the unique individuals we are today. By embracing the present moment, cultivating mindfulness, and practicing self-care, you can live a life that is full, rich, and meaningful.\n\nI hope these words of wisdom have been helpful and encouraging. Remember, you are not alone in this journey, and I'm here to support and guide you every step of the way.",
+      "sources": [],
+      "timestamp": "2025-07-30T12:10:47.910978",
+      "endpoint": "wellness",
+      "status": 200
+    },
+    "agent": "wellness_agent",
+    "model": "vedas_agent",
+    "reward": 1.5,
+    "timestamp": "2025-07-30T12:10:47.988722"
+  },
+  {
+    "task_id": "ef34ee64-940b-4c94-8ab5-fd8ef69b28b0",
+    "input": "C:\\Users\\abc1\\AppData\\Local\\Temp\\tmpvz5p_1ez.pdf",
+    "output": {
+      "result": "Here is a summary of the text in 50-100 words:\n\nA 6-day sprint plan, \"BHIV Core + Reinforcement Intelligence Layer,\" aims to integrate a reinforcement learning (RL) layer into the existing BHIV pipeline. The RL layer will track and log decisions, track rewards, and enable learning from day one without disrupting the normal flow. Components will be integrated as follows: Nisarg (Agent Router), Vijay (LLM Selector), and Nipun (Learning Adapter) will each add RL-related functionality. By the end of the sprint, the full multimodal pipeline with RL integration will be built, enabling learning and decision-making from day one.",
+      "model": "archive_agent",
+      "tokens_used": 1965,
+      "cost_estimate": 0.0,
+      "status": 200,
+      "keywords": [
+        "pdf",
+        "summary"
+      ],
+      "processing_time": 1.388742208480835,
+      "inference_time": 1.388742208480835,
+      "attempts": 1,
+      "text_length": 13152,
+      "text_truncated": true,
+      "agent": "archive_agent",
+      "input_type": "pdf",
+      "file_path": "C:\\Users\\abc1\\AppData\\Local\\Temp\\tmpvz5p_1ez.pdf",
+      "content_length": 13152
+    },
+    "agent": "archive_agent",
+    "model": "edumentor_agent",
+    "reward": 1.69,
+    "timestamp": "2025-07-30T12:11:50.173849"
+  },
+  {
+    "task_id": "ef34ee64-940b-4c94-8ab5-fd8ef69b28b0",
+    "input": "Main points of pdf given",
+    "output": {
+      "result": "Here is a summary of the text in 50-100 words:\n\nA 6-day sprint plan, \"BHIV Core + Reinforcement Intelligence Layer,\" aims to integrate a reinforcement learning (RL) layer into the existing BHIV pipeline. The RL layer will track and log decisions, track rewards, and enable learning from day one without disrupting the normal flow. Components will be integrated as follows: Nisarg (Agent Router), Vijay (LLM Selector), and Nipun (Learning Adapter) will each add RL-related functionality. By the end of the sprint, the full multimodal pipeline with RL integration will be built, enabling learning and decision-making from day one.",
+      "model": "archive_agent",
+      "tokens_used": 1965,
+      "cost_estimate": 0.0,
+      "status": 200,
+      "keywords": [
+        "pdf",
+        "summary"
+      ],
+      "processing_time": 1.388742208480835,
+      "inference_time": 1.388742208480835,
+      "attempts": 1,
+      "text_length": 13152,
+      "text_truncated": true,
+      "agent": "archive_agent",
+      "input_type": "pdf",
+      "file_path": "C:\\Users\\abc1\\AppData\\Local\\Temp\\tmpvz5p_1ez.pdf",
+      "content_length": 13152
+    },
+    "agent": "archive_agent",
+    "model": "edumentor_agent",
+    "reward": 1.69,
+    "timestamp": "2025-07-30T12:11:50.195836"
+  },
+  {
+    "task_id": "ae7f0bad-e612-4ac2-9eee-391e8d38f35c",
+    "input": "temp/00ba4591-3e4d-428b-8300-5ea9d39a104b_daily-log.pdf",
+    "output": {
+      "error": "Failed to extract PDF content",
+      "status": 400,
+      "keywords": [],
+      "agent": "archive_agent",
+      "input_type": "pdf",
+      "file_path": "temp/00ba4591-3e4d-428b-8300-5ea9d39a104b_daily-log.pdf"
+    },
+    "agent": "archive_agent",
+    "model": "edumentor_agent",
+    "reward": 0.0,
+    "timestamp": "2025-07-30T12:15:30.637682"
+  },
+  {
+    "task_id": "ae7f0bad-e612-4ac2-9eee-391e8d38f35c",
+    "input": "temp/00ba4591-3e4d-428b-8300-5ea9d39a104b_daily-log.pdf",
+    "output": {
+      "error": "Failed to extract PDF content",
+      "status": 400,
+      "keywords": [],
+      "agent": "archive_agent",
+      "input_type": "pdf",
+      "file_path": "temp/00ba4591-3e4d-428b-8300-5ea9d39a104b_daily-log.pdf"
+    },
+    "agent": "archive_agent",
+    "model": "edumentor_agent",
+    "reward": 0.0,
+    "timestamp": "2025-07-30T12:15:30.644720"
+  },
+  {
+    "task_id": "ae7f0bad-e612-4ac2-9eee-391e8d38f35c",
+    "input": "Analyze this pdf and give key points of this pdf",
+    "output": {
+      "error": "Failed to extract PDF content",
+      "status": 400,
+      "keywords": [],
+      "agent": "archive_agent",
+      "input_type": "pdf",
+      "file_path": "temp/00ba4591-3e4d-428b-8300-5ea9d39a104b_daily-log.pdf"
+    },
+    "agent": "stream_transformer_agent",
+    "model": "edumentor_agent",
+    "reward": 0.0,
+    "timestamp": "2025-07-30T12:15:30.654255"
+  },
+  {
+    "task_id": "0e071e51-c69f-40d8-8809-c43934225ccb",
+    "input": "temp/c25aed65-b9a3-4ffe-b9a6-4ae03b3fae17_test.wav",
+    "output": {
+      "result": "the still smell of old buildings it takes heat to bring out the order I call dip restores health and fast pickle please find with him tacos Alpha store are my favourite is just for food is the hot cross bun",
+      "method": "speech_recognition",
+      "model": "audio_agent",
+      "tokens_used": 41,
+      "cost_estimate": 0.0,
+      "status": 200,
+      "keywords": [
+        "audio",
+        "transcription",
+        "speech_recognition"
+      ]
+    },
+    "agent": "audio_agent",
+    "model": "edumentor_agent",
+    "reward": 1.5050000000000001,
+    "timestamp": "2025-07-30T12:17:00.656586"
+  },
+  {
+    "task_id": "0e071e51-c69f-40d8-8809-c43934225ccb",
+    "input": "Convert this to text",
+    "output": {
+      "result": "the still smell of old buildings it takes heat to bring out the order I call dip restores health and fast pickle please find with him tacos Alpha store are my favourite is just for food is the hot cross bun",
+      "method": "speech_recognition",
+      "model": "audio_agent",
+      "tokens_used": 41,
+      "cost_estimate": 0.0,
+      "status": 200,
+      "keywords": [
+        "audio",
+        "transcription",
+        "speech_recognition"
+      ]
+    },
+    "agent": "audio_agent",
+    "model": "edumentor_agent",
+    "reward": 1.5050000000000001,
+    "timestamp": "2025-07-30T12:17:00.712935"
+  },
+  {
+    "task_id": "7c86235f-eae1-4191-8da0-ae52d6734123",
+    "input": "temp/4cff67e0-11be-4f7e-b8fe-4beb31f50472_Untitled diagram _ Mermaid Chart-2025-07-09-101439.png",
+    "output": {
+      "result": "a flow diagram of the process",
+      "model": "image_agent",
+      "tokens_used": 6,
+      "cost_estimate": 0.0,
+      "status": 200,
+      "keywords": [
+        "image",
+        "caption"
+      ]
+    },
+    "agent": "image_agent",
+    "model": "edumentor_agent",
+    "reward": 1.23,
+    "timestamp": "2025-07-30T12:17:34.098026"
+  },
+  {
+    "task_id": "7c86235f-eae1-4191-8da0-ae52d6734123",
+    "input": "Convert this to text",
+    "output": {
+      "result": "a flow diagram of the process",
+      "model": "image_agent",
+      "tokens_used": 6,
+      "cost_estimate": 0.0,
+      "status": 200,
+      "keywords": [
+        "image",
+        "caption"
+      ]
+    },
+    "agent": "image_agent",
+    "model": "edumentor_agent",
+    "reward": 1.23,
+    "timestamp": "2025-07-30T12:17:34.110432"
+  },
+  {
+    "task_id": "885fd489-55c0-492f-b09a-b81fad8df7ed",
+    "input": "temp/b98543a7-15e0-4453-bdd1-6c4372d2486c_Task1.pdf",
+    "output": {
+      "result": "Here's a summary of the text in 50-100 words:\n\nThe \"BHIV Core + Reinforcement Intelligence Layer\" sprint aims to integrate a lightweight reinforcement learning layer into the existing BHIV pipeline. This layer will log decisions, track rewards, and enable learning from the start without disrupting the normal flow. The 6-day plan involves integrating the reinforcement layer with the Agent Router, LLM Selector, and Learning Adapter components. Each component will be modified to track and log decisions, and the reinforcement layer will start making suggestions and providing feedback to improve the pipeline's performance. The goal is to create a full multimodal, agentic BHIV pipeline.",
+      "model": "archive_agent",
+      "tokens_used": 1970,
+      "cost_estimate": 0.0,
+      "status": 200,
+      "keywords": [
+        "pdf",
+        "summary"
+      ],
+      "processing_time": 0.717397928237915,
+      "inference_time": 0.717397928237915,
+      "attempts": 1,
+      "text_length": 13152,
+      "text_truncated": true,
+      "agent": "archive_agent",
+      "input_type": "pdf",
+      "file_path": "temp/b98543a7-15e0-4453-bdd1-6c4372d2486c_Task1.pdf",
+      "content_length": 13152
+    },
+    "agent": "archive_agent",
+    "model": "edumentor_agent",
+    "reward": 1.7,
+    "timestamp": "2025-07-30T12:18:10.342552"
+  },
+  {
+    "task_id": "885fd489-55c0-492f-b09a-b81fad8df7ed",
+    "input": "Give main points of this pdf",
+    "output": {
+      "result": "Here's a summary of the text in 50-100 words:\n\nThe \"BHIV Core + Reinforcement Intelligence Layer\" sprint aims to integrate a lightweight reinforcement learning layer into the existing BHIV pipeline. This layer will log decisions, track rewards, and enable learning from the start without disrupting the normal flow. The 6-day plan involves integrating the reinforcement layer with the Agent Router, LLM Selector, and Learning Adapter components. Each component will be modified to track and log decisions, and the reinforcement layer will start making suggestions and providing feedback to improve the pipeline's performance. The goal is to create a full multimodal, agentic BHIV pipeline.",
+      "model": "archive_agent",
+      "tokens_used": 1970,
+      "cost_estimate": 0.0,
+      "status": 200,
+      "keywords": [
+        "pdf",
+        "summary"
+      ],
+      "processing_time": 0.717397928237915,
+      "inference_time": 0.717397928237915,
+      "attempts": 1,
+      "text_length": 13152,
+      "text_truncated": true,
+      "agent": "archive_agent",
+      "input_type": "pdf",
+      "file_path": "temp/b98543a7-15e0-4453-bdd1-6c4372d2486c_Task1.pdf",
+      "content_length": 13152
+    },
+    "agent": "archive_agent",
+    "model": "edumentor_agent",
+    "reward": 1.7,
+    "timestamp": "2025-07-30T12:18:10.351301"
+  },
+  {
+    "task_id": "d9c1a0d3-e6f7-4d1a-98e7-f9e3cfcbbea8",
+    "input": "reinforcement learning",
+    "output": {
+      "error": "Query processing failed: 404: KnowledgeAgent not found",
+      "status": 500
+    },
+    "agent": "stream_transformer_agent",
+    "model": "none",
+    "reward": 0.0,
+    "timestamp": "2025-07-30T12:19:08.217152"
+  },
+  {
+    "task_id": "b37c44d3-97b1-40ba-ac3e-580a52ba5f65",
+    "input": "C:\\Users\\abc1\\AppData\\Local\\Temp\\tmpm40827my.pdf",
+    "output": {
+      "result": "Here's a summary of the given text in 50-100 words:\n\nA 6-day sprint plan aims to integrate a reinforcement learning (RL) layer into the BHIV pipeline. The goal is to build a multimodal, agentic BHIV pipeline with a lightweight RL layer that logs decisions, tracks rewards, and enables learning. The plan involves integrating the RL layer into components such as the agent router, LLM selector, and learning adapter, and logging decisions and rewards. The RL layer will initially track and log decisions, then make suggestions based on learned experiences. This will enable the pipeline to learn and improve over time.",
+      "model": "archive_agent",
+      "tokens_used": 1967,
+      "cost_estimate": 0.0,
+      "status": 200,
+      "keywords": [
+        "pdf",
+        "summary"
+      ],
+      "processing_time": 0.5204031467437744,
+      "inference_time": 0.5204031467437744,
+      "attempts": 1,
+      "text_length": 13152,
+      "text_truncated": true,
+      "agent": "archive_agent",
+      "input_type": "pdf",
+      "file_path": "C:\\Users\\abc1\\AppData\\Local\\Temp\\tmpm40827my.pdf",
+      "content_length": 13152
+    },
+    "agent": "archive_agent",
+    "model": "edumentor_agent",
+    "reward": 1.7,
+    "timestamp": "2025-07-30T12:34:18.939983"
+  },
+  {
+    "task_id": "b37c44d3-97b1-40ba-ac3e-580a52ba5f65",
+    "input": "Main points of pdf given",
+    "output": {
+      "result": "Here's a summary of the given text in 50-100 words:\n\nA 6-day sprint plan aims to integrate a reinforcement learning (RL) layer into the BHIV pipeline. The goal is to build a multimodal, agentic BHIV pipeline with a lightweight RL layer that logs decisions, tracks rewards, and enables learning. The plan involves integrating the RL layer into components such as the agent router, LLM selector, and learning adapter, and logging decisions and rewards. The RL layer will initially track and log decisions, then make suggestions based on learned experiences. This will enable the pipeline to learn and improve over time.",
+      "model": "archive_agent",
+      "tokens_used": 1967,
+      "cost_estimate": 0.0,
+      "status": 200,
+      "keywords": [
+        "pdf",
+        "summary"
+      ],
+      "processing_time": 0.5204031467437744,
+      "inference_time": 0.5204031467437744,
+      "attempts": 1,
+      "text_length": 13152,
+      "text_truncated": true,
+      "agent": "archive_agent",
+      "input_type": "pdf",
+      "file_path": "C:\\Users\\abc1\\AppData\\Local\\Temp\\tmpm40827my.pdf",
+      "content_length": 13152
+    },
+    "agent": "archive_agent",
+    "model": "edumentor_agent",
+    "reward": 1.7,
+    "timestamp": "2025-07-30T12:34:18.973573"
+  },
+  {
+    "task_id": "63dbaa0f-8985-4230-937d-5b433c5d15e8",
+    "input": "what is dharma",
+    "output": {
+      "error": "Query processing failed: 404: KnowledgeAgent not found",
+      "status": 500
+    },
+    "agent": "text_agent",
+    "model": "none",
+    "reward": 0.0,
+    "timestamp": "2025-07-30T12:34:50.492383"
   }
 ]

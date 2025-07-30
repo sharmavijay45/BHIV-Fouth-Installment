@@ -158,7 +158,7 @@ TIMEOUT_CONFIG = {
 }
 
 RL_CONFIG = {
-    "use_rl": os.getenv("USE_RL", "false").lower() == "true",
+    "use_rl": os.getenv("USE_RL", "true").lower() == "true",
     "exploration_rate": float(os.getenv("RL_EXPLORATION_RATE", 0.2)),
     "buffer_file": "logs/learning_log.json",
     "model_log_file": "logs/model_logs.json",

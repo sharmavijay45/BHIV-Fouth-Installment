@@ -105,14 +105,28 @@ class SimpleOrchestrationEngine:
         return self.model_providers[endpoint].generate_response(prompt, fallback)
     
     def search_documents(self, query: str, store_type: str = "unified") -> list:
+        # First try FAISS vector stores (if available)
         if store_type in self.vector_stores:
             try:
                 retriever = self.vector_stores[store_type].as_retriever(search_kwargs={"k": 3})
                 docs = retriever.invoke(query)
-                return [{"text": doc.page_content[:500], "source": doc.metadata.get("source", "unknown")} for doc in docs]
+                results = [{"text": doc.page_content[:500], "source": doc.metadata.get("source", "unknown")} for doc in docs]
+                if results:  # If FAISS found results, return them
+                    logger.info(f"FAISS search found {len(results)} results for '{query}'")
+                    return results
             except Exception as e:
                 logger.error(f"Vector search error: {e}")
-        return []
+
+        # Fallback to file-based retriever (your working knowledge base)
+        try:
+            from utils.file_based_retriever import file_retriever
+            results = file_retriever.search(query, limit=3)
+            formatted_results = [{"text": doc["text"][:500], "source": doc.get("source", "file_based_kb")} for doc in results]
+            logger.info(f"File-based search found {len(formatted_results)} results for '{query}'")
+            return formatted_results
+        except Exception as e:
+            logger.error(f"File-based search error: {e}")
+            return []
 
 engine = SimpleOrchestrationEngine()
 

@@ -24,6 +24,9 @@ class SecureFileAccess:
             "/mnt/vedabase",  # NAS mount point (Linux)
             "//nas/vedabase",  # NAS mount point (Windows)
             "Z:/vedabase",  # Mapped drive (Windows)
+            "//your-company-nas/vedabase",  # Your company NAS
+            "//your-company-nas/shared/vedabase",  # Alternative company path
+            "Y:/vedabase"  # Alternative mapped drive
         ]
         
         # Normalize paths

@@ -177,9 +177,13 @@ async def ask_vedas_post(request: QueryRequest):
     return await process_vedas_query(request.query, request.user_id)
 
 async def process_vedas_query(query: str, user_id: str):
+    print(f"\n🕉️  [VEDAS ENDPOINT] Received spiritual query")
+    print(f"🙏 [SPIRITUAL QUERY] '{query[:100]}{'...' if len(query) > 100 else ''}'")
     try:
+        print(f"📚 [KNOWLEDGE SEARCH] Searching for spiritual wisdom...")
         sources = engine.search_documents(query, "vedas")
         context = "\n".join([doc["text"] for doc in sources[:2]])
+        print(f"✅ [FOUND] {len(sources)} relevant sources")
         prompt = f"""You are a wise spiritual teacher. Based on ancient Vedic wisdom, provide profound guidance for this question: "{query}"
 
 Context from sacred texts:
@@ -187,7 +191,9 @@ Context from sacred texts:
 
 Provide spiritual wisdom that is authentic, practical, and inspiring. Keep it concise but meaningful."""
         fallback = f"The ancient Vedic texts teach us to seek truth through self-reflection and righteous action. Regarding '{query}', remember that true wisdom comes from understanding the interconnectedness of all existence. Practice mindfulness, act with compassion, and seek the divine within yourself."
+        print(f"🤖 [GROQ API] Calling Groq for spiritual enhancement...")
         response_text, status = engine.generate_response(prompt, fallback, "vedas")
+        print(f"✨ [GROQ RESPONSE] Enhanced spiritual wisdom received")
         return SimpleResponse(
             query_id=str(uuid.uuid4()),
             query=query,

@@ -2422,5 +2422,209 @@
     "model": "none",
     "reward": 0.0,
     "timestamp": "2025-07-30T12:34:50.492383"
+  },
+  {
+    "task_id": "6f0b989e-1d11-4c8c-9314-84c54da884cb",
+    "input": "what is dharma",
+    "output": {
+      "error": "Task execution failed: HTTPConnectionPool(host='localhost', port=8002): Max retries exceeded with url: /handle_task (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000026D886DF050>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))",
+      "status": 500,
+      "processing_time": 16.227773,
+      "file_path": "",
+      "input_type": "text",
+      "agent": "knowledge_agent",
+      "task_id": "6f0b989e-1d11-4c8c-9314-84c54da884cb"
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 0.0,
+    "timestamp": "2025-07-30T12:42:21.055708"
+  },
+  {
+    "task_id": "de266b2f-4439-4b5b-9e87-6dad19be2b37",
+    "input": "what is dharma",
+    "output": {
+      "error": "Task processing failed: HTTPConnectionPool(host='localhost', port=8001): Max retries exceeded with url: /edumentor (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001A3EBAF6350>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))",
+      "status": 500
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 0.0,
+    "timestamp": "2025-07-30T12:42:59.848899"
+  },
+  {
+    "task_id": "c87b54d0-31df-4697-8f9a-a047dca11d0f",
+    "input": "what is dharma",
+    "output": {
+      "query_id": "ff05803f-84a1-4c23-bb5a-0b9fe85dc506",
+      "query": "what is dharma",
+      "response": "Dear one, I'm so glad you've taken the first step in exploring the concept of dharma. It's a beautiful and profound topic that can bring great clarity and purpose to our lives.\n\nIn the context of wellness, dharma refers to our individual life purpose, or the way we're meant to live in harmony with ourselves, others, and the world around us. It's about finding our unique path and living in alignment with our values, passions, and strengths.\n\nAs you embark on this journey of discovery, I want to offer you some compassionate guidance and practical advice to help you uncover your dharma.\n\n**Take a step back and reflect**: Start by taking a few moments to quiet your mind and tune into your inner wisdom. Ask yourself some gentle questions like: \"What brings me joy and fulfillment?\" \"What are my values and passions?\" \"What kind of impact do I want to make in the world?\"\n\n**Explore your strengths**: Think about the things you're naturally good at, the skills you've developed over time, and the areas where you feel confident and capable. These strengths can be a great indicator of your dharma.\n\n**Listen to your intuition**: Pay attention to your inner voice, those whispers of wisdom that guide you towards what's right for you. Trust that your intuition is trying to steer you towards your highest good.\n\n**Practice self-care and self-compassion**: As you explore your dharma, be gentle with yourself. Remember that it's a journey, and it's okay to take your time. Treat yourself with kindness, and prioritize your physical, emotional, and mental well-being.\n\n**Seek guidance and support**: Consider reaching out to a trusted friend, family member, or spiritual guide who can offer support and encouragement as you navigate this process.\n\n**Embrace the unknown**: Remember that your dharma is not a fixed destination, but rather a dynamic and evolving path. Be open to new experiences, challenges, and opportunities that arise, and trust that they're guiding you towards your highest purpose.\n\n**Celebrate your progress**: Acknowledge and celebrate your small wins along the way. Recognize that every step you take towards discovering your dharma is a success, and that it's okay to make adjustments as you go.\n\n**Remember, your dharma is unique to you**: Don't compare yourself to others or try to fit into someone else's idea of what your dharma should be. Trust that your path is yours alone, and that it's leading you towards a life of purpose, joy, and fulfillment.\n\nYou are capable, deserving, and worthy of discovering your dharma. Take this journey with an open heart and mind, and know that I'm here to support and guide you every step of the way.",
+      "sources": [],
+      "timestamp": "2025-07-30T12:45:51.663815",
+      "endpoint": "wellness",
+      "status": 200
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 1.5,
+    "timestamp": "2025-07-30T12:45:51.736464"
+  },
+  {
+    "task_id": "6a25ab18-76ab-44c9-a25c-cf8b26238d64",
+    "input": "reinforcement learning agent selection",
+    "output": {
+      "response": "Based on the available knowledge:\n\nimproves model and agent selection It acts as an observational learning layer that tracks performance, logs decisions, and provides intelligent recommendations without disrupting the core workflow\n\n### 3 Agent Selector (`reinforcement/agent_selector py`)\nIntelligent agent routing based on historical performance and task complexity ### 4 Reward Functions (`reinforcement/reward_functions py`)\nSophisticated reward calculation based on output quality, response time, and success metrics ### 5 Replay Buffer (`reinforcement/replay_buffer\n\n## Core Components ### 1 RL Context (`reinforcement/rl_context py`)\nCentral logging and action tracking system that records every decision made by the system ### 2 Model Selector (`reinforcement/model_selector py`)\nUCB-based model selection with dynamic exploration rates and task-specific weights ### 3 Agent Selector (`reinforcement/agent_selector\n\nThis information addresses your query about: reinforcement learning agent selection",
+      "query_id": "6a25ab18-76ab-44c9-a25c-cf8b26238d64",
+      "query": "reinforcement learning agent selection",
+      "sources": [
+        "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\README_RL.md",
+        "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\README_RL.md",
+        "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\README_RL.md",
+        "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\Task1.pdf",
+        "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\README_RL.md"
+      ],
+      "metadata": {
+        "tags": [
+          "semantic_search",
+          "file_based"
+        ],
+        "retriever": "file_based",
+        "total_results": 5
+      },
+      "timestamp": "2025-07-30T12:46:31.687157",
+      "status": 200,
+      "model": "knowledge_agent",
+      "knowledge_base_results": 5,
+      "endpoint": "knowledge_agent"
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 2.0,
+    "timestamp": "2025-07-30T12:46:31.703359"
+  },
+  {
+    "task_id": "3565b3f5-c83a-49ba-a3e1-f84078eaf9b8",
+    "input": "what is dharma",
+    "output": {
+      "result": "I don't see any text provided for me to summarize. However, I can provide a general summary of what Dharma is:\n\nDharma is a Sanskrit term that refers to the universal law, natural order, or righteousness in Hinduism and Buddhism. It encompasses one's duty, morality, ethics, and spiritual discipline. In Hinduism, Dharma is considered a key aspect of the four goals of life (Dharma, Artha, Kama, and Moksha), guiding individuals to live a virtuous and harmonious life. In Buddhism, Dharma refers to the teachings of the Buddha, emphasizing the path to enlightenment and the elimination of suffering.",
+      "model": "text_agent",
+      "tokens_used": 100,
+      "cost_estimate": 0.0,
+      "status": 200,
+      "keywords": [
+        "text",
+        "summary"
+      ],
+      "processing_time": 1.1798813343048096,
+      "inference_time": 1.1798813343048096,
+      "attempts": 1,
+      "agent": "text_agent",
+      "input_type": "text",
+      "input_length": 14
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 1.6849999999999998,
+    "timestamp": "2025-07-30T12:58:06.502271"
+  },
+  {
+    "task_id": "fbc6e962-7c32-413a-9b33-399a95cadf11",
+    "input": "semantic search knowledge base",
+    "output": {
+      "result": "Unfortunately, there is no provided text to summarize. However, I can give you a general overview of a semantic search knowledge base.\n\nA semantic search knowledge base is a structured database that stores information in a way that allows for logical relationships and inferencing. It's used in semantic search engines to provide more accurate and relevant search results. This type of knowledge base uses entities, relationships, and concepts to understand the meaning of search queries and return results that are contextually relevant. It enables search engines to answer complex queries and provide more precise information to users.",
+      "model": "text_agent",
+      "tokens_used": 101,
+      "cost_estimate": 0.0,
+      "status": 200,
+      "keywords": [
+        "text",
+        "summary"
+      ],
+      "processing_time": 0.6129374504089355,
+      "inference_time": 0.6129374504089355,
+      "attempts": 1,
+      "agent": "text_agent",
+      "input_type": "text",
+      "input_length": 30
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 1.6849999999999998,
+    "timestamp": "2025-07-30T12:58:26.926666"
+  },
+  {
+    "task_id": "9d55dcb6-3fdd-4524-bda6-4b02b7064de6",
+    "input": "what is dharma",
+    "output": {
+      "result": "However, I don't see any text provided. Please share the text you'd like me to summarize, and I'll provide a 50-100 word summary about the concept of Dharma.\n\nIf you'd like, I can provide a general overview of Dharma, which would be a summary based on common understandings and interpretations of the concept.\n\nIn Hinduism, Buddhism, and Jainism, Dharma refers to the universal law or moral order that governs the universe and human life. It encompasses duties, virtues, and principles that guide individuals to live a righteous and harmonious life. Dharma is often associated with one's role in society and is considered essential for achieving spiritual growth and self-realization.",
+      "model": "text_agent",
+      "tokens_used": 112,
+      "cost_estimate": 0.0,
+      "status": 200,
+      "keywords": [
+        "text",
+        "summary"
+      ],
+      "processing_time": 0.4195692539215088,
+      "inference_time": 0.4195692539215088,
+      "attempts": 1,
+      "agent": "text_agent",
+      "input_type": "text",
+      "input_length": 14
+    },
+    "agent": "wellness_agent",
+    "model": "wellness_agent",
+    "reward": 1.7,
+    "timestamp": "2025-07-30T12:58:46.968405"
+  },
+  {
+    "task_id": "c80e37fb-0a2c-44dd-a28e-b1f27fd7cd77",
+    "input": "what is dharma",
+    "output": {
+      "query_id": "2f9b97ec-f950-4759-932e-2f5d5b3e0c75",
+      "query": "what is dharma",
+      "response": "Dear one, I'm so glad you're asking about dharma! It's a beautiful concept that can bring a sense of purpose and fulfillment to our lives. As a wellness counselor, I'm here to support you on your journey of self-discovery and growth.\n\nDharma is often translated as \"duty,\" \"path,\" or \"purpose,\" but it's so much more than that. At its core, dharma is about living in alignment with our highest values, passions, and principles. It's about being true to ourselves and honoring our unique gifts and talents.\n\nHere's a practical way to think about dharma: Imagine you're on a journey, and your dharma is the north star guiding you forward. It's the compass that helps you navigate life's twists and turns, ensuring you're moving towards your highest potential.\n\nSo, how can you discover your dharma? Here are some actionable steps to get you started:\n\n1. **Reflect on your values**: What matters most to you in life? What are your non-negotiables? Write down your top values, and look for patterns and themes.\n2. **Explore your passions**: What activities make you feel most alive and engaged? What do you enjoy talking about or doing in your free time? These clues can help you uncover your dharma.\n3. **Identify your strengths**: What are your natural talents and skills? Where do you excel? Acknowledge and celebrate your strengths, and consider how they can be used to serve others.\n4. **Pay attention to your intuition**: What whispers do you hear in your heart? What feels right and true for you? Trust your inner guidance and explore the possibilities.\n5. **Practice self-care and self-reflection**: Take time to journal, meditate, or engage in activities that help you connect with your inner self. This will help you tune in to your dharma and gain clarity.\n\nRemember, dharma is a journey, not a destination. It's a continuous process of discovery, growth, and evolution.\n\nAs you embark on this journey, I want you to know that you're not alone. I'm here to support and guide you every step of the way. You're doing the best you can, and that's something to be proud of.\n\nKeep in mind that discovering your dharma is a process that takes time, patience, and kindness towards yourself. Be gentle, and don't be afraid to make mistakes. Every step, no matter how small, brings you closer to your highest potential.\n\nYou got this, dear one!",
+      "sources": [],
+      "timestamp": "2025-07-30T13:00:38.545870",
+      "endpoint": "wellness",
+      "status": 200
+    },
+    "agent": "vedas_agent",
+    "model": "vedas_agent",
+    "reward": 1.5,
+    "timestamp": "2025-07-30T13:00:38.562962"
+  },
+  {
+    "task_id": "3a9b2fc5-48ee-49b6-a328-68b4d54fc0dc",
+    "input": "what is karma",
+    "output": {
+      "response": "Based on the available knowledge:\n\nQ: How is reward collected A: Via task_log json \u2192 reward_function()\nDay 3 \u2014 Log \u2192 Learn Stub\nNew file: reinforcement/agent_selector p\n\u2022 Add stub: select_agent(task_input, history)\n\u2022 Start with random choice, track result\n\u2022 Same for select_model()\nAdd reinforcement/replay_buffer\n\nReward): =================================== edumentor_agent \u2502\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2502 1 425\nvedas_agent          \u2502\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2502 1 398\nwellness_agent       \u2502\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2502 1 387\nllama                \u2502\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2502 1\n\nReward): =================================== edumentor_agent \u2502\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2502 1 425\nvedas_agent          \u2502\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2502 1 398\nwellness_agent       \u2502\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2502 1 387\nllama                \u2502\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2502 1\n\nThis information addresses your query about: what is karma",
+      "query_id": "3a9b2fc5-48ee-49b6-a328-68b4d54fc0dc",
+      "query": "what is karma",
+      "sources": [
+        "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\Task1.pdf",
+        "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\learning_dashboard.md",
+        "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\learning_dashboard.md",
+        "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\learning_dashboard.md",
+        "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\learning_dashboard.md"
+      ],
+      "metadata": {
+        "tags": [
+          "semantic_search",
+          "file_based"
+        ],
+        "retriever": "file_based",
+        "total_results": 5
+      },
+      "timestamp": "2025-07-30T13:07:54.650713",
+      "status": 200,
+      "model": "vedas_agent",
+      "knowledge_base_results": 5,
+      "endpoint": "knowledge_agent"
+    },
+    "agent": "vedas_agent",
+    "model": "vedas_agent",
+    "reward": 1.94,
+    "timestamp": "2025-07-30T13:07:54.670119"
   }
 ]

@@ -121,7 +121,7 @@ class AgentRegistry:
                     },
                     "knowledge_agent": {
                         "connection_type": "python_module",
-                        "module_path": "agents.knowledge_agent",
+                        "module_path": "agents.KnowledgeAgent",
                         "class_name": "KnowledgeAgent",
                         "id": "knowledge_agent",
                         "tags": ["semantic_search", "vedabase"],

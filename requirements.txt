@@ -33,3 +33,4 @@ jinja2
 python-jose[cryptography]
 passlib[bcrypt]
 passlib
+pdfplumber

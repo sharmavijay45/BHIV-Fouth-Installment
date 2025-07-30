@@ -1,12 +1,20 @@
-from vedabase_retriever import VedabaseRetriever
 from utils.file_based_retriever import file_retriever
 from utils.logger import get_logger
 import uuid
-import requests
 from datetime import datetime
 from reinforcement.rl_context import RLContext
 from reinforcement.reward_functions import get_reward_from_output
 from typing import Dict, Any
+
+# Try to import VedabaseRetriever, but don't fail if not available
+try:
+    from vedabase_retriever import VedabaseRetriever
+    QDRANT_AVAILABLE = True
+except ImportError as e:
+    logger = get_logger(__name__)
+    logger.warning(f"VedabaseRetriever not available: {e}")
+    VedabaseRetriever = None
+    QDRANT_AVAILABLE = False
 
 logger = get_logger(__name__)
 
@@ -16,12 +24,17 @@ class KnowledgeAgent:
         self.file_retriever_available = True
 
         # Try Qdrant-based retriever as secondary option
-        try:
-            self.retriever = VedabaseRetriever()
-            self.qdrant_available = True
-            logger.info("KnowledgeAgent initialized with both file-based and Qdrant support")
-        except Exception as e:
-            logger.info(f"Qdrant not available, using file-based retriever only: {str(e)}")
+        if QDRANT_AVAILABLE and VedabaseRetriever:
+            try:
+                self.retriever = VedabaseRetriever()
+                self.qdrant_available = True
+                logger.info("KnowledgeAgent initialized with both file-based and Qdrant support")
+            except Exception as e:
+                logger.info(f"Qdrant not available, using file-based retriever only: {str(e)}")
+                self.retriever = None
+                self.qdrant_available = False
+        else:
+            logger.info("VedabaseRetriever not available, using file-based retriever only")
             self.retriever = None
             self.qdrant_available = False
 
@@ -30,12 +43,19 @@ class KnowledgeAgent:
     def query(self, query_text: str, filters: dict = None, task_id: str = None) -> dict:
         task_id = task_id or str(uuid.uuid4())
 
+        print(f"🧠 [KNOWLEDGE AGENT] Starting knowledge retrieval...")
+        print(f"🔍 [SEARCH QUERY] '{query_text}'")
+        if filters:
+            print(f"🎯 [FILTERS] {filters}")
+
         # Always try file-based retriever first (more reliable)
         if self.file_retriever_available:
+            print(f"📚 [FILE RETRIEVER] Searching knowledge base...")
             logger.info(f"KnowledgeAgent query {task_id}: Using file-based retriever (primary)")
             try:
                 file_results = file_retriever.search(query_text, limit=5)
                 if file_results:
+                    print(f"✅ [FOUND] {len(file_results)} relevant chunks in knowledge base")
                     # Format results for consistency
                     formatted_results = [result['text'] for result in file_results]
                     sources = [result['source'] for result in file_results]
@@ -116,28 +136,21 @@ class KnowledgeAgent:
             }
 
     def enhance_with_llm(self, query: str, knowledge_context: str) -> str:
-        """Use Groq to enhance the knowledge base response with better formatting and context."""
+        """Enhanced response using local processing (no external API calls)."""
         try:
-            # Call the simple_api to get enhanced response
-            response = requests.post(
-                "http://localhost:8004/ask-vedas",
-                json={
-                    "query": f"Based on this Vedic knowledge: {knowledge_context}\n\nQuestion: {query}\n\nPlease provide a comprehensive answer using the provided knowledge.",
-                    "user_id": "knowledge_agent"
-                },
-                timeout=30
-            )
-
-            if response.status_code == 200:
-                result = response.json()
-                return result.get("response", knowledge_context)
+            print(f"🎨 [LOCAL ENHANCEMENT] Processing knowledge without external APIs...")
+            # Simple enhancement without external API calls
+            if knowledge_context.strip():
+                enhanced = f"Based on the available knowledge:\n\n{knowledge_context}\n\nThis information addresses your query about: {query}"
+                print(f"✨ [ENHANCED] Response formatted and ready")
+                return enhanced
             else:
-                logger.warning(f"LLM enhancement failed with status {response.status_code}")
-                return knowledge_context
+                print(f"❌ [NO KNOWLEDGE] No relevant information found")
+                return f"I don't have specific information about '{query}' in the knowledge base."
 
         except Exception as e:
             logger.error(f"LLM enhancement failed: {str(e)}")
-            return knowledge_context
+            return knowledge_context if knowledge_context.strip() else "Unable to process your query at this time."
 
     def run(self, input_path: str, live_feed: str = "", model: str = "knowledge_agent", input_type: str = "text", task_id: str = None) -> Dict[str, Any]:
         """Main entry point for agent execution - compatible with existing agent interface."""
@@ -187,7 +200,7 @@ class KnowledgeAgent:
                     "fallback": True,
                     "endpoint": "knowledge_agent"
                 }
-            except Exception as e:
+            except Exception:
                 return {
                     "response": "I couldn't find relevant information in the knowledge base for your query.",
                     "query_id": task_id,

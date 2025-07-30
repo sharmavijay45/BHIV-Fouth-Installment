@@ -88,5 +88,16 @@
         "class_name": "StreamTransformerAgent",
         "input_types": ["text", "pdf", "image", "audio"],
         "rl_enabled": true
+    },
+    "knowledge_agent": {
+        "name": "Knowledge Agent",
+        "description": "Semantic search and knowledge base queries",
+        "connection_type": "python_module",
+        "module_path": "agents.KnowledgeAgent",
+        "class_name": "KnowledgeAgent",
+        "input_types": ["text"],
+        "tags": ["semantic_search", "vedabase", "knowledge_base"],
+        "rl_enabled": true,
+        "created_at": "2025-07-30T00:00:00.000000"
     }
 }

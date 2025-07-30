@@ -124,6 +124,13 @@ def run_task(task: str, data: str, model: str, file_path: str = "", input_type: 
     task_id = str(uuid.uuid4())
     start_time = datetime.now()
 
+    print(f"\n🚀 [CLI START] Initiating task via CLI Runner")
+    print(f"📋 [TASK] {task}")
+    print(f"💬 [INPUT] '{data[:100]}{'...' if len(data) > 100 else ''}'")
+    print(f"🎭 [TARGET AGENT] {model}")
+    print(f"📄 [TYPE] {input_type}")
+    print(f"🔄 [SENDING] Request to MCP Bridge...")
+
     for attempt in range(retries):
         try:
             # Determine if we need to upload a file

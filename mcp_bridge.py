@@ -515,6 +515,12 @@ async def handle_task_request(payload: TaskPayload) -> dict:
     """Handle task request with agent routing."""
     task_id = str(uuid.uuid4())
     start_time = datetime.now()
+
+    print(f"\n🎯 [TASK START] Task ID: {task_id}")
+    print(f"📝 [INPUT] Query: '{payload.input[:100]}{'...' if len(payload.input) > 100 else ''}'")
+    print(f"🎭 [REQUESTED AGENT] {payload.agent}")
+    print(f"📄 [INPUT TYPE] {payload.input_type}")
+
     logger.info(f"[MCP_BRIDGE] Task ID: {task_id} | Agent: {payload.agent} | Input: {payload.input[:50]}... | File: {payload.pdf_path} | Type: {payload.input_type} | Tags: {payload.tags}")
     health_status["total_requests"] += 1
 
@@ -530,24 +536,34 @@ async def handle_task_request(payload: TaskPayload) -> dict:
             "tags": payload.tags,
             "task_id": task_id
         }
+        print(f"🤖 [RL THINKING] Analyzing task context...")
         agent_id = agent_registry.find_agent(task_context)
         agent_config = agent_registry.get_agent_config(agent_id)
-        
+
+        if payload.agent != agent_id:
+            print(f"🔄 [RL OVERRIDE] Requested: {payload.agent} → Selected: {agent_id}")
+        else:
+            print(f"✅ [RL CONFIRMED] Using requested agent: {agent_id}")
+
         if not agent_config:
+            print(f"❌ [ERROR] Agent config not found for {agent_id}")
             logger.error(f"[MCP_BRIDGE] Agent config not found for {agent_id}")
             raise HTTPException(status_code=404, detail=f"Agent {agent_id} not found")
         
         # Route to appropriate handler based on connection type
         if agent_config['connection_type'] == 'python_module':
+            print(f"🐍 [PYTHON MODULE] Loading {agent_config['module_path']}.{agent_config['class_name']}")
             module_path = agent_config['module_path']
             class_name = agent_config['class_name']
             module = importlib.import_module(module_path)
             agent_class = getattr(module, class_name)
             agent = agent_class()
             input_path = payload.pdf_path if payload.pdf_path else payload.input
+            print(f"⚡ [PROCESSING] Running {agent_id} directly...")
             result = agent.run(input_path, "", payload.agent, payload.input_type, task_id)
         elif agent_config['connection_type'] == 'http_api':
             endpoint = agent_config['endpoint']
+            print(f"🌐 [HTTP API] Calling {endpoint}")
             headers = agent_config.get('headers', {})
             request_payload = {
                 'query': payload.input,
@@ -558,8 +574,9 @@ async def handle_task_request(payload: TaskPayload) -> dict:
             }
             if payload.pdf_path:
                 request_payload['file_path'] = payload.pdf_path
-            
+
             timeout = TIMEOUT_CONFIG.get(payload.input_type, TIMEOUT_CONFIG.get('default_timeout', 120))
+            print(f"📡 [API CALL] Sending request to {endpoint}...")
             response = requests.post(endpoint, json=request_payload, headers=headers, timeout=timeout)
             response.raise_for_status()
             result = response.json()
@@ -574,6 +591,14 @@ async def handle_task_request(payload: TaskPayload) -> dict:
         processing_time = (datetime.now() - start_time).total_seconds()
         health_status["successful_requests"] += 1
         health_status["agent_status"][agent_id] = {"last_used": datetime.now().isoformat(), "status": "healthy"}
+
+        print(f"✅ [TASK COMPLETE] Agent: {agent_id} | Status: {result.get('status', 'unknown')} | Time: {processing_time:.2f}s")
+        if result.get('knowledge_base_results', 0) > 0:
+            print(f"📚 [KNOWLEDGE FOUND] {result.get('knowledge_base_results')} chunks from knowledge base")
+        if result.get('sources'):
+            print(f"📖 [SOURCES] {len(result.get('sources', []))} source files used")
+        print(f"🏁 [RESPONSE] {result.get('response', '')[:100]}{'...' if len(result.get('response', '')) > 100 else ''}")
+        print(f"─" * 80)
 
         # Log to MongoDB
         task_log_data = {

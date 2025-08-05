@@ -8,8 +8,6 @@ from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from contextlib import asynccontextmanager
-from langchain_core.messages import HumanMessage
-from langchain_groq import ChatGroq
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from dotenv import load_dotenv
@@ -18,6 +16,8 @@ from agents.KnowledgeAgent import KnowledgeAgent
 from utils.file_utils import secure_file_access
 from utils.mongo_logger import mongo_logger
 import time
+import requests
+import json
 
 load_dotenv()
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -25,47 +25,60 @@ logger = logging.getLogger(__name__)
 
 class ModelProvider:
     def __init__(self, model_config: Dict[str, Any], endpoint: str):
-        self.model = None
-        self.model_name = model_config.get("model_name", "llama3-8b-8192")  # Updated model
-        self.api_key = os.getenv("GROQ_API_KEY")
-        self.backup_api_key = os.getenv("GROQ_API_KEY_BACKUP")
+        self.model_name = model_config.get("model_name", "llama3.1")  # Ollama model name
+        self.ollama_url = "https://449e35ca1138.ngrok-free.app/api/generate"  # Your ngrok URL
         self.endpoint = endpoint
-        self.initialize_model()
-
-    def initialize_model(self):
-        try:
-            if not self.api_key:
-                raise ValueError("GROQ_API_KEY not found")
-            self.model = ChatGroq(
-                model=self.model_name,
-                api_key=self.api_key
-            )
-            logger.info(f"Initialized Groq model: {self.model_name} for {self.endpoint}")
-        except Exception as e:
-            logger.error(f"Failed to initialize model for {self.endpoint} with primary key: {e}")
-            if self.backup_api_key:
-                try:
-                    logger.info(f"Trying backup API key for {self.endpoint}")
-                    self.model = ChatGroq(
-                        model=self.model_name,
-                        api_key=self.backup_api_key
-                    )
-                    logger.info(f"Initialized Groq model with backup key: {self.model_name}")
-                except Exception as e:
-                    logger.error(f"Backup key failed for {self.endpoint}: {e}")
-                    self.model = None
-            else:
-                self.model = None
+        self.timeout = 30  # Request timeout in seconds
+        logger.info(f"Initialized Ollama model: {self.model_name} for {self.endpoint}")
 
     def generate_response(self, prompt: str, fallback: str) -> tuple[str, int]:
-        if not self.model:
-            logger.warning(f"No model initialized for {self.endpoint}. Using fallback response.")
-            return fallback, 500
         try:
-            response = self.model.invoke([HumanMessage(content=prompt)])
-            return response.content.strip(), 200
+            # Prepare the request payload for Ollama
+            payload = {
+                "model": self.model_name,
+                "prompt": prompt,
+                "stream": False,
+                "options": {
+                    "temperature": 0.7,
+                    "top_p": 0.9,
+                    "max_tokens": 1000
+                }
+            }
+
+            headers = {
+                "Content-Type": "application/json",
+                "ngrok-skip-browser-warning": "true"  # Skip ngrok browser warning
+            }
+
+            logger.info(f"Calling Ollama API for {self.endpoint}...")
+            response = requests.post(
+                self.ollama_url,
+                json=payload,
+                headers=headers,
+                timeout=self.timeout
+            )
+
+            if response.status_code == 200:
+                result = response.json()
+                generated_text = result.get("response", "").strip()
+                if generated_text:
+                    logger.info(f"Successfully generated response for {self.endpoint}")
+                    return generated_text, 200
+                else:
+                    logger.warning(f"Empty response from Ollama for {self.endpoint}")
+                    return fallback, 500
+            else:
+                logger.error(f"Ollama API error for {self.endpoint}: {response.status_code} - {response.text}")
+                return fallback, 500
+
+        except requests.exceptions.Timeout:
+            logger.error(f"Ollama API timeout for {self.endpoint}")
+            return fallback, 500
+        except requests.exceptions.RequestException as e:
+            logger.error(f"Ollama API request error for {self.endpoint}: {e}")
+            return fallback, 500
         except Exception as e:
-            logger.error(f"Model generation error for {self.endpoint}: {e}")
+            logger.error(f"Unexpected error calling Ollama for {self.endpoint}: {e}")
             return fallback, 500
 
 class SimpleOrchestrationEngine:
@@ -205,9 +218,9 @@ Context from sacred texts:
 
 Provide spiritual wisdom that is authentic, practical, and inspiring. Keep it concise but meaningful."""
         fallback = f"The ancient Vedic texts teach us to seek truth through self-reflection and righteous action. Regarding '{query}', remember that true wisdom comes from understanding the interconnectedness of all existence. Practice mindfulness, act with compassion, and seek the divine within yourself."
-        print(f"🤖 [GROQ API] Calling Groq for spiritual enhancement...")
+        print(f"🤖 [OLLAMA API] Calling Ollama for spiritual enhancement...")
         response_text, status = engine.generate_response(prompt, fallback, "vedas")
-        print(f"✨ [GROQ RESPONSE] Enhanced spiritual wisdom received")
+        print(f"✨ [OLLAMA RESPONSE] Enhanced spiritual wisdom received")
         return SimpleResponse(
             query_id=str(uuid.uuid4()),
             query=query,

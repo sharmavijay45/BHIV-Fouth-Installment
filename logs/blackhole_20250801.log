@@ -1,0 +1,48 @@
+2025-08-01 14:03:33,048 - INFO - utils.file_utils - SecureFileAccess initialized with paths: ['C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment', 'C:\\mnt\\vedabase', '\\\\nas\\vedabase', 'Z:\\vedabase', '\\\\your-company-nas\\vedabase', '\\\\your-company-nas\\shared\\vedabase', 'Y:\\vedabase'], read_only: True
+2025-08-01 14:03:33,050 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-01 14:03:33,050 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-01 14:03:37,910 - INFO - utils.file_based_retriever - FileBasedRetriever initialized with SentenceTransformer
+2025-08-01 14:03:37,947 - INFO - utils.file_based_retriever - Loaded knowledge base from cache: 136 chunks
+2025-08-01 14:03:39,359 - INFO - utils.mongo_logger - MongoDB logger initialized successfully
+2025-08-01 14:03:39,360 - INFO - __main__ - Initialized Ollama model: llama3.1:8b for ask-vedas
+2025-08-01 14:03:39,361 - INFO - __main__ - Initialized Ollama model: llama3.1:8b for edumentor
+2025-08-01 14:03:39,361 - INFO - __main__ - Initialized Ollama model: llama3.1:8b for wellness
+2025-08-01 14:03:39,361 - INFO - __main__ - Initializing embedding model...
+2025-08-01 14:03:39,363 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-01 14:03:39,364 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-01 14:03:42,235 - INFO - __main__ - Initialized with 0 vector stores
+2025-08-01 14:03:46,450 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-01 14:03:46,450 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-01 14:03:49,330 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with both file-based and Qdrant support
+2025-08-01 14:03:49,414 - INFO - __main__ - Starting Simple Orchestration API...
+2025-08-01 14:03:49,414 - INFO - __main__ - Initializing embedding model...
+2025-08-01 14:03:49,416 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-01 14:03:49,417 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-01 14:03:52,328 - INFO - __main__ - Initialized with 0 vector stores
+2025-08-01 14:03:52,329 - INFO - __main__ - Simple Orchestration API ready!
+2025-08-01 14:06:25,676 - INFO - utils.file_utils - SecureFileAccess initialized with paths: ['C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment', 'C:\\mnt\\vedabase', '\\\\nas\\vedabase', 'Z:\\vedabase', '\\\\your-company-nas\\vedabase', '\\\\your-company-nas\\shared\\vedabase', 'Y:\\vedabase'], read_only: True
+2025-08-01 14:06:25,677 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-01 14:06:25,677 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-01 14:06:29,459 - INFO - utils.file_based_retriever - FileBasedRetriever initialized with SentenceTransformer
+2025-08-01 14:06:29,487 - INFO - utils.file_based_retriever - Loaded knowledge base from cache: 136 chunks
+2025-08-01 14:06:30,685 - INFO - utils.mongo_logger - MongoDB logger initialized successfully
+2025-08-01 14:06:30,686 - INFO - __main__ - Initialized Ollama model: llama3.1 for ask-vedas
+2025-08-01 14:06:30,686 - INFO - __main__ - Initialized Ollama model: llama3.1 for edumentor
+2025-08-01 14:06:30,687 - INFO - __main__ - Initialized Ollama model: llama3.1 for wellness
+2025-08-01 14:06:30,687 - INFO - __main__ - Initializing embedding model...
+2025-08-01 14:06:30,688 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-01 14:06:30,688 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-01 14:06:33,500 - INFO - __main__ - Initialized with 0 vector stores
+2025-08-01 14:06:37,619 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-01 14:06:37,619 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-01 14:06:40,910 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with both file-based and Qdrant support
+2025-08-01 14:06:40,943 - INFO - __main__ - Starting Simple Orchestration API...
+2025-08-01 14:06:40,944 - INFO - __main__ - Initializing embedding model...
+2025-08-01 14:06:40,945 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-01 14:06:40,945 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-01 14:06:43,795 - INFO - __main__ - Initialized with 0 vector stores
+2025-08-01 14:06:43,795 - INFO - __main__ - Simple Orchestration API ready!
+2025-08-01 14:07:00,987 - INFO - utils.file_based_retriever - Semantic search found 3 results for: What is the meaning of life?
+2025-08-01 14:07:00,987 - INFO - __main__ - File-based search found 3 results for 'What is the meaning of life?'
+2025-08-01 14:07:00,988 - INFO - __main__ - Calling Ollama API for ask-vedas...
+2025-08-01 14:07:07,167 - INFO - __main__ - Successfully generated response for ask-vedas

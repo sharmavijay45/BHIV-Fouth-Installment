@@ -2844,5 +2844,35 @@
     "model": "vedas_agent",
     "reward": 1.8,
     "timestamp": "2025-07-30T14:13:04.879370"
+  },
+  {
+    "task_id": "462afceb-cd46-4f74-b1a4-d59db578acfc",
+    "input": "what is life",
+    "output": {
+      "query_id": "734da2cb-4f6b-4524-a3e7-9812e1c22d44",
+      "query": "what is life",
+      "response": "Great question about 'what is life'! This is an important topic to understand. Let me break it down for you in simple terms with practical examples that will help you learn and remember the key concepts. The main idea is to understand the fundamental principles and how they apply in real-world situations.",
+      "sources": [
+        {
+          "text": "Simple query result = adapter run_with_model(\n    model=\"edumentor_agent\",\n    query=\"Explain machine learning\",\n    task_id=\"task-123\"\n)\n\nprint(result['result'])  # Model response\nprint(result['tokens_used'])  # Token count\nprint(result['cost_estimate'])  # Estimated cost\n```\n\n### With Live Feed\n\n```python\n# Include additional context\nresult = adapter",
+          "source": "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\llm_router.md"
+        },
+        {
+          "text": "additional context result = adapter run_with_model(\n    model=\"vedas_agent\",\n    query=\"What is dharma \",\n    live_feed=\"User is interested in Hindu philosophy\",\n    task_id=\"task-456\"\n)\n```\n\n### Mathematical Calculations\n\n```python\n# Automatic calculator detection\nresult = adapter",
+          "source": "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\llm_router.md"
+        },
+        {
+          "text": "generation, and production-ready web interface ## \ud83d\ude80 Features\n\n### Core Capabilities\n- **Multi-Modal Processing**: Handle text, PDF, image, and audio inputs seamlessly\n- **Multi-Input Processing**: Combine different file types in a single analysis\n- **Named Learning Objects**: Structured educational content with Bloom's taxonomy\n- **Web Interface**: Bootstrap-based UI with real-time processing and authentication\n- **Enhanced CLI**: Batch processing with progress bars and multiple output formats\n\n",
+          "source": "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\README.md"
+        }
+      ],
+      "timestamp": "2025-08-05T15:47:26.077311",
+      "endpoint": "edumentor",
+      "status": 500
+    },
+    "agent": "vedas_agent",
+    "model": "vedas_agent",
+    "reward": 0.56,
+    "timestamp": "2025-08-05T15:47:26.106316"
   }
 ]

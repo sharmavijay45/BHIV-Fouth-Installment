@@ -6,9 +6,9 @@ from reinforcement.rl_context import rl_context
 from reinforcement.model_selector import model_selector
 from reinforcement.reward_functions import get_reward_from_output
 from utils.calculator import Calculator
-from langchain_groq import ChatGroq
 import os
 import uuid
+import json
 
 logger = get_logger(__name__)
 
@@ -16,10 +16,9 @@ class TransformerAdapter:
     def __init__(self):
         self.model_config = MODEL_CONFIG
         self.calculator = Calculator()
-        self.llm = ChatGroq(
-            groq_api_key=os.getenv("GROQ_API_KEY"),
-            model_name="llama-3.1-8b-instant"
-        )
+        self.ollama_url = "https://449e35ca1138.ngrok-free.app/api/generate"
+        self.model_name = "llama3.1"
+        self.timeout = 30
         # Fallback hierarchy for models
         self.fallback_hierarchy = {
             'llama': ['edumentor_agent', 'vedas_agent', 'wellness_agent'],
@@ -106,10 +105,36 @@ class TransformerAdapter:
     def _execute_model(self, model: str, query: str, live_feed: str, task_id: str) -> Dict[str, Any]:
         """Execute a specific model with proper error handling."""
         if model in ['llama', 'llama_summarization_agent']:
-            response = self.llm.invoke(query)
-            result = response.content
+            # Use Ollama API
+            payload = {
+                "model": self.model_name,
+                "prompt": f"{query} {live_feed}".strip(),
+                "stream": False,
+                "options": {
+                    "temperature": 0.7,
+                    "top_p": 0.9,
+                    "max_tokens": 1000
+                }
+            }
+
+            headers = {
+                "Content-Type": "application/json",
+                "ngrok-skip-browser-warning": "true"
+            }
+
+            response = requests.post(
+                self.ollama_url,
+                json=payload,
+                headers=headers,
+                timeout=self.timeout
+            )
+            response.raise_for_status()
+
+            result_data = response.json()
+            result = result_data.get("response", "No response generated")
             tokens_used = len(query.split()) + len(result.split())  # Approximate
             cost_estimate = self.estimate_cost(tokens_used, model)
+
             return {
                 'result': result,
                 'model': model,

@@ -2,7 +2,8 @@ import logging
 import time
 from typing import Dict, Any
 import uuid
-from langchain_groq import ChatGroq
+import requests
+import json
 from utils.logger import get_logger
 from reinforcement.reward_functions import get_reward_from_output
 from reinforcement.replay_buffer import replay_buffer
@@ -12,16 +13,15 @@ import os
 logger = get_logger(__name__)
 
 class TextAgent:
-    """Agent for processing text inputs using Groq."""
+    """Agent for processing text inputs using Ollama."""
     def __init__(self):
         self.model_config = MODEL_CONFIG.get("edumentor_agent", {})
-        self.llm = ChatGroq(
-            groq_api_key=os.getenv("GROQ_API_KEY"),
-            model_name="llama-3.1-8b-instant"
-        )
+        self.ollama_url = "https://449e35ca1138.ngrok-free.app/api/generate"
+        self.model_name = "llama3.1"
+        self.timeout = 30
 
     def process_text(self, text: str, task_id: str, retries: int = 3) -> Dict[str, Any]:
-        """Summarize text using Groq's API with retry logic."""
+        """Summarize text using Ollama API with retry logic."""
         start_time = time.time()
 
         for attempt in range(retries):
@@ -29,8 +29,34 @@ class TextAgent:
                 logger.info(f"Processing text (attempt {attempt + 1}/{retries}) for task {task_id}")
 
                 prompt = f"Summarize the following text in 50-100 words: {text}"
-                response = self.llm.invoke(prompt)
-                summary = response.content
+
+                # Prepare Ollama request
+                payload = {
+                    "model": self.model_name,
+                    "prompt": prompt,
+                    "stream": False,
+                    "options": {
+                        "temperature": 0.7,
+                        "top_p": 0.9,
+                        "max_tokens": 200
+                    }
+                }
+
+                headers = {
+                    "Content-Type": "application/json",
+                    "ngrok-skip-browser-warning": "true"
+                }
+
+                response = requests.post(
+                    self.ollama_url,
+                    json=payload,
+                    headers=headers,
+                    timeout=self.timeout
+                )
+                response.raise_for_status()
+
+                result_data = response.json()
+                summary = result_data.get("response", "No summary generated").strip()
 
                 processing_time = time.time() - start_time
 

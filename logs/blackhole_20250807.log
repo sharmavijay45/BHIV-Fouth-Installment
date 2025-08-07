@@ -1,0 +1,197 @@
+2025-08-07 13:12:25,042 - INFO - __main__ - 🔍 Testing connectivity to NAS server 192.168.0.94...
+2025-08-07 13:12:27,065 - INFO - __main__ - ✅ NAS server 192.168.0.94 is reachable
+2025-08-07 13:15:16,329 - WARNING - __main__ - Error stopping Qdrant container: Command '['docker', 'ps', '-a', '--filter', 'name=bhiv-qdrant', '--format', '{{.Names}}']' timed out after 10 seconds
+2025-08-07 13:15:16,330 - INFO - __main__ - Using Qdrant data directory: C:\Users\abc1\Downloads\BHIV-Third-Installment\qdrant_data
+2025-08-07 13:15:16,330 - INFO - __main__ - Starting Qdrant with Docker...
+2025-08-07 13:16:16,337 - ERROR - __main__ - Error starting Qdrant: Command '['docker', 'run', '-d', '--name', 'bhiv-qdrant', '-p', '6333:6333', '-p', '6334:6334', '-v', 'C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\qdrant_data:/qdrant/storage', 'qdrant/qdrant:latest']' timed out after 60 seconds
+2025-08-07 13:18:04,222 - INFO - utils.file_utils - SecureFileAccess initialized with paths: ['C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment', 'C:\\mnt\\vedabase', '\\\\nas\\vedabase', 'Z:\\vedabase', '\\\\your-company-nas\\vedabase', '\\\\your-company-nas\\shared\\vedabase', 'Y:\\vedabase'], read_only: True
+2025-08-07 13:18:04,224 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-07 13:18:04,224 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-07 13:18:08,903 - INFO - utils.file_based_retriever - FileBasedRetriever initialized with SentenceTransformer
+2025-08-07 13:18:08,933 - INFO - utils.file_based_retriever - Loaded knowledge base from cache: 136 chunks
+2025-08-07 13:18:09,802 - WARNING - agents.KnowledgeAgent - NAS retriever not available: No module named 'nas_config'
+2025-08-07 13:46:22,013 - INFO - utils.file_utils - SecureFileAccess initialized with paths: ['C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment', 'C:\\mnt\\vedabase', '\\\\nas\\vedabase', 'Z:\\vedabase', '\\\\your-company-nas\\vedabase', '\\\\your-company-nas\\shared\\vedabase', 'Y:\\vedabase'], read_only: True
+2025-08-07 13:46:22,014 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-07 13:46:22,015 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-07 13:46:26,285 - INFO - utils.file_based_retriever - FileBasedRetriever initialized with SentenceTransformer
+2025-08-07 13:46:26,312 - INFO - utils.file_based_retriever - Loaded knowledge base from cache: 136 chunks
+2025-08-07 13:46:26,962 - WARNING - agents.KnowledgeAgent - NAS retriever not available: No module named 'nas_config'
+2025-08-07 13:46:26,964 - INFO - utils.mongo_logger - MongoDB logger initialized successfully
+2025-08-07 13:46:26,965 - INFO - simple_api - Initialized Ollama model: llama3.1 for ask-vedas
+2025-08-07 13:46:26,966 - INFO - simple_api - Initialized Ollama model: llama3.1 for edumentor
+2025-08-07 13:46:26,966 - INFO - simple_api - Initialized Ollama model: llama3.1 for wellness
+2025-08-07 13:46:26,966 - INFO - simple_api - Initializing embedding model...
+2025-08-07 13:46:26,968 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-07 13:46:26,968 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-07 13:46:30,083 - INFO - simple_api - Initialized with 0 vector stores
+2025-08-07 13:46:34,187 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-07 13:46:34,188 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-07 13:46:37,206 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with Qdrant support
+2025-08-07 13:46:37,210 - INFO - simple_api - Starting Simple Orchestration API...
+2025-08-07 13:46:37,210 - INFO - simple_api - Initializing embedding model...
+2025-08-07 13:46:37,212 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-07 13:46:37,212 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-07 13:46:40,339 - INFO - simple_api - Initialized with 0 vector stores
+2025-08-07 13:46:40,339 - INFO - simple_api - Simple Orchestration API ready!
+2025-08-07 13:47:17,418 - INFO - utils.file_utils - SecureFileAccess initialized with paths: ['C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment', 'C:\\mnt\\vedabase', '\\\\nas\\vedabase', 'Z:\\vedabase', '\\\\your-company-nas\\vedabase', '\\\\your-company-nas\\shared\\vedabase', 'Y:\\vedabase'], read_only: True
+2025-08-07 13:47:17,420 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-07 13:47:17,420 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-07 13:47:21,403 - INFO - utils.file_based_retriever - FileBasedRetriever initialized with SentenceTransformer
+2025-08-07 13:47:21,431 - INFO - utils.file_based_retriever - Loaded knowledge base from cache: 136 chunks
+2025-08-07 13:47:22,068 - WARNING - agents.KnowledgeAgent - NAS retriever not available: No module named 'nas_config'
+2025-08-07 13:47:22,070 - INFO - utils.mongo_logger - MongoDB logger initialized successfully
+2025-08-07 13:47:22,072 - INFO - simple_api - Initialized Ollama model: llama3.1 for ask-vedas
+2025-08-07 13:47:22,072 - INFO - simple_api - Initialized Ollama model: llama3.1 for edumentor
+2025-08-07 13:47:22,072 - INFO - simple_api - Initialized Ollama model: llama3.1 for wellness
+2025-08-07 13:47:22,072 - INFO - simple_api - Initializing embedding model...
+2025-08-07 13:47:22,074 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-07 13:47:22,074 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-07 13:47:25,592 - INFO - simple_api - Initialized with 0 vector stores
+2025-08-07 13:47:29,716 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-07 13:47:29,716 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-07 13:47:30,525 - INFO - reinforcement.replay_buffer - Loaded replay buffer from logs/learning_log.json
+2025-08-07 13:47:30,525 - INFO - agents.agent_registry - Loaded 9 agents from config/agent_configs.json
+2025-08-07 13:47:30,528 - INFO - utils.mongo_logger - MongoDB logger initialized successfully
+2025-08-07 13:47:32,868 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with Qdrant support
+2025-08-07 13:47:32,872 - INFO - simple_api - Starting Simple Orchestration API...
+2025-08-07 13:47:32,872 - INFO - simple_api - Initializing embedding model...
+2025-08-07 13:47:32,874 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-07 13:47:32,874 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-07 13:47:35,966 - INFO - simple_api - Initialized with 0 vector stores
+2025-08-07 13:47:35,966 - INFO - simple_api - Simple Orchestration API ready!
+2025-08-07 13:47:51,590 - INFO - reinforcement.replay_buffer - Loaded replay buffer from logs/learning_log.json
+2025-08-07 13:48:35,387 - INFO - knowledge_base_manager - Knowledge base directories ensured at: \\192.168.0.94\Guruukul_DB\knowledge_base
+2025-08-07 13:48:35,387 - INFO - simple_api - ✅ NAS Knowledge Base initialized for API
+2025-08-07 13:48:35,434 - INFO - knowledge_base_manager - ✅ NAS connection test successful
+2025-08-07 13:48:49,806 - INFO - knowledge_base_manager - Knowledge base directories ensured at: \\192.168.0.94\Guruukul_DB\knowledge_base
+2025-08-07 13:48:49,807 - INFO - simple_api - ✅ NAS Knowledge Base initialized
+2025-08-07 13:48:49,915 - INFO - utils.file_based_retriever - Semantic search found 3 results for: What do the Vedas say about meditation?
+2025-08-07 13:48:49,915 - INFO - simple_api - File-based search found 3 results for 'What do the Vedas say about meditation?'
+2025-08-07 13:48:49,915 - INFO - simple_api - Calling Ollama API for ask-vedas...
+2025-08-07 13:48:49,963 - ERROR - simple_api - Ollama API error for ask-vedas: 404 - <!DOCTYPE html>
+<html class="h-full" lang="en-US" dir="ltr">
+  <head>
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/euclid-square/EuclidSquare-Regular-WebS.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/euclid-square/EuclidSquare-RegularItalic-WebS.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/euclid-square/EuclidSquare-Medium-WebS.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/euclid-square/EuclidSquare-Semibold-WebS.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/euclid-square/EuclidSquare-MediumItalic-WebS.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/ibm-plex-mono/IBMPlexMono-Text.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/ibm-plex-mono/IBMPlexMono-TextItalic.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/ibm-plex-mono/IBMPlexMono-SemiBold.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/ibm-plex-mono/IBMPlexMono-SemiBoldItalic.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <meta charset="utf-8">
+    <meta name="author" content="ngrok">
+    <meta name="description" content="ngrok is the fastest way to put anything on the internet with a single command.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link id="style" rel="stylesheet" href="https://cdn.ngrok.com/static/css/error.css">
+    <noscript>The endpoint 3a46c48e4d91.ngrok-free.app is offline. (ERR_NGROK_3200)</noscript>
+    <script id="script" src="https://cdn.ngrok.com/static/js/error.js" type="text/javascript"></script>
+  </head>
+  <body class="h-full" id="ngrok">
+    <div id="root" data-payload="eyJjZG5CYXNlIjoiaHR0cHM6Ly9jZG4ubmdyb2suY29tLyIsImNvZGUiOiIzMjAwIiwibWVzc2FnZSI6IlRoZSBlbmRwb2ludCAzYTQ2YzQ4ZTRkOTEubmdyb2stZnJlZS5hcHAgaXMgb2ZmbGluZS4iLCJ0aXRsZSI6Ik5vdCBGb3VuZCJ9"></div>
+  </body>
+</html>
+
+2025-08-07 13:48:52,070 - INFO - utils.file_based_retriever - Semantic search found 3 results for: How can Ayurveda help with stress?
+2025-08-07 13:48:52,070 - INFO - simple_api - File-based search found 3 results for 'How can Ayurveda help with stress?'
+2025-08-07 13:48:52,070 - INFO - simple_api - Calling Ollama API for wellness...
+2025-08-07 13:48:52,110 - ERROR - simple_api - Ollama API error for wellness: 404 - <!DOCTYPE html>
+<html class="h-full" lang="en-US" dir="ltr">
+  <head>
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/euclid-square/EuclidSquare-Regular-WebS.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/euclid-square/EuclidSquare-RegularItalic-WebS.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/euclid-square/EuclidSquare-Medium-WebS.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/euclid-square/EuclidSquare-Semibold-WebS.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/euclid-square/EuclidSquare-MediumItalic-WebS.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/ibm-plex-mono/IBMPlexMono-Text.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/ibm-plex-mono/IBMPlexMono-TextItalic.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/ibm-plex-mono/IBMPlexMono-SemiBold.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/ibm-plex-mono/IBMPlexMono-SemiBoldItalic.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <meta charset="utf-8">
+    <meta name="author" content="ngrok">
+    <meta name="description" content="ngrok is the fastest way to put anything on the internet with a single command.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link id="style" rel="stylesheet" href="https://cdn.ngrok.com/static/css/error.css">
+    <noscript>The endpoint 3a46c48e4d91.ngrok-free.app is offline. (ERR_NGROK_3200)</noscript>
+    <script id="script" src="https://cdn.ngrok.com/static/js/error.js" type="text/javascript"></script>
+  </head>
+  <body class="h-full" id="ngrok">
+    <div id="root" data-payload="eyJjZG5CYXNlIjoiaHR0cHM6Ly9jZG4ubmdyb2suY29tLyIsImNvZGUiOiIzMjAwIiwibWVzc2FnZSI6IlRoZSBlbmRwb2ludCAzYTQ2YzQ4ZTRkOTEubmdyb2stZnJlZS5hcHAgaXMgb2ZmbGluZS4iLCJ0aXRsZSI6Ik5vdCBGb3VuZCJ9"></div>
+  </body>
+</html>
+
+2025-08-07 13:48:54,197 - INFO - utils.file_based_retriever - Semantic search found 3 results for: Explain the philosophy of yoga
+2025-08-07 13:48:54,197 - INFO - simple_api - File-based search found 3 results for 'Explain the philosophy of yoga'
+2025-08-07 13:48:54,197 - INFO - simple_api - Calling Ollama API for edumentor...
+2025-08-07 13:48:54,228 - ERROR - simple_api - Ollama API error for edumentor: 404 - <!DOCTYPE html>
+<html class="h-full" lang="en-US" dir="ltr">
+  <head>
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/euclid-square/EuclidSquare-Regular-WebS.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/euclid-square/EuclidSquare-RegularItalic-WebS.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/euclid-square/EuclidSquare-Medium-WebS.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/euclid-square/EuclidSquare-Semibold-WebS.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/euclid-square/EuclidSquare-MediumItalic-WebS.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/ibm-plex-mono/IBMPlexMono-Text.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/ibm-plex-mono/IBMPlexMono-TextItalic.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/ibm-plex-mono/IBMPlexMono-SemiBold.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.ngrok.com/static/fonts/ibm-plex-mono/IBMPlexMono-SemiBoldItalic.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <meta charset="utf-8">
+    <meta name="author" content="ngrok">
+    <meta name="description" content="ngrok is the fastest way to put anything on the internet with a single command.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link id="style" rel="stylesheet" href="https://cdn.ngrok.com/static/css/error.css">
+    <noscript>The endpoint 3a46c48e4d91.ngrok-free.app is offline. (ERR_NGROK_3200)</noscript>
+    <script id="script" src="https://cdn.ngrok.com/static/js/error.js" type="text/javascript"></script>
+  </head>
+  <body class="h-full" id="ngrok">
+    <div id="root" data-payload="eyJjZG5CYXNlIjoiaHR0cHM6Ly9jZG4ubmdyb2suY29tLyIsImNvZGUiOiIzMjAwIiwibWVzc2FnZSI6IlRoZSBlbmRwb2ludCAzYTQ2YzQ4ZTRkOTEubmdyb2stZnJlZS5hcHAgaXMgb2ZmbGluZS4iLCJ0aXRsZSI6Ik5vdCBGb3VuZCJ9"></div>
+  </body>
+</html>
+
+2025-08-07 13:49:08,434 - INFO - reinforcement.replay_buffer - Loaded replay buffer from logs/learning_log.json
+2025-08-07 13:49:08,436 - INFO - __main__ - RL Configuration: use_rl=True, exploration_rate=0.2
+2025-08-07 13:49:14,441 - INFO - reinforcement.replay_buffer - Loaded replay buffer from logs/learning_log.json
+2025-08-07 13:49:14,444 - INFO - __main__ - RL Configuration: use_rl=True, exploration_rate=0.2
+2025-08-07 13:49:16,512 - INFO - __main__ - [MCP_BRIDGE] Task ID: 1080f2bb-3f59-4362-a7b2-7b27c3abeef0 | Agent: knowledge_agent | Input: What is the philosophy of yoga?... | File:  | Type: text | Tags: []
+2025-08-07 13:49:16,513 - INFO - reinforcement.agent_selector - No history: selected stream_transformer_agent for task 1080f2bb-3f59-4362-a7b2-7b27c3abeef0
+2025-08-07 13:49:16,513 - INFO - reinforcement.rl_context - Logged RL action: {'task_id': '1080f2bb-3f59-4362-a7b2-7b27c3abeef0', 'agent': 'stream_transformer_agent', 'model': 'none', 'action': 'select_agent', 'metadata': {'task': 'process', 'input_type': 'text'}, 'timestamp': '2025-08-07T13:49:16.513904'}
+2025-08-07 13:49:16,513 - INFO - agents.agent_registry - RL selected agent: stream_transformer_agent for task: process
+2025-08-07 13:49:16,515 - INFO - agents.stream_transformer_agent - StreamTransformerAgent processing task 1080f2bb-3f59-4362-a7b2-7b27c3abeef0, input: What is the philosophy of yoga?, type: text
+2025-08-07 13:49:16,516 - INFO - agents.text_agent - TextAgent starting task 1080f2bb-3f59-4362-a7b2-7b27c3abeef0 with input_type: text, model: knowledge_agent
+2025-08-07 13:49:16,516 - INFO - agents.text_agent - Processing text (attempt 1/3) for task 1080f2bb-3f59-4362-a7b2-7b27c3abeef0
+2025-08-07 13:49:16,586 - WARNING - agents.text_agent - Text processing attempt 1/3 failed for task 1080f2bb-3f59-4362-a7b2-7b27c3abeef0: 404 Client Error: Not Found for url: https://449e35ca1138.ngrok-free.app/api/generate
+2025-08-07 13:49:16,586 - INFO - agents.text_agent - Retrying in 1 seconds...
+2025-08-07 13:49:17,588 - INFO - agents.text_agent - Processing text (attempt 2/3) for task 1080f2bb-3f59-4362-a7b2-7b27c3abeef0
+2025-08-07 13:49:17,626 - WARNING - agents.text_agent - Text processing attempt 2/3 failed for task 1080f2bb-3f59-4362-a7b2-7b27c3abeef0: 404 Client Error: Not Found for url: https://449e35ca1138.ngrok-free.app/api/generate
+2025-08-07 13:49:17,626 - INFO - agents.text_agent - Retrying in 2 seconds...
+2025-08-07 13:49:19,627 - INFO - agents.text_agent - Processing text (attempt 3/3) for task 1080f2bb-3f59-4362-a7b2-7b27c3abeef0
+2025-08-07 13:49:19,644 - WARNING - agents.text_agent - Text processing attempt 3/3 failed for task 1080f2bb-3f59-4362-a7b2-7b27c3abeef0: 404 Client Error: Not Found for url: https://449e35ca1138.ngrok-free.app/api/generate
+2025-08-07 13:49:19,644 - ERROR - agents.text_agent - Text processing failed after 3 attempts for task 1080f2bb-3f59-4362-a7b2-7b27c3abeef0: 404 Client Error: Not Found for url: https://449e35ca1138.ngrok-free.app/api/generate
+2025-08-07 13:49:19,645 - INFO - reinforcement.reward_functions - Computed reward 0.0 for task 1080f2bb-3f59-4362-a7b2-7b27c3abeef0
+2025-08-07 13:49:19,645 - INFO - reinforcement.rl_context - Logged RL reward: {'task_id': '1080f2bb-3f59-4362-a7b2-7b27c3abeef0', 'reward': 0.0, 'metrics': {'clarity_score': 0.0, 'tag_count': 0, 'status': 500}, 'timestamp': '2025-08-07T13:49:19.645986'}
+2025-08-07 13:49:19,653 - INFO - reinforcement.replay_buffer - Saved replay buffer to logs/learning_log.json
+2025-08-07 13:49:19,653 - INFO - reinforcement.replay_buffer - Added run to replay buffer: 1080f2bb-3f59-4362-a7b2-7b27c3abeef0
+2025-08-07 13:49:19,653 - INFO - reinforcement.rl_context - Logged RL task: {'task_id': '1080f2bb-3f59-4362-a7b2-7b27c3abeef0', 'input': 'What is the philosophy of yoga?', 'output': {'error': 'Text processing failed after 3 attempts: 404 Client Error: Not Found for url: https://449e35ca1138.ngrok-free.app/api/generate', 'status': 500, 'keywords': [], 'processing_time': 3.128959894180298, 'attempts': 3, 'agent': 'text_agent', 'input_type': 'text', 'input_length': 31}, 'agent': 'text_agent', 'model': 'knowledge_agent', 'timestamp': '2025-08-07T13:49:19.653104'}
+2025-08-07 13:49:19,654 - INFO - agents.text_agent - TextAgent completed task 1080f2bb-3f59-4362-a7b2-7b27c3abeef0 with status: 500
+2025-08-07 13:49:19,654 - INFO - reinforcement.reward_functions - Computed reward 0.0 for task 1080f2bb-3f59-4362-a7b2-7b27c3abeef0
+2025-08-07 13:49:19,654 - INFO - reinforcement.rl_context - Logged RL reward: {'task_id': '1080f2bb-3f59-4362-a7b2-7b27c3abeef0', 'reward': 0.0, 'metrics': {'clarity_score': 0.0, 'tag_count': 0, 'status': 500}, 'timestamp': '2025-08-07T13:49:19.654108'}
+2025-08-07 13:49:19,660 - INFO - reinforcement.replay_buffer - Saved replay buffer to logs/learning_log.json
+2025-08-07 13:49:19,660 - INFO - reinforcement.replay_buffer - Added run to replay buffer: 1080f2bb-3f59-4362-a7b2-7b27c3abeef0
+2025-08-07 13:49:19,660 - INFO - reinforcement.rl_context - Logged RL task: {'task_id': '1080f2bb-3f59-4362-a7b2-7b27c3abeef0', 'input': 'What is the philosophy of yoga?', 'output': {'error': 'Text processing failed after 3 attempts: 404 Client Error: Not Found for url: https://449e35ca1138.ngrok-free.app/api/generate', 'status': 500, 'keywords': [], 'processing_time': 3.128959894180298, 'attempts': 3, 'agent': 'text_agent', 'input_type': 'text', 'input_length': 31}, 'agent': 'text_agent', 'model': 'knowledge_agent', 'timestamp': '2025-08-07T13:49:19.660748'}
+2025-08-07 13:49:19,720 - ERROR - utils.mongo_logger - Error logging task execution: E11000 duplicate key error collection: bhiv_core.task_logs index: _id_ dup key: { _id: ObjectId('689461872377c090a8e99689') }, full error: {'index': 0, 'code': 11000, 'errmsg': "E11000 duplicate key error collection: bhiv_core.task_logs index: _id_ dup key: { _id: ObjectId('689461872377c090a8e99689') }", 'keyPattern': {'_id': 1}, 'keyValue': {'_id': ObjectId('689461872377c090a8e99689')}}
+2025-08-07 13:49:19,720 - INFO - reinforcement.reward_functions - Computed reward 0.0 for task 1080f2bb-3f59-4362-a7b2-7b27c3abeef0
+2025-08-07 13:49:19,721 - INFO - reinforcement.rl_context - Logged RL reward: {'task_id': '1080f2bb-3f59-4362-a7b2-7b27c3abeef0', 'reward': 0.0, 'metrics': {'clarity_score': 0.0, 'tag_count': 0, 'status': 500}, 'timestamp': '2025-08-07T13:49:19.721497'}
+2025-08-07 13:49:19,728 - INFO - reinforcement.replay_buffer - Saved replay buffer to logs/learning_log.json
+2025-08-07 13:49:19,728 - INFO - reinforcement.replay_buffer - Added run to replay buffer: 1080f2bb-3f59-4362-a7b2-7b27c3abeef0
+2025-08-07 13:49:19,728 - INFO - reinforcement.rl_context - Logged RL task: {'task_id': '1080f2bb-3f59-4362-a7b2-7b27c3abeef0', 'input': 'What is the philosophy of yoga?', 'output': {'error': 'Text processing failed after 3 attempts: 404 Client Error: Not Found for url: https://449e35ca1138.ngrok-free.app/api/generate', 'status': 500, 'keywords': [], 'processing_time': 3.128959894180298, 'attempts': 3, 'agent': 'text_agent', 'input_type': 'text', 'input_length': 31}, 'agent': 'stream_transformer_agent', 'model': 'knowledge_agent', 'timestamp': '2025-08-07T13:49:19.728570'}
+2025-08-07 13:49:19,728 - INFO - reinforcement.rl_context - Logged RL action: {'task_id': '1080f2bb-3f59-4362-a7b2-7b27c3abeef0', 'agent': 'stream_transformer_agent', 'model': 'knowledge_agent', 'action': 'process_task', 'metadata': {'input_type': 'text', 'tags': []}, 'timestamp': '2025-08-07T13:49:19.728570'}
+2025-08-07 13:49:19,729 - INFO - __main__ - CLI task completed in 5.28s: 1080f2bb-3f59-4362-a7b2-7b27c3abeef0
+2025-08-07 13:49:19,730 - INFO - reinforcement.reward_functions - Computed reward 0.0 for task 1080f2bb-3f59-4362-a7b2-7b27c3abeef0
+2025-08-07 13:49:19,730 - INFO - reinforcement.rl_context - Logged RL reward: {'task_id': '1080f2bb-3f59-4362-a7b2-7b27c3abeef0', 'reward': 0.0, 'metrics': {'clarity_score': 0.0, 'tag_count': 0, 'status': 500}, 'timestamp': '2025-08-07T13:49:19.730580'}
+2025-08-07 13:49:19,737 - INFO - reinforcement.replay_buffer - Saved replay buffer to logs/learning_log.json
+2025-08-07 13:49:19,737 - INFO - reinforcement.replay_buffer - Added run to replay buffer: 1080f2bb-3f59-4362-a7b2-7b27c3abeef0
+2025-08-07 13:49:19,737 - INFO - reinforcement.rl_context - Logged RL task: {'task_id': '1080f2bb-3f59-4362-a7b2-7b27c3abeef0', 'input': 'What is the philosophy of yoga?', 'output': {'error': 'Text processing failed after 3 attempts: 404 Client Error: Not Found for url: https://449e35ca1138.ngrok-free.app/api/generate', 'status': 500, 'keywords': [], 'processing_time': 3.128959894180298, 'attempts': 3, 'agent': 'text_agent', 'input_type': 'text', 'input_length': 31}, 'agent': 'knowledge_agent', 'model': 'knowledge_agent', 'timestamp': '2025-08-07T13:49:19.737899'}

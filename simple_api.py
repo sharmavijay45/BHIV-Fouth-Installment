@@ -26,7 +26,7 @@ logger = logging.getLogger(__name__)
 class ModelProvider:
     def __init__(self, model_config: Dict[str, Any], endpoint: str):
         self.model_name = model_config.get("model_name", "llama3.1")  # Ollama model name
-        self.ollama_url = "https://449e35ca1138.ngrok-free.app/api/generate"  # Your ngrok URL
+        self.ollama_url = "https://3a46c48e4d91.ngrok-free.app/api/generate"  # Your ngrok URL
         self.endpoint = endpoint
         self.timeout = 30  # Request timeout in seconds
         logger.info(f"Initialized Ollama model: {self.model_name} for {self.endpoint}")
@@ -118,7 +118,33 @@ class SimpleOrchestrationEngine:
         return self.model_providers[endpoint].generate_response(prompt, fallback)
     
     def search_documents(self, query: str, store_type: str = "unified") -> list:
-        # First try FAISS vector stores (if available)
+        # First try NAS-based knowledge base
+        try:
+            from bhiv_knowledge_base import BHIVKnowledgeBase
+            nas_path = os.getenv("NAS_PATH", r"\\192.168.0.94\Guruukul_DB")
+
+            # Initialize knowledge base (cached)
+            if not hasattr(self, '_nas_kb'):
+                self._nas_kb = BHIVKnowledgeBase(nas_path, use_qdrant=False)
+                logger.info("✅ NAS Knowledge Base initialized")
+
+            # Search in NAS knowledge base
+            nas_results = self._nas_kb.search(query, limit=3)
+            if nas_results:
+                formatted_results = [
+                    {
+                        "text": result["content"][:500],
+                        "source": f"NAS-KB:{result['document_id']}"
+                    }
+                    for result in nas_results
+                ]
+                logger.info(f"NAS-KB search found {len(formatted_results)} results for '{query}'")
+                return formatted_results
+
+        except Exception as e:
+            logger.error(f"NAS Knowledge Base search error: {e}")
+
+        # Fallback to FAISS vector stores (if available)
         if store_type in self.vector_stores:
             try:
                 retriever = self.vector_stores[store_type].as_retriever(search_kwargs={"k": 3})
@@ -130,7 +156,7 @@ class SimpleOrchestrationEngine:
             except Exception as e:
                 logger.error(f"Vector search error: {e}")
 
-        # Fallback to file-based retriever (your working knowledge base)
+        # Final fallback to file-based retriever
         try:
             from utils.file_based_retriever import file_retriever
             results = file_retriever.search(query, limit=3)
@@ -319,6 +345,19 @@ Provide supportive guidance that:
 # Initialize KnowledgeAgent
 knowledge_agent = KnowledgeAgent()
 
+# Initialize NAS Knowledge Base
+nas_kb = None
+
+def get_nas_kb():
+    """Get or initialize NAS Knowledge Base"""
+    global nas_kb
+    if nas_kb is None:
+        from bhiv_knowledge_base import BHIVKnowledgeBase
+        nas_path = os.getenv("NAS_PATH", r"\\192.168.0.94\Guruukul_DB")
+        nas_kb = BHIVKnowledgeBase(nas_path, use_qdrant=False)
+        logger.info("✅ NAS Knowledge Base initialized for API")
+    return nas_kb
+
 @app.get("/query-kb")
 async def query_knowledge_base_get(
     query: str = Query(..., description="Your knowledge base query"),
@@ -418,6 +457,86 @@ async def process_knowledge_query(query: str, filters: Optional[Dict[str, Any]],
 
         raise HTTPException(status_code=500, detail=str(e))
 
+# ==================== NAS KNOWLEDGE BASE ENDPOINTS ====================
+
+@app.get("/nas-kb/status")
+async def get_nas_kb_status():
+    """Get NAS Knowledge Base status and statistics"""
+    try:
+        kb = get_nas_kb()
+        test_results = kb.test_system()
+        stats = kb.get_stats()
+
+        return {
+            "status": "success",
+            "system_tests": test_results,
+            "statistics": stats,
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Error getting NAS KB status: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/nas-kb/documents")
+async def list_nas_documents():
+    """List all documents in the NAS Knowledge Base"""
+    try:
+        kb = get_nas_kb()
+        documents = kb.list_documents()
+
+        return {
+            "status": "success",
+            "documents": documents,
+            "count": len(documents),
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Error listing NAS documents: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/nas-kb/search")
+async def search_nas_kb(
+    query: str = Query(..., description="Search query"),
+    limit: int = Query(5, description="Maximum number of results")
+):
+    """Search the NAS Knowledge Base"""
+    try:
+        kb = get_nas_kb()
+        results = kb.search(query, limit=limit)
+
+        return {
+            "status": "success",
+            "query": query,
+            "results": results,
+            "count": len(results),
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Error searching NAS KB: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/nas-kb/document/{document_id}")
+async def get_nas_document(document_id: str):
+    """Get content of a specific document from NAS Knowledge Base"""
+    try:
+        kb = get_nas_kb()
+        content = kb.get_document_content(document_id)
+
+        if content is None:
+            raise HTTPException(status_code=404, detail="Document not found")
+
+        return {
+            "status": "success",
+            "document_id": document_id,
+            "content": content,
+            "timestamp": datetime.now().isoformat()
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error getting NAS document {document_id}: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
 @app.get("/")
 async def root():
     return {
@@ -439,6 +558,12 @@ async def root():
             "query-kb": {
                 "GET": "/query-kb?query=your_question&filters=optional&limit=5&user_id=optional",
                 "POST": "/query-kb with JSON body including query, filters, limit, user_id"
+            },
+            "nas-kb": {
+                "status": "/nas-kb/status - Get NAS Knowledge Base status",
+                "documents": "/nas-kb/documents - List all documents",
+                "search": "/nas-kb/search?query=your_query&limit=5 - Search documents",
+                "document": "/nas-kb/document/{document_id} - Get specific document content"
             }
         },
         "documentation": "/docs"

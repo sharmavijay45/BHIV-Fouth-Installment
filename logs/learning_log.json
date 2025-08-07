@@ -2874,5 +2874,104 @@
     "model": "vedas_agent",
     "reward": 0.56,
     "timestamp": "2025-08-05T15:47:26.106316"
+  },
+  {
+    "task_id": "7b2a9e4b-3049-45b8-b129-e3e2a22dc6c1",
+    "input": "What is dharma?",
+    "output": {
+      "error": "Text processing failed after 3 attempts: 404 Client Error: Not Found for url: https://449e35ca1138.ngrok-free.app/api/generate",
+      "status": 500,
+      "keywords": [],
+      "processing_time": 3.1392533779144287,
+      "attempts": 3,
+      "agent": "text_agent",
+      "input_type": "text",
+      "input_length": 15
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 0.0,
+    "timestamp": "2025-08-05T18:05:35.060358"
+  },
+  {
+    "task_id": "1860d208-89be-4d57-b282-c0c36e62d775",
+    "input": "What is dharma?",
+    "output": {
+      "response": "Based on the available knowledge:\n\nadditional context result = adapter run_with_model(\n    model=\"vedas_agent\",\n    query=\"What is dharma \",\n    live_feed=\"User is interested in Hindu philosophy\",\n    task_id=\"task-456\"\n)\n```\n\n### Mathematical Calculations\n\n```python\n# Automatic calculator detection\nresult = adapter\n\nReward): =================================== edumentor_agent \u2502\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2502 1 425\nvedas_agent          \u2502\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2502 1 398\nwellness_agent       \u2502\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2502 1 387\nllama                \u2502\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2502 1\n\nReward): =================================== edumentor_agent \u2502\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2502 1 425\nvedas_agent          \u2502\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2502 1 398\nwellness_agent       \u2502\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2502 1 387\nllama                \u2502\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2502 1\n\nThis information addresses your query about: What is dharma?",
+      "query_id": "1860d208-89be-4d57-b282-c0c36e62d775",
+      "query": "What is dharma?",
+      "sources": [
+        "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\llm_router.md",
+        "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\learning_dashboard.md",
+        "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\learning_dashboard.md",
+        "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\llm_router.md",
+        "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\Task1.pdf"
+      ],
+      "metadata": {
+        "tags": [
+          "semantic_search",
+          "file_based"
+        ],
+        "retriever": "file_based",
+        "total_results": 5
+      },
+      "timestamp": "2025-08-05T18:06:32.326109",
+      "status": 200,
+      "model": "knowledge_agent",
+      "knowledge_base_results": 5,
+      "endpoint": "knowledge_agent"
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 1.895,
+    "timestamp": "2025-08-05T18:06:32.339839"
+  },
+  {
+    "task_id": "8dc35553-bce5-40dc-b22c-5c3c6e6f3a14",
+    "input": "What is dharma?",
+    "output": {
+      "query_id": "ddee1d68-268e-4707-9866-e494e0f3a530",
+      "query": "What is dharma?",
+      "response": "The ancient Vedic texts teach us to seek truth through self-reflection and righteous action. Regarding 'What is dharma?', remember that true wisdom comes from understanding the interconnectedness of all existence. Practice mindfulness, act with compassion, and seek the divine within yourself.",
+      "sources": [
+        {
+          "text": "additional context result = adapter run_with_model(\n    model=\"vedas_agent\",\n    query=\"What is dharma \",\n    live_feed=\"User is interested in Hindu philosophy\",\n    task_id=\"task-456\"\n)\n```\n\n### Mathematical Calculations\n\n```python\n# Automatic calculator detection\nresult = adapter",
+          "source": "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\llm_router.md"
+        },
+        {
+          "text": "Reward): =================================== edumentor_agent \u2502\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2502 1 425\nvedas_agent          \u2502\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2502 1 398\nwellness_agent       \u2502\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2502 1 387\nllama                \u2502\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2502 1",
+          "source": "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\learning_dashboard.md"
+        },
+        {
+          "text": "Reward): =================================== edumentor_agent \u2502\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2502 1 425\nvedas_agent          \u2502\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2502 1 398\nwellness_agent       \u2502\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2502 1 387\nllama                \u2502\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2502 1",
+          "source": "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\learning_dashboard.md"
+        }
+      ],
+      "timestamp": "2025-08-05T18:07:00.385209",
+      "endpoint": "ask-vedas",
+      "status": 500
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 0.505,
+    "timestamp": "2025-08-05T18:07:00.399650"
+  },
+  {
+    "task_id": "1080f2bb-3f59-4362-a7b2-7b27c3abeef0",
+    "input": "What is the philosophy of yoga?",
+    "output": {
+      "error": "Text processing failed after 3 attempts: 404 Client Error: Not Found for url: https://449e35ca1138.ngrok-free.app/api/generate",
+      "status": 500,
+      "keywords": [],
+      "processing_time": 3.128959894180298,
+      "attempts": 3,
+      "agent": "text_agent",
+      "input_type": "text",
+      "input_length": 31
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 0.0,
+    "timestamp": "2025-08-07T13:49:19.730580"
   }
 ]

@@ -16,6 +16,16 @@ except ImportError as e:
     VedabaseRetriever = None
     QDRANT_AVAILABLE = False
 
+# Try to import NAS retriever for enhanced knowledge retrieval
+try:
+    from example.nas_retriever import NASKnowledgeRetriever
+    NAS_RETRIEVER_AVAILABLE = True
+except ImportError as e:
+    logger = get_logger(__name__)
+    logger.warning(f"NAS retriever not available: {e}")
+    NASKnowledgeRetriever = None
+    NAS_RETRIEVER_AVAILABLE = False
+
 logger = get_logger(__name__)
 
 class KnowledgeAgent:
@@ -23,12 +33,26 @@ class KnowledgeAgent:
         # Always try file-based retriever first since it's more reliable
         self.file_retriever_available = True
 
+        # Try NAS+Qdrant retriever first (most advanced)
+        if NAS_RETRIEVER_AVAILABLE and NASKnowledgeRetriever:
+            try:
+                self.nas_retriever = NASKnowledgeRetriever("vedas", qdrant_url="localhost:6333")
+                self.nas_available = True
+                logger.info("KnowledgeAgent initialized with NAS+Qdrant support")
+            except Exception as e:
+                logger.info(f"NAS retriever not available: {str(e)}")
+                self.nas_retriever = None
+                self.nas_available = False
+        else:
+            self.nas_retriever = None
+            self.nas_available = False
+
         # Try Qdrant-based retriever as secondary option
         if QDRANT_AVAILABLE and VedabaseRetriever:
             try:
                 self.retriever = VedabaseRetriever()
                 self.qdrant_available = True
-                logger.info("KnowledgeAgent initialized with both file-based and Qdrant support")
+                logger.info("KnowledgeAgent initialized with Qdrant support")
             except Exception as e:
                 logger.info(f"Qdrant not available, using file-based retriever only: {str(e)}")
                 self.retriever = None

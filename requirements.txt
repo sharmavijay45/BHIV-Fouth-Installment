@@ -33,3 +33,6 @@ python-jose[cryptography]
 passlib[bcrypt]
 passlib
 pdfplumber
+qdrant-client 
+sentence-transformers
+qdrant-client[fastembed]

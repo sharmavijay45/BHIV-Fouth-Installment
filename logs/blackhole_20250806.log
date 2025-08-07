@@ -1,0 +1,26 @@
+2025-08-06 12:11:53,605 - INFO - utils.file_utils - SecureFileAccess initialized with paths: ['C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment', 'C:\\mnt\\vedabase', '\\\\nas\\vedabase', 'Z:\\vedabase', '\\\\your-company-nas\\vedabase', '\\\\your-company-nas\\shared\\vedabase', 'Y:\\vedabase'], read_only: True
+2025-08-06 12:11:53,607 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-06 12:11:53,607 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-06 12:11:58,334 - INFO - utils.file_based_retriever - FileBasedRetriever initialized with SentenceTransformer
+2025-08-06 12:11:58,363 - INFO - utils.file_based_retriever - Loaded knowledge base from cache: 136 chunks
+2025-08-06 12:11:59,137 - WARNING - agents.KnowledgeAgent - NAS retriever not available: No module named 'nas_config'
+2025-08-06 12:11:59,140 - INFO - utils.mongo_logger - MongoDB logger initialized successfully
+2025-08-06 12:11:59,141 - INFO - __main__ - Initialized Ollama model: llama3.1 for ask-vedas
+2025-08-06 12:11:59,141 - INFO - __main__ - Initialized Ollama model: llama3.1 for edumentor
+2025-08-06 12:11:59,141 - INFO - __main__ - Initialized Ollama model: llama3.1 for wellness
+2025-08-06 12:11:59,142 - INFO - __main__ - Initializing embedding model...
+2025-08-06 12:11:59,143 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-06 12:11:59,143 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-06 12:12:02,148 - INFO - __main__ - Initialized with 0 vector stores
+2025-08-06 12:12:06,369 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-06 12:12:06,369 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-06 12:12:08,562 - INFO - reinforcement.replay_buffer - Loaded replay buffer from logs/learning_log.json
+2025-08-06 12:12:08,563 - INFO - agents.agent_registry - Loaded 9 agents from config/agent_configs.json
+2025-08-06 12:12:08,566 - INFO - utils.mongo_logger - MongoDB logger initialized successfully
+2025-08-06 12:12:09,568 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with Qdrant support
+2025-08-06 12:12:09,592 - INFO - __main__ - Starting Simple Orchestration API...
+2025-08-06 12:12:09,593 - INFO - __main__ - Initializing embedding model...
+2025-08-06 12:12:09,593 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-06 12:12:09,594 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-06 12:12:12,609 - INFO - __main__ - Initialized with 0 vector stores
+2025-08-06 12:12:12,609 - INFO - __main__ - Simple Orchestration API ready!

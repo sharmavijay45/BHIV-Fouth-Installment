@@ -14,7 +14,12 @@ from sentence_transformers import SentenceTransformer
 from qdrant_client import QdrantClient
 from qdrant_client.http.models import Filter, FieldCondition, MatchValue
 
-from nas_config import NASConfig
+try:
+    # Prefer package import when example is a package
+    from example.nas_config import NASConfig
+except Exception:
+    # Fallback to local import when run from within example/
+    from nas_config import NASConfig
 
 logger = logging.getLogger(__name__)
 

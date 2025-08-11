@@ -1,6 +1,7 @@
 from utils.file_based_retriever import file_retriever
 from utils.logger import get_logger
 import uuid
+import os
 from datetime import datetime
 from reinforcement.rl_context import RLContext
 from reinforcement.reward_functions import get_reward_from_output
@@ -18,9 +19,10 @@ except ImportError as e:
 
 # Try to import NAS retriever for enhanced knowledge retrieval
 try:
+    # Import via package path first, fallback to relative example path
     from example.nas_retriever import NASKnowledgeRetriever
     NAS_RETRIEVER_AVAILABLE = True
-except ImportError as e:
+except Exception as e:
     logger = get_logger(__name__)
     logger.warning(f"NAS retriever not available: {e}")
     NASKnowledgeRetriever = None
@@ -160,18 +162,34 @@ class KnowledgeAgent:
             }
 
     def enhance_with_llm(self, query: str, knowledge_context: str) -> str:
-        """Enhanced response using local processing (no external API calls)."""
+        """Enhanced response using Ollama fallback if configured, else local formatting."""
         try:
-            print(f"🎨 [LOCAL ENHANCEMENT] Processing knowledge without external APIs...")
-            # Simple enhancement without external API calls
+            # Try Ollama when configured
+            import requests
+            ollama_url = os.getenv("OLLAMA_URL", "")
+            ollama_model = os.getenv("OLLAMA_MODEL", "")
+            if ollama_url and ollama_model:
+                prompt = (
+                    "You are a helpful assistant. Use the following knowledge context if available to answer the query.\n\n"
+                    f"Query: {query}\n\n"
+                    f"Knowledge Context:\n{knowledge_context}\n\n"
+                    "If the context is empty or irrelevant, give a general helpful answer. Keep it clear and concise."
+                )
+                payload = {"model": ollama_model, "prompt": prompt, "stream": False}
+                headers = {"Content-Type": "application/json"}
+                r = requests.post(ollama_url, json=payload, headers=headers, timeout=int(os.getenv("OLLAMA_TIMEOUT", "60")))
+                if r.status_code == 200:
+                    data = r.json()
+                    text = data.get("response") or data.get("message", {}).get("content")
+                    if text:
+                        return text.strip()
+            # Fallback: local formatting only
             if knowledge_context.strip():
-                enhanced = f"Based on the available knowledge:\n\n{knowledge_context}\n\nThis information addresses your query about: {query}"
-                print(f"✨ [ENHANCED] Response formatted and ready")
-                return enhanced
-            else:
-                print(f"❌ [NO KNOWLEDGE] No relevant information found")
-                return f"I don't have specific information about '{query}' in the knowledge base."
-
+                return (
+                    "Based on the available knowledge:\n\n" + knowledge_context +
+                    f"\n\nThis information addresses your query about: {query}"
+                )
+            return f"I don't have specific information about '{query}' in the knowledge base."
         except Exception as e:
             logger.error(f"LLM enhancement failed: {str(e)}")
             return knowledge_context if knowledge_context.strip() else "Unable to process your query at this time."

@@ -25,11 +25,13 @@ logger = logging.getLogger(__name__)
 
 class ModelProvider:
     def __init__(self, model_config: Dict[str, Any], endpoint: str):
-        self.model_name = model_config.get("model_name", "llama3.1")  # Ollama model name
-        self.ollama_url = "https://3a46c48e4d91.ngrok-free.app/api/generate"  # Your ngrok URL
+        # Read Ollama settings from environment for production usage
+        self.model_name = os.getenv("OLLAMA_MODEL", model_config.get("model_name", "llama3.1"))
+        # Default to local Ollama; can be overridden by env
+        self.ollama_url = os.getenv("OLLAMA_URL", "http://localhost:11434/api/generate")
         self.endpoint = endpoint
-        self.timeout = 30  # Request timeout in seconds
-        logger.info(f"Initialized Ollama model: {self.model_name} for {self.endpoint}")
+        self.timeout = int(os.getenv("OLLAMA_TIMEOUT", "60"))
+        logger.info(f"Initialized Ollama model: {self.model_name} for {self.endpoint} at {self.ollama_url}")
 
     def generate_response(self, prompt: str, fallback: str) -> tuple[str, int]:
         try:

@@ -108,19 +108,19 @@ MODEL_CONFIG = {
         "model_name": "llama-3.1-8b-instruct"
     },
     "vedas_agent": {
-        "endpoint": "http://localhost:8001/ask-vedas",
+        "endpoint": os.getenv("VEDAS_ENDPOINT", "http://localhost:8001/ask-vedas"),
         "headers": {"Content-Type": "application/json"},
         "api_key": os.getenv("GEMINI_API_KEY"),
         "backup_api_key": os.getenv("GEMINI_API_KEY_BACKUP")
     },
     "edumentor_agent": {
-        "endpoint": "http://localhost:8001/edumentor",
+        "endpoint": os.getenv("EDUMENTOR_ENDPOINT", "http://localhost:8001/edumentor"),
         "headers": {"Content-Type": "application/json"},
         "api_key": os.getenv("GEMINI_API_KEY"),
         "backup_api_key": os.getenv("GEMINI_API_KEY_BACKUP")
     },
     "wellness_agent": {
-        "endpoint": "http://localhost:8001/wellness",
+        "endpoint": os.getenv("WELLNESS_ENDPOINT", "http://localhost:8001/wellness"),
         "headers": {"Content-Type": "application/json"},
         "api_key": os.getenv("GEMINI_API_KEY"),
         "backup_api_key": os.getenv("GEMINI_API_KEY_BACKUP")

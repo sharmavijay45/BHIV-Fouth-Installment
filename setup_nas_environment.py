@@ -6,8 +6,11 @@ Sets up environment variables and configuration for NAS access
 
 import os
 import sys
+from dotenv import load_dotenv
 from pathlib import Path
 from utils.logger import get_logger
+
+load_dotenv()
 
 logger = get_logger(__name__)
 

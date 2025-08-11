@@ -2973,5 +2973,212 @@
     "model": "knowledge_agent",
     "reward": 0.0,
     "timestamp": "2025-08-07T13:49:19.730580"
+  },
+  {
+    "task_id": "f9ddfc32-1fc3-48ea-a510-144cb729ba94",
+    "input": "what is life",
+    "output": {
+      "error": "Text processing failed after 3 attempts: 404 Client Error: Not Found for url: https://449e35ca1138.ngrok-free.app/api/generate",
+      "status": 500,
+      "keywords": [],
+      "processing_time": 3.1543338298797607,
+      "attempts": 3,
+      "agent": "text_agent",
+      "input_type": "text",
+      "input_length": 12
+    },
+    "agent": "vedas_agent",
+    "model": "vedas_agent",
+    "reward": 0.0,
+    "timestamp": "2025-08-11T16:42:23.459754"
+  },
+  {
+    "task_id": "170cdcbb-0f9c-4daf-a7cd-31f9885506bc",
+    "input": "what is life",
+    "output": {
+      "response": "Simple query result = adapter run_with_model(\n    model=\"edumentor_agent\",\n    query=\"Explain machine learning\",\n    task_id=\"task-123\"\n)\n\nprint(result['result'])  # Model response\nprint(result['tokens_used'])  # Token count\nprint(result['cost_estimate'])  # Estimated cost\n```\n\n### With Live Feed\n\n```python\n# Include additional context\nresult = adapter\n\nadditional context result = adapter run_with_model(\n    model=\"vedas_agent\",\n    query=\"What is dharma \",\n    live_feed=\"User is interested in Hindu philosophy\",\n    task_id=\"task-456\"\n)\n```\n\n### Mathematical Calculations\n\n```python\n# Automatic calculator detection\nresult = adapter\n\ngeneration, and production-ready web interface ## \ud83d\ude80 Features\n\n### Core Capabilities\n- **Multi-Modal Processing**: Handle text, PDF, image, and audio inputs seamlessly\n- **Multi-Input Processing**: Combine different file types in a single analysis\n- **Named Learning Objects**: Structured educational content with Bloom's taxonomy\n- **Web Interface**: Bootstrap-based UI with real-time processing and authentication\n- **Enhanced CLI**: Batch processing with progress bars and multiple output formats\n\n### AI & Machine Learning\n- **Reinforcement Learning**: Adaptive agent and model selection with UCB optimization\n- **Dynamic Exploration**: Task-complexity-based exploration rates\n- **Automatic Retraining**: Continuous model improvement from historical data\n- **Bloom's Taxonomy Extraction**: Automatic cognitive level classification\n- **Subject Tag Generation**: NLP-powered content categorization\n\n### Production Features\n- **Health Monitoring**: Comprehensive health checks and metrics\n- **MongoDB Integration**: Persistent NLO storage with indexing\n- **Retry Logic**: Exponential backoff for failed API calls\n- **Error Recovery**: Graceful degradation and fallback mechanisms\n- **Async Processing**: Concurrent multi-file processing\n- **Docker Support**: Production-ready containerization\n\n## \ud83c\udfd7\ufe0f Architecture\n\n```\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510    \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510    \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502   Web Interface \u2502    \u2502   CLI Runner    \u2502    \u2502   Simple API    \u2502\n\u2502   (Port 8003)   \u2502    \u2502  (Enhanced)     \u2502    \u2502   (Port 8001)   \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518    \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518    \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n         \u2502                       \u2502                       \u2502\n         \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n                                 \u2502\n                    \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n                    \u2502   MCP Bridge    \u2502\n                    \u2502   (Port 8002)   \u2502\n                    \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n                                 \u2502\n         \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n         \u2502                       \u2502                       \u2502\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510    \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510    \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502 Agent Registry  \u2502    \u2502 Nipun Adapter   \u2502    \u2502   MongoDB       \u2502\n\u2502 (Dynamic Config)\u2502    \u2502 (NLO Generator) \u2502    \u2502 (NLO Storage)   \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518    \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518    \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n         \u2502                       \u2502                       \u2502\n         \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n                                 \u2502\n    \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n    \u2502                            \u2502                            \u2502\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510    \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510    \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510    \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502   Text Agent    \u2502    \u2502  Archive Agent  \u2502    \u2502  Image Agent    \u2502    \u2502  Audio Agent    \u2502\n\u2502   (Enhanced)    \u2502    \u2502   (Enhanced)    \u2502    \u2502   (BLIP Model)  \u2502    \u2502 (Wav2Vec2 Model)\u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518    \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518    \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518    \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n         \u2502                       \u2502                       \u2502                       \u2502\n         \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n                                 \u2502                       \u2502\n                    \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510         \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n                    \u2502 Reinforcement   \u2502         \u2502 RL Retraining   \u2502\n                    \u2502 Learning System \u2502         \u2502    System       \u2502\n                    \u2502 (UCB Enhanced)  \u2502         \u2502  (Automated)    \u2502\n                    \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518         \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n```\n\n## \ud83d\ude80 Quick Start\n\n### Prerequisites\n\n- Python 3",
+      "query_id": "170cdcbb-0f9c-4daf-a7cd-31f9885506bc",
+      "query": "what is life",
+      "sources": [
+        "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\llm_router.md",
+        "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\llm_router.md",
+        "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\README.md",
+        "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\learning_dashboard.md",
+        "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\learning_dashboard.md"
+      ],
+      "metadata": {
+        "tags": [
+          "semantic_search",
+          "file_based"
+        ],
+        "retriever": "file_based",
+        "total_results": 5
+      },
+      "timestamp": "2025-08-11T16:45:19.883226",
+      "status": 200,
+      "model": "vedas_agent",
+      "knowledge_base_results": 5,
+      "endpoint": "knowledge_agent"
+    },
+    "agent": "vedas_agent",
+    "model": "vedas_agent",
+    "reward": 2.0,
+    "timestamp": "2025-08-11T16:45:22.619751"
+  },
+  {
+    "task_id": "c8b5879b-f1bb-4eae-8bec-49d77b749659",
+    "input": "what is life",
+    "output": {
+      "query_id": "bf08f6b7-5b51-4ba2-a9ef-cf6b9eea6461",
+      "query": "what is life",
+      "response": "The ancient Vedic texts teach us to seek truth through self-reflection and righteous action. Regarding 'what is life', remember that true wisdom comes from understanding the interconnectedness of all existence. Practice mindfulness, act with compassion, and seek the divine within yourself.",
+      "sources": [
+        {
+          "text": "Simple query result = adapter run_with_model(\n    model=\"edumentor_agent\",\n    query=\"Explain machine learning\",\n    task_id=\"task-123\"\n)\n\nprint(result['result'])  # Model response\nprint(result['tokens_used'])  # Token count\nprint(result['cost_estimate'])  # Estimated cost\n```\n\n### With Live Feed\n\n```python\n# Include additional context\nresult = adapter",
+          "source": "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\llm_router.md"
+        },
+        {
+          "text": "additional context result = adapter run_with_model(\n    model=\"vedas_agent\",\n    query=\"What is dharma \",\n    live_feed=\"User is interested in Hindu philosophy\",\n    task_id=\"task-456\"\n)\n```\n\n### Mathematical Calculations\n\n```python\n# Automatic calculator detection\nresult = adapter",
+          "source": "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\llm_router.md"
+        },
+        {
+          "text": "generation, and production-ready web interface ## \ud83d\ude80 Features\n\n### Core Capabilities\n- **Multi-Modal Processing**: Handle text, PDF, image, and audio inputs seamlessly\n- **Multi-Input Processing**: Combine different file types in a single analysis\n- **Named Learning Objects**: Structured educational content with Bloom's taxonomy\n- **Web Interface**: Bootstrap-based UI with real-time processing and authentication\n- **Enhanced CLI**: Batch processing with progress bars and multiple output formats\n\n",
+          "source": "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\README.md"
+        }
+      ],
+      "timestamp": "2025-08-11T16:46:15.658384",
+      "endpoint": "ask-vedas",
+      "status": 500
+    },
+    "agent": "vedas_agent",
+    "model": "vedas_agent",
+    "reward": 0.505,
+    "timestamp": "2025-08-11T16:46:15.671898"
+  },
+  {
+    "task_id": "890ab95c-a6c8-4561-8c63-8a0938c48b02",
+    "input": "what is life",
+    "output": {
+      "query_id": "99cf5b9b-15d8-456e-8c67-f49d48eaa85f",
+      "query": "what is life",
+      "response": "Great question about 'what is life'! This is an important topic to understand. Let me break it down for you in simple terms with practical examples that will help you learn and remember the key concepts. The main idea is to understand the fundamental principles and how they apply in real-world situations.",
+      "sources": [
+        {
+          "text": "Simple query result = adapter run_with_model(\n    model=\"edumentor_agent\",\n    query=\"Explain machine learning\",\n    task_id=\"task-123\"\n)\n\nprint(result['result'])  # Model response\nprint(result['tokens_used'])  # Token count\nprint(result['cost_estimate'])  # Estimated cost\n```\n\n### With Live Feed\n\n```python\n# Include additional context\nresult = adapter",
+          "source": "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\llm_router.md"
+        },
+        {
+          "text": "additional context result = adapter run_with_model(\n    model=\"vedas_agent\",\n    query=\"What is dharma \",\n    live_feed=\"User is interested in Hindu philosophy\",\n    task_id=\"task-456\"\n)\n```\n\n### Mathematical Calculations\n\n```python\n# Automatic calculator detection\nresult = adapter",
+          "source": "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\llm_router.md"
+        },
+        {
+          "text": "generation, and production-ready web interface ## \ud83d\ude80 Features\n\n### Core Capabilities\n- **Multi-Modal Processing**: Handle text, PDF, image, and audio inputs seamlessly\n- **Multi-Input Processing**: Combine different file types in a single analysis\n- **Named Learning Objects**: Structured educational content with Bloom's taxonomy\n- **Web Interface**: Bootstrap-based UI with real-time processing and authentication\n- **Enhanced CLI**: Batch processing with progress bars and multiple output formats\n\n",
+          "source": "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\README.md"
+        }
+      ],
+      "timestamp": "2025-08-11T16:52:58.743042",
+      "endpoint": "edumentor",
+      "status": 500
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 0.56,
+    "timestamp": "2025-08-11T16:52:58.802033"
+  },
+  {
+    "task_id": "9bcbd602-ec85-4a37-9363-5c1889fca7ce",
+    "input": "what is life",
+    "output": {
+      "query_id": "9ccc8ff3-b43e-4e5c-81af-7a32b9945d9a",
+      "query": "what is life",
+      "response": "Thank you for reaching out about 'what is life'. It's important to take care of your wellbeing. Here are some gentle suggestions: Take time for self-care, practice deep breathing, stay connected with supportive people, and remember that small steps can lead to big improvements. If you're experiencing serious concerns, please consider speaking with a healthcare professional.",
+      "sources": [
+        {
+          "text": "Simple query result = adapter run_with_model(\n    model=\"edumentor_agent\",\n    query=\"Explain machine learning\",\n    task_id=\"task-123\"\n)\n\nprint(result['result'])  # Model response\nprint(result['tokens_used'])  # Token count\nprint(result['cost_estimate'])  # Estimated cost\n```\n\n### With Live Feed\n\n```python\n# Include additional context\nresult = adapter",
+          "source": "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\llm_router.md"
+        },
+        {
+          "text": "additional context result = adapter run_with_model(\n    model=\"vedas_agent\",\n    query=\"What is dharma \",\n    live_feed=\"User is interested in Hindu philosophy\",\n    task_id=\"task-456\"\n)\n```\n\n### Mathematical Calculations\n\n```python\n# Automatic calculator detection\nresult = adapter",
+          "source": "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\llm_router.md"
+        },
+        {
+          "text": "generation, and production-ready web interface ## \ud83d\ude80 Features\n\n### Core Capabilities\n- **Multi-Modal Processing**: Handle text, PDF, image, and audio inputs seamlessly\n- **Multi-Input Processing**: Combine different file types in a single analysis\n- **Named Learning Objects**: Structured educational content with Bloom's taxonomy\n- **Web Interface**: Bootstrap-based UI with real-time processing and authentication\n- **Enhanced CLI**: Batch processing with progress bars and multiple output formats\n\n",
+          "source": "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\README.md"
+        }
+      ],
+      "timestamp": "2025-08-11T16:53:21.885887",
+      "endpoint": "wellness",
+      "status": 500
+    },
+    "agent": "vedas_agent",
+    "model": "vedas_agent",
+    "reward": 0.5800000000000001,
+    "timestamp": "2025-08-11T16:53:21.899402"
+  },
+  {
+    "task_id": "7970ff9c-f802-4720-839a-b4c20c38b4e6",
+    "input": "what is life",
+    "output": {
+      "error": "Text processing failed after 3 attempts: 404 Client Error: Not Found for url: https://449e35ca1138.ngrok-free.app/api/generate",
+      "status": 500,
+      "keywords": [],
+      "processing_time": 3.150397300720215,
+      "attempts": 3,
+      "agent": "text_agent",
+      "input_type": "text",
+      "input_length": 12
+    },
+    "agent": "vedas_agent",
+    "model": "vedas_agent",
+    "reward": 0.0,
+    "timestamp": "2025-08-11T16:53:33.394002"
+  },
+  {
+    "task_id": "84b2077d-a30a-4815-85c5-269ead8807b7",
+    "input": "what is life",
+    "output": {
+      "query_id": "e67f9f1a-b20a-4173-8754-369f370ff697",
+      "query": "what is life",
+      "response": "Thank you for reaching out about 'what is life'. It's important to take care of your wellbeing. Here are some gentle suggestions: Take time for self-care, practice deep breathing, stay connected with supportive people, and remember that small steps can lead to big improvements. If you're experiencing serious concerns, please consider speaking with a healthcare professional.",
+      "sources": [
+        {
+          "text": "Simple query result = adapter run_with_model(\n    model=\"edumentor_agent\",\n    query=\"Explain machine learning\",\n    task_id=\"task-123\"\n)\n\nprint(result['result'])  # Model response\nprint(result['tokens_used'])  # Token count\nprint(result['cost_estimate'])  # Estimated cost\n```\n\n### With Live Feed\n\n```python\n# Include additional context\nresult = adapter",
+          "source": "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\llm_router.md"
+        },
+        {
+          "text": "additional context result = adapter run_with_model(\n    model=\"vedas_agent\",\n    query=\"What is dharma \",\n    live_feed=\"User is interested in Hindu philosophy\",\n    task_id=\"task-456\"\n)\n```\n\n### Mathematical Calculations\n\n```python\n# Automatic calculator detection\nresult = adapter",
+          "source": "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\llm_router.md"
+        },
+        {
+          "text": "generation, and production-ready web interface ## \ud83d\ude80 Features\n\n### Core Capabilities\n- **Multi-Modal Processing**: Handle text, PDF, image, and audio inputs seamlessly\n- **Multi-Input Processing**: Combine different file types in a single analysis\n- **Named Learning Objects**: Structured educational content with Bloom's taxonomy\n- **Web Interface**: Bootstrap-based UI with real-time processing and authentication\n- **Enhanced CLI**: Batch processing with progress bars and multiple output formats\n\n",
+          "source": "C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment\\README.md"
+        }
+      ],
+      "timestamp": "2025-08-11T16:54:02.278527",
+      "endpoint": "wellness",
+      "status": 500
+    },
+    "agent": "vedas_agent",
+    "model": "vedas_agent",
+    "reward": 0.5800000000000001,
+    "timestamp": "2025-08-11T16:54:02.292672"
+  },
+  {
+    "task_id": "2ac429d2-01fe-43dd-95f4-54cff1c684a4",
+    "input": "what is life",
+    "output": {
+      "error": "Text processing failed after 3 attempts: 404 Client Error: Not Found for url: https://449e35ca1138.ngrok-free.app/api/generate",
+      "status": 500,
+      "keywords": [],
+      "processing_time": 3.165677070617676,
+      "attempts": 3,
+      "agent": "text_agent",
+      "input_type": "text",
+      "input_length": 12
+    },
+    "agent": "vedas_agent",
+    "model": "vedas_agent",
+    "reward": 0.0,
+    "timestamp": "2025-08-11T16:54:48.349883"
   }
 ]

@@ -367,6 +367,7 @@ Examples:
     parser.add_argument("--retries", type=int, default=3, help="Number of retries for failed requests")
     parser.add_argument("--delay", type=int, default=2, help="Delay between retries in seconds")
     parser.add_argument("--verbose", "-v", action="store_true", help="Enable verbose logging")
+    parser.add_argument("--knowledge-first", action="store_true", help="Route through knowledge_agent first; fallback to requested agent if no KB results")
 
     # RL options
     parser.add_argument("--use-rl", action="store_true", help="Enable RL-based model/agent selection")
@@ -458,8 +459,17 @@ Examples:
                 logger.error(f"File not found: {args.file}")
                 return 1
 
-            # Process single file
-            result = run_task(args.task, args.data, args.model, args.file or "", input_type, args.retries, args.delay)
+            # Knowledge-first behavior: try knowledge_agent first, then fallback to requested model
+            if args.knowledge_first and input_type == "text":
+                kb_result = run_task(args.task, args.data, "knowledge_agent", args.file or "", "text", args.retries, args.delay)
+                kb_output = kb_result.get("agent_output", {})
+                kb_hits = kb_output.get("knowledge_base_results", 0)
+                if isinstance(kb_hits, int) and kb_hits > 0:
+                    result = kb_result
+                else:
+                    result = run_task(args.task, args.data, args.model, args.file or "", input_type, args.retries, args.delay)
+            else:
+                result = run_task(args.task, args.data, args.model, args.file or "", input_type, args.retries, args.delay)
             results = [result]
 
             # Output results

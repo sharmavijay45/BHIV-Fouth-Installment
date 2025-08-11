@@ -284,16 +284,29 @@ def main():
     
     if args.init:
         if loader.initialize_qdrant():
-            print("✅ Qdrant collection initialized successfully")
+            try:
+                print("✅ Qdrant collection initialized successfully")
+            except UnicodeEncodeError:
+                print("[OK] Qdrant collection initialized successfully")
         else:
-            print("❌ Failed to initialize Qdrant collection")
+            try:
+                print("❌ Failed to initialize Qdrant collection")
+            except UnicodeEncodeError:
+                print("[ERROR] Failed to initialize Qdrant collection")
             sys.exit(1)
     
     if args.load_pdfs:
         results = loader.load_pdf_files(args.files)
-        print(f"📄 PDF Loading Results:")
-        print(f"  ✅ Loaded: {len(results['loaded'])}")
-        print(f"  ❌ Failed: {len(results['failed'])}")
+        try:
+            print(f"📄 PDF Loading Results:")
+        except UnicodeEncodeError:
+            print("[PDF] Loading Results:")
+        try:
+            print(f"  ✅ Loaded: {len(results['loaded'])}")
+            print(f"  ❌ Failed: {len(results['failed'])}")
+        except UnicodeEncodeError:
+            print(f"  [OK] Loaded: {len(results['loaded'])}")
+            print(f"  [ERROR] Failed: {len(results['failed'])}")
         
         if results['failed']:
             print("Failed files:")
@@ -302,9 +315,16 @@ def main():
     
     if args.load_texts:
         results = loader.load_text_files(args.files)
-        print(f"📝 Text Loading Results:")
-        print(f"  ✅ Loaded: {len(results['loaded'])}")
-        print(f"  ❌ Failed: {len(results['failed'])}")
+        try:
+            print(f"📝 Text Loading Results:")
+        except UnicodeEncodeError:
+            print("[TEXT] Loading Results:")
+        try:
+            print(f"  ✅ Loaded: {len(results['loaded'])}")
+            print(f"  ❌ Failed: {len(results['failed'])}")
+        except UnicodeEncodeError:
+            print(f"  [OK] Loaded: {len(results['loaded'])}")
+            print(f"  [ERROR] Failed: {len(results['failed'])}")
         
         if results['failed']:
             print("Failed files:")

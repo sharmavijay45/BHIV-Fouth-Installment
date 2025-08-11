@@ -49,6 +49,23 @@ class NASKnowledgeBaseManager:
     def test_connection(self) -> bool:
         """Test connection to the NAS"""
         try:
+            # Attempt to mount/connect if credentials provided (Windows UNC)
+            nas_user = os.getenv("NAS_USERNAME")
+            nas_pass = os.getenv("NAS_PASSWORD")
+            nas_domain = os.getenv("NAS_DOMAIN", "")
+            # If credentials exist and path not accessible, try mapping via 'net use'
+            if nas_user and nas_pass and not self.nas_path.exists():
+                try:
+                    # net use \\server\share password /user:domain\user
+                    share = str(self.nas_path)
+                    user_spec = f"{nas_domain}\\{nas_user}" if nas_domain else nas_user
+                    cmd = [
+                        "net", "use", share, nas_pass, f"/user:{user_spec}", "/persistent:no"
+                    ]
+                    import subprocess
+                    subprocess.run(cmd, capture_output=True, text=True, timeout=20)
+                except Exception as e:
+                    logger.warning(f"Failed to map NAS share via 'net use': {e}")
             # Test basic access
             if not self.nas_path.exists():
                 logger.error(f"NAS path does not exist: {self.nas_path}")

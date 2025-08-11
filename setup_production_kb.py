@@ -188,16 +188,19 @@ class ProductionKBSetup:
         
         try:
             # Run the data loader
+            # Avoid Unicode emoji in child stdout on Windows terminals by setting PYTHONIOENCODING
+            env = os.environ.copy()
+            env.setdefault('PYTHONIOENCODING', 'utf-8')
             result = subprocess.run([
                 sys.executable, 'load_data_to_qdrant.py',
                 '--init', '--load-pdfs', '--load-texts'
-            ], capture_output=True, text=True, cwd=self.project_root)
+            ], capture_output=True, text=True, cwd=self.project_root, env=env)
             
             if result.returncode == 0:
-                logger.info("✅ Knowledge base data loaded successfully")
+                logger.info("Knowledge base data loaded successfully")
                 return True
             else:
-                logger.error(f"Failed to load knowledge base: {result.stderr}")
+                logger.error(f"Failed to load knowledge base: {result.stderr or result.stdout}")
                 return False
                 
         except Exception as e:

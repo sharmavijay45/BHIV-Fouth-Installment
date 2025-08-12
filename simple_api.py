@@ -100,42 +100,85 @@ class SimpleOrchestrationEngine:
             model_name="sentence-transformers/all-MiniLM-L6-v2"
         )
         
-        # First try to load from NAS-based Qdrant
+        # Initialize multi-folder vector manager for comprehensive search
         try:
-            from example.nas_retriever import NASKnowledgeRetriever
-            nas_retriever = NASKnowledgeRetriever("vedas", qdrant_url="localhost:6333")
-            if nas_retriever.qdrant_available:
-                # Create a wrapper for NAS retriever to work with existing code
-                self.vector_stores["nas_vedas"] = nas_retriever
-                logger.info("✅ Loaded NAS-based vector store for vedas")
-            else:
-                logger.warning("⚠️ NAS Qdrant not available, trying local FAISS stores")
+            from multi_folder_vector_manager import MultiFolderVectorManager
+            self.multi_folder_manager = MultiFolderVectorManager()
+            logger.info("✅ Multi-folder vector manager initialized successfully")
+            
+            # Get statistics
+            stats = self.multi_folder_manager.get_folder_statistics()
+            logger.info(f"📊 Available folders: {stats['available_folders']}")
+            logger.info(f"📊 Total collections: {stats['total_collections']}")
+            logger.info(f"📊 Total points: {stats['total_points']}")
+            
         except Exception as e:
-            logger.warning(f"NAS retriever not available: {e}")
+            logger.warning(f"⚠️ Multi-folder manager not available: {e}")
+            self.multi_folder_manager = None
         
-        # Try local FAISS vector stores as fallback
-        vector_store_dir = Path("vector_stores")
-        store_names = ['vedas_index', 'wellness_index', 'educational_index', 'unified_index']
-        for store_name in store_names:
-            store_path = vector_store_dir / store_name
-            if store_path.exists():
-                try:
-                    store = FAISS.load_local(
-                        str(store_path), 
-                        self.embedding_model, 
-                        allow_dangerous_deserialization=True
-                    )
-                    self.vector_stores[store_name.replace('_index', '')] = store
-                    logger.info(f"Loaded vector store: {store_name}")
-                except Exception as e:
-                    logger.error(f"Failed to load vector store {store_name}: {e}")
-        logger.info(f"Initialized with {len(self.vector_stores)} vector stores")
+        # Fallback to individual vector stores if multi-folder manager fails
+        if not self.multi_folder_manager:
+            logger.info("🔄 Falling back to individual vector store initialization...")
+            
+            # First try to load from NAS-based Qdrant using NASKnowledgeRetriever
+            try:
+                from example.nas_retriever import NASKnowledgeRetriever
+                nas_retriever = NASKnowledgeRetriever("vedas", qdrant_url="localhost:6333")
+                if nas_retriever.qdrant_available:
+                    # Create a wrapper for NAS retriever to work with existing code
+                    self.vector_stores["nas_vedas"] = nas_retriever
+                    logger.info("✅ Loaded NAS-based vector store for vedas")
+                else:
+                    logger.warning("⚠️ NAS Qdrant not available, trying local FAISS stores")
+            except Exception as e:
+                logger.warning(f"NAS retriever not available: {e}")
+
+            # Try local FAISS vector stores as fallback
+            vector_store_dir = Path("vector_stores")
+            store_names = ['vedas_index', 'wellness_index', 'educational_index', 'unified_index']
+            for store_name in store_names:
+                store_path = vector_store_dir / store_name
+                if store_path.exists():
+                    try:
+                        store = FAISS.load_local(
+                            str(store_path),
+                            self.embedding_model,
+                            allow_dangerous_deserialization=True
+                        )
+                        self.vector_stores[store_name.replace('_index', '')] = store
+                        logger.info(f"Loaded vector store: {store_name}")
+                    except Exception as e:
+                        logger.error(f"Failed to load vector store {store_name}: {e}")
+        
+        logger.info(f"Initialized with {len(self.vector_stores)} vector stores + multi-folder manager")
     
     def generate_response(self, prompt: str, fallback: str, endpoint: str) -> tuple[str, int]:
         return self.model_providers[endpoint].generate_response(prompt, fallback)
     
     def search_documents(self, query: str, store_type: str = "unified") -> list:
-        # First try NAS-based knowledge base with Qdrant
+        # Priority 1: Multi-folder vector search (most comprehensive)
+        if hasattr(self, 'multi_folder_manager') and self.multi_folder_manager:
+            try:
+                logger.info("🎯 Using multi-folder vector search...")
+                results = self.multi_folder_manager.search_all_folders(query, top_k=3)
+                
+                if results:
+                    formatted_results = [
+                        {
+                            "text": result["content"][:500],
+                            "source": f"Multi-Folder:{result['folder']}:{result['collection']}:{result['document_id']}"
+                        }
+                        for result in results
+                    ]
+                    logger.info(f"Multi-folder search found {len(formatted_results)} results from {len(set(result['folder'] for result in results))} folders")
+                    return formatted_results
+                else:
+                    logger.warning("⚠️ Multi-folder search returned no results, trying fallback...")
+                    
+            except Exception as e:
+                logger.error(f"Multi-folder search error: {e}")
+        
+        # Priority 2: NAS-based knowledge base with Qdrant
         try:
             from bhiv_knowledge_base import BHIVKnowledgeBase
             nas_path = os.getenv("NAS_PATH", r"\\192.168.0.94\Guruukul_DB")
@@ -161,7 +204,7 @@ class SimpleOrchestrationEngine:
         except Exception as e:
             logger.error(f"NAS Knowledge Base search error: {e}")
 
-        # Try NAS retriever from vector stores
+        # Priority 3: NAS retriever from vector stores
         if "nas_vedas" in self.vector_stores:
             try:
                 nas_retriever = self.vector_stores["nas_vedas"]
@@ -179,7 +222,7 @@ class SimpleOrchestrationEngine:
             except Exception as e:
                 logger.error(f"NAS retriever search error: {e}")
 
-        # Fallback to FAISS vector stores (if available)
+        # Priority 4: Fallback to FAISS vector stores (if available)
         if store_type in self.vector_stores:
             try:
                 retriever = self.vector_stores[store_type].as_retriever(search_kwargs={"k": 3})
@@ -191,7 +234,7 @@ class SimpleOrchestrationEngine:
             except Exception as e:
                 logger.error(f"Vector search error: {e}")
 
-        # Final fallback to file-based retriever
+        # Priority 5: Final fallback to file-based retriever
         try:
             from utils.file_based_retriever import file_retriever
             results = file_retriever.search(query, limit=3)

@@ -31,69 +31,129 @@ except Exception as e:
 logger = get_logger(__name__)
 
 class KnowledgeAgent:
+    """Agent for handling knowledge base queries with multi-folder vector search."""
+    
     def __init__(self):
-        # Always try file-based retriever first since it's more reliable
-        self.file_retriever_available = True
-
-        # Try NAS+Qdrant retriever first (most advanced)
-        if NAS_RETRIEVER_AVAILABLE and NASKnowledgeRetriever:
-            try:
-                self.nas_retriever = NASKnowledgeRetriever("vedas", qdrant_url="localhost:6333")
-                self.nas_available = True
-                logger.info("KnowledgeAgent initialized with NAS+Qdrant support")
-            except Exception as e:
-                logger.info(f"NAS retriever not available: {str(e)}")
-                self.nas_retriever = None
-                self.nas_available = False
-        else:
-            self.nas_retriever = None
+        """Initialize the KnowledgeAgent with multi-folder support."""
+        self.name = "KnowledgeAgent"
+        self.description = "Agent for comprehensive knowledge retrieval across all NAS folders"
+        
+        # Initialize multi-folder vector manager
+        try:
+            from multi_folder_vector_manager import MultiFolderVectorManager
+            self.multi_folder_manager = MultiFolderVectorManager()
+            self.multi_folder_available = True
+            logger.info("✅ Multi-folder vector manager initialized successfully")
+        except Exception as e:
+            logger.warning(f"⚠️ Multi-folder manager not available: {e}")
+            self.multi_folder_available = False
+            self.multi_folder_manager = None
+        
+        # Initialize other retrievers as fallback
+        self.initialize_fallback_retrievers()
+    
+    def initialize_fallback_retrievers(self):
+        """Initialize fallback retrievers if multi-folder manager is not available."""
+        # Try NAS+Qdrant retriever
+        try:
+            from example.nas_retriever import NASKnowledgeRetriever
+            self.nas_retriever = NASKnowledgeRetriever("vedas", qdrant_url="localhost:6333")
+            self.nas_available = self.nas_retriever.qdrant_available
+            if self.nas_available:
+                logger.info("✅ NAS retriever initialized as fallback")
+            else:
+                logger.warning("⚠️ NAS retriever not available")
+        except Exception as e:
+            logger.warning(f"⚠️ Failed to initialize NAS retriever: {e}")
             self.nas_available = False
-
-        # Try Qdrant-based retriever as secondary option
-        if QDRANT_AVAILABLE and VedabaseRetriever:
-            try:
-                self.retriever = VedabaseRetriever()
-                self.qdrant_available = True
-                logger.info("KnowledgeAgent initialized with Qdrant support")
-            except Exception as e:
-                logger.info(f"Qdrant not available, using file-based retriever only: {str(e)}")
-                self.retriever = None
-                self.qdrant_available = False
-        else:
-            logger.info("VedabaseRetriever not available, using file-based retriever only")
-            self.retriever = None
+            self.nas_retriever = None
+        
+        # Try Qdrant-based retriever
+        try:
+            from vedabase_retriever import VedabaseRetriever
+            self.retriever = VedabaseRetriever()
+            self.qdrant_available = True
+            logger.info("✅ Qdrant retriever initialized as fallback")
+        except Exception as e:
+            logger.warning(f"⚠️ Failed to initialize Qdrant retriever: {e}")
             self.qdrant_available = False
-
-        self.rl_context = RLContext()
-
-    def query(self, query_text: str, filters: dict = None, task_id: str = None) -> dict:
-        task_id = task_id or str(uuid.uuid4())
-
-        print(f"🧠 [KNOWLEDGE AGENT] Starting knowledge retrieval...")
-        print(f"🔍 [SEARCH QUERY] '{query_text}'")
-        if filters:
-            print(f"🎯 [FILTERS] {filters}")
-
-        # Try NAS+Qdrant retriever first (most advanced)
-        if self.nas_available and self.nas_retriever:
-            print(f"🚀 [NAS RETRIEVER] Searching NAS-based Qdrant knowledge base...")
-            logger.info(f"KnowledgeAgent query {task_id}: Using NAS+Qdrant retriever (primary)")
+            self.retriever = None
+        
+        # Try file-based retriever
+        try:
+            from utils.file_based_retriever import file_retriever
+            self.file_retriever = file_retriever
+            self.file_retriever_available = True
+            logger.info("✅ File-based retriever initialized as fallback")
+        except Exception as e:
+            logger.warning(f"⚠️ Failed to initialize file-based retriever: {e}")
+            self.file_retriever_available = False
+            self.file_retriever = None
+    
+    def query(self, query_text: str, top_k: int = 5) -> Dict[str, Any]:
+        """
+        Query knowledge base using multi-folder approach for best results.
+        
+        Args:
+            query_text: The query to search for
+            top_k: Number of top results to return
+            
+        Returns:
+            Dictionary with response and sources
+        """
+        logger.info(f"🔍 KnowledgeAgent query: '{query_text}'")
+        
+        # Priority 1: Multi-folder vector search (most comprehensive)
+        if self.multi_folder_available and self.multi_folder_manager:
             try:
-                nas_results = self.nas_retriever.query(query_text, top_k=5)
-                if nas_results:
-                    print(f"✅ [FOUND] {len(nas_results)} relevant chunks in NAS knowledge base")
-                    # Format results for consistency
-                    formatted_results = [result['content'] for result in nas_results]
-                    sources = [f"NAS-Qdrant:{result.get('document_id', 'unknown')}" for result in nas_results]
-
+                logger.info("🎯 Using multi-folder vector search...")
+                results = self.multi_folder_manager.search_all_folders(query_text, top_k=top_k)
+                
+                if results:
+                    # Format results for response
+                    response = [result["content"] for result in results]
+                    sources = [f"{result['folder']}:{result['collection']}:{result['document_id']}" for result in results]
+                    
+                    logger.info(f"✅ Multi-folder search found {len(results)} results from {len(set(result['folder'] for result in results))} folders")
                     return {
-                        "query_id": task_id,
-                        "query": query_text,
-                        "response": formatted_results,
+                        "response": response,
                         "sources": sources,
-                        "timestamp": datetime.now().isoformat(),
-                        "endpoint": "knowledge",
+                        "method": "multi_folder_vector",
+                        "folder_count": len(set(result['folder'] for result in results)),
+                        "total_results": len(results),
                         "status": 200,
+                        "timestamp": datetime.now().isoformat(),
+                        "metadata": {
+                            "tags": ["semantic_search", "multi_folder_vector"],
+                            "retriever": "multi_folder_vector",
+                            "total_results": len(results)
+                        }
+                    }
+                else:
+                    logger.warning("⚠️ Multi-folder search returned no results, trying fallback...")
+                    
+            except Exception as e:
+                logger.error(f"❌ Multi-folder search failed: {e}")
+        
+        # Priority 2: NAS+Qdrant retriever
+        if self.nas_available and self.nas_retriever:
+            try:
+                logger.info("📁 Trying NAS+Qdrant retriever...")
+                nas_results = self.nas_retriever.query(query_text, top_k=top_k)
+                
+                if nas_results:
+                    response = [result["content"] for result in nas_results]
+                    sources = [f"NAS:{result.get('document_id', 'unknown')}" for result in nas_results]
+                    
+                    logger.info(f"✅ NAS+Qdrant search found {len(nas_results)} results")
+                    return {
+                        "response": response,
+                        "sources": sources,
+                        "method": "nas_qdrant",
+                        "folder_count": 1,
+                        "total_results": len(nas_results),
+                        "status": 200,
+                        "timestamp": datetime.now().isoformat(),
                         "metadata": {
                             "tags": ["semantic_search", "nas_qdrant"],
                             "retriever": "nas_qdrant",
@@ -101,83 +161,61 @@ class KnowledgeAgent:
                         }
                     }
                 else:
-                    print(f"⚠️ [NO RESULTS] NAS retriever found no results, trying Qdrant...")
+                    logger.warning("⚠️ NAS+Qdrant search returned no results, trying next fallback...")
+                    
             except Exception as e:
-                logger.error(f"NAS retriever failed: {str(e)}")
-                print(f"❌ [NAS ERROR] {str(e)}, trying Qdrant...")
-
-        # Try Qdrant-based retriever as secondary option
+                logger.error(f"❌ NAS+Qdrant search failed: {e}")
+        
+        # Priority 3: Qdrant-based retriever
         if self.qdrant_available and self.retriever:
-            print(f"🔍 [QDRANT RETRIEVER] Searching Qdrant knowledge base...")
-            logger.info(f"KnowledgeAgent query {task_id}: Using Qdrant retriever (secondary)")
             try:
-                results = self.retriever.get_relevant_docs(query_text, filters)
-                if results:
-                    print(f"✅ [FOUND] {len(results) if isinstance(results, list) else 1} results in Qdrant")
+                logger.info("🗄️ Trying Qdrant retriever...")
+                qdrant_results = self.retriever.retrieve(query_text, top_k=top_k)
+                
+                if qdrant_results:
+                    response = [result.page_content for result in qdrant_results]
+                    sources = [result.metadata.get("source", "unknown") for result in qdrant_results]
                     
-                    # Format results for consistency - extract text content
-                    if isinstance(results, list):
-                        formatted_results = []
-                        sources = []
-                        for result in results:
-                            if isinstance(result, dict):
-                                text_content = result.get("text", str(result))
-                                source = result.get("source", "unknown")
-                                formatted_results.append(text_content)
-                                sources.append(source)
-                            else:
-                                formatted_results.append(str(result))
-                                sources.append("unknown")
-                    else:
-                        formatted_results = [str(results)]
-                        sources = ["unknown"]
-                    
-                    response = {
-                        "query_id": task_id,
-                        "query": query_text,
-                        "response": formatted_results,
-                        "sources": sources,
-                        "timestamp": datetime.now().isoformat(),
-                        "endpoint": "knowledge",
-                        "status": 200,
-                        "metadata": {"tags": ["semantic_search", "qdrant"]}
-                    }
-                    reward = get_reward_from_output(response, task_id)
-                    self.rl_context.log_action(
-                        task_id=task_id,
-                        agent="knowledge_agent",
-                        model="none",
-                        action="query_vedabase",
-                        metadata={"query": query_text, "filters": filters}
-                    )
-                    logger.info(f"KnowledgeAgent query {task_id}: {len(formatted_results)} results")
-                    return response
-                else:
-                    print(f"⚠️ [NO RESULTS] Qdrant found no results, trying file-based...")
-            except Exception as e:
-                logger.error(f"Qdrant retriever failed: {str(e)}")
-                print(f"❌ [QDRANT ERROR] {str(e)}, trying file-based...")
-
-        # Fallback to file-based retriever (least preferred)
-        if self.file_retriever_available:
-            print(f"📚 [FILE RETRIEVER] Searching file-based knowledge base (fallback)...")
-            logger.info(f"KnowledgeAgent query {task_id}: Using file-based retriever (fallback)")
-            try:
-                file_results = file_retriever.search(query_text, limit=5)
-                if file_results:
-                    print(f"✅ [FOUND] {len(file_results)} relevant chunks in file-based knowledge base")
-                    # Format results for consistency
-                    formatted_results = [result['text'] for result in file_results]
-                    sources = [result['source'] for result in file_results]
-
+                    logger.info(f"✅ Qdrant search found {len(qdrant_results)} results")
                     return {
-                        "query_id": task_id,
-                        "query": query_text,
-                        "response": formatted_results,
+                        "response": response,
                         "sources": sources,
-                        "timestamp": datetime.now().isoformat(),
-                        "endpoint": "knowledge",
+                        "method": "qdrant",
+                        "folder_count": 1,
+                        "total_results": len(qdrant_results),
                         "status": 200,
+                        "timestamp": datetime.now().isoformat(),
+                        "metadata": {
+                            "tags": ["semantic_search", "qdrant"],
+                            "retriever": "qdrant",
+                            "total_results": len(qdrant_results)
+                        }
+                    }
+                else:
+                    logger.warning("⚠️ Qdrant search returned no results, trying final fallback...")
+                    
+            except Exception as e:
+                logger.error(f"❌ Qdrant search failed: {e}")
+        
+        # Priority 4: File-based retriever (final fallback)
+        if self.file_retriever_available:
+            try:
+                logger.info("📄 Using file-based retriever as final fallback...")
+                file_results = self.file_retriever.search(query_text, limit=top_k)
+                
+                if file_results:
+                    response = [result["text"] for result in file_results]
+                    sources = [result.get("source", "file_based") for result in file_results]
+                    
+                    logger.info(f"✅ File-based search found {len(file_results)} results")
+                    return {
+                        "response": response,
+                        "sources": sources,
+                        "method": "file_based",
+                        "folder_count": 1,
+                        "total_results": len(file_results),
+                        "status": 200,
+                        "timestamp": datetime.now().isoformat(),
                         "metadata": {
                             "tags": ["semantic_search", "file_based"],
                             "retriever": "file_based",
@@ -185,44 +223,55 @@ class KnowledgeAgent:
                         }
                     }
                 else:
-                    # No results found, return empty for LLM fallback
-                    return {
-                        "query_id": task_id,
-                        "query": query_text,
-                        "response": [],
-                        "sources": [],
-                        "timestamp": datetime.now().isoformat(),
-                        "endpoint": "knowledge",
-                        "status": 200,
-                        "metadata": {"tags": ["semantic_search", "file_based"], "fallback_mode": True}
-                    }
+                    logger.warning("⚠️ File-based search also returned no results")
+                    
             except Exception as e:
-                logger.error(f"File-based retriever failed: {str(e)}")
-                return {
-                    "query_id": task_id,
-                    "query": query_text,
-                    "response": [],
-                    "sources": [],
-                    "timestamp": datetime.now().isoformat(),
-                    "endpoint": "knowledge",
-                    "status": 200,
-                    "metadata": {"tags": ["semantic_search", "file_based"], "fallback_mode": True}
-                }
-
-        # Final fallback if no retrievers are available
-        print(f"❌ [NO RETRIEVERS] No retrievers available, returning empty response")
-        logger.warning(f"KnowledgeAgent query {task_id}: No retrievers available")
+                logger.error(f"❌ File-based search failed: {e}")
+        
+        # No results from any retriever
+        logger.warning("❌ No retrievers available or all failed")
         return {
-            "query_id": task_id,
-            "query": query_text,
-            "response": [],
-            "sources": [],
+            "response": ["No relevant information found in any knowledge base."],
+            "sources": ["none"],
+            "method": "none",
+            "folder_count": 0,
+            "total_results": 0,
+            "status": 404,
             "timestamp": datetime.now().isoformat(),
-            "endpoint": "knowledge",
-            "status": 200,
-            "metadata": {"tags": ["semantic_search", "no_retriever"], "fallback_mode": True}
+            "metadata": {
+                "tags": ["semantic_search", "none"],
+                "retriever": "none",
+                "total_results": 0
+            }
         }
-
+    
+    def get_statistics(self) -> Dict[str, Any]:
+        """Get statistics about available knowledge bases."""
+        if self.multi_folder_available and self.multi_folder_manager:
+            return self.multi_folder_manager.get_folder_statistics()
+        else:
+            return {
+                "status": "Multi-folder manager not available",
+                "fallback_retrievers": {
+                    "nas_retriever": self.nas_available,
+                    "qdrant_retriever": self.qdrant_available,
+                    "file_retriever": self.file_retriever_available
+                }
+            }
+    
+    def health_check(self) -> Dict[str, Any]:
+        """Check health of all knowledge base components."""
+        health_status = {
+            "multi_folder_manager": self.multi_folder_available,
+            "nas_retriever": self.nas_available,
+            "qdrant_retriever": self.qdrant_available,
+            "file_retriever": self.file_retriever_available
+        }
+        
+        if self.multi_folder_available and self.multi_folder_manager:
+            health_status["folder_health"] = self.multi_folder_manager.health_check()
+        
+        return health_status
 
     def enhance_with_llm(self, query: str, knowledge_context: str) -> str:
         """Enhanced response using Ollama fallback if configured, else local formatting."""
@@ -282,10 +331,10 @@ class KnowledgeAgent:
         logger.info(f"KnowledgeAgent processing task {task_id}, query: {input_path}")
 
         # Use input_path as the query text
-        query_result = self.query(input_path, task_id=task_id)
+        query_result = self.query(input_path, top_k=5)
 
         # Format response to match expected agent output format
-        if query_result["status"] == 200 and query_result.get("response"):
+        if query_result.get("status", 200) == 200 and query_result.get("response"):
             # Combine knowledge base results
             if isinstance(query_result["response"], list) and query_result["response"]:
                 combined_text = "\n\n".join(query_result["response"][:3])
@@ -301,7 +350,7 @@ class KnowledgeAgent:
                 "query": input_path,
                 "sources": query_result.get("sources", []),
                 "metadata": query_result.get("metadata", {}),
-                "timestamp": query_result["timestamp"],
+                "timestamp": query_result.get("timestamp", datetime.now().isoformat()),
                 "status": 200,
                 "model": model,
                 "knowledge_base_results": len(query_result.get("response", [])) if isinstance(query_result.get("response"), list) else 1,

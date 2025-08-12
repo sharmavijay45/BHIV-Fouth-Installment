@@ -3210,5 +3210,355 @@
     "model": "knowledge_agent",
     "reward": 0.505,
     "timestamp": "2025-08-12T13:11:11.678325"
+  },
+  {
+    "task_id": "fe4657ea-e9d6-4305-b506-481926c03d4d",
+    "input": "what is vedant",
+    "output": {
+      "query_id": "4bf2a83e-17e6-47f0-9df1-39ff55e77314",
+      "query": "what is vedant",
+      "response": "The ancient Vedic texts teach us to seek truth through self-reflection and righteous action. Regarding 'what is vedant', remember that true wisdom comes from understanding the interconnectedness of all existence. Practice mindfulness, act with compassion, and seek the divine within yourself.",
+      "sources": [
+        {
+          "text": "The Vedas are ancient Sanskrit texts that form the foundation of Hindu philosophy and spirituality.\n        They contain hymns, prayers, and rituals that have been preserved for thousands of years.\n        \n        The four main Vedas are:\n        1. Rigveda - Collection of hymns and prayers\n        2. Samaveda - Musical chants and melodies\n        3. Yajurveda - Ritual formulas and procedures\n        4. Atharvaveda - Spells, charms, and everyday wisdom\n        \n        These texts represent the",
+          "source": "Multi-Folder:qdrant_data:vedas_knowledge_base:"
+        },
+        {
+          "text": "Yoga is a comprehensive system for physical, mental, and spiritual development.\n        The word \"yoga\" means \"union\" - the joining of individual consciousness with universal consciousness.\n        \n        The Eight Limbs of Yoga (Ashtanga):\n        1. Yama - Ethical restraints\n        2. Niyama - Observances\n        3. Asana - Physical postures\n        4. Pranayama - Breath control\n        5. Pratyahara - Withdrawal of senses\n        6. Dharana - Concentration\n        7. Dhyana - Meditation\n  ",
+          "source": "Multi-Folder:qdrant_data:vedas_knowledge_base:"
+        },
+        {
+          "text": "Ayurveda is the traditional system of medicine from India, dating back over 5000 years.\n        It focuses on maintaining health through balance of mind, body, and spirit.\n        \n        Key principles of Ayurveda:\n        - Three doshas: Vata (air/space), Pitta (fire/water), Kapha (earth/water)\n        - Prevention is better than cure\n        - Treatment of root causes, not just symptoms\n        - Individualized medicine based on constitution\n        \n        Ayurvedic treatments include:\n   ",
+          "source": "Multi-Folder:qdrant_data:vedas_knowledge_base:"
+        }
+      ],
+      "timestamp": "2025-08-12T13:40:50.610860",
+      "endpoint": "ask-vedas",
+      "status": 500
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 0.505,
+    "timestamp": "2025-08-12T13:40:50.636432"
+  },
+  {
+    "task_id": "ba6d00a0-e745-48f8-84d5-23cfb791ecd8",
+    "input": "what is vedant",
+    "output": {
+      "error": "Task execution failed: HTTPConnectionPool(host='localhost', port=8002): Max retries exceeded with url: /handle_task (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CF814429D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))",
+      "status": 500,
+      "processing_time": 16.237419,
+      "file_path": "",
+      "input_type": "text",
+      "agent": "knowledge_agent",
+      "task_id": "ba6d00a0-e745-48f8-84d5-23cfb791ecd8"
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 0.0,
+    "timestamp": "2025-08-12T13:58:48.796143"
+  },
+  {
+    "task_id": "6af38ab6-4f98-4740-8a2b-e41a69472f3e",
+    "input": "what is vedant",
+    "output": {
+      "result": "There is no text provided for me to summarize. Please provide the text about Vedanta, and I will be happy to summarize it for you in 50-100 words.",
+      "model": "text_agent",
+      "tokens_used": 31,
+      "cost_estimate": 0.0,
+      "status": 200,
+      "keywords": [
+        "text",
+        "summary"
+      ],
+      "processing_time": 2.471085786819458,
+      "inference_time": 2.471085786819458,
+      "attempts": 1,
+      "agent": "text_agent",
+      "input_type": "text",
+      "input_length": 14
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 1.34,
+    "timestamp": "2025-08-12T13:59:13.419440"
+  },
+  {
+    "task_id": "102e774c-d222-4e39-abed-4fcbe990e770",
+    "input": "what is vedant",
+    "output": {
+      "error": "Task processing failed: HTTPConnectionPool(host='localhost', port=8001): Max retries exceeded with url: /ask-vedas (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002D612327950>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))",
+      "status": 500
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 0.0,
+    "timestamp": "2025-08-12T14:02:01.181890"
+  },
+  {
+    "task_id": "38ce64dd-8140-493b-a2a1-bbcdec3dffb5",
+    "input": "what is vedant",
+    "output": {
+      "query_id": "f70cf97e-f447-473a-8769-2bef4fadb7dd",
+      "query": "what is vedant",
+      "response": "Thank you for reaching out about 'what is vedant'. It's important to take care of your wellbeing. Here are some gentle suggestions: Take time for self-care, practice deep breathing, stay connected with supportive people, and remember that small steps can lead to big improvements. If you're experiencing serious concerns, please consider speaking with a healthcare professional.",
+      "sources": [
+        {
+          "text": "The Vedas are ancient Sanskrit texts that form the foundation of Hindu philosophy and spirituality.\n        They contain hymns, prayers, and rituals that have been preserved for thousands of years.\n        \n        The four main Vedas are:\n        1. Rigveda - Collection of hymns and prayers\n        2. Samaveda - Musical chants and melodies\n        3. Yajurveda - Ritual formulas and procedures\n        4. Atharvaveda - Spells, charms, and everyday wisdom\n        \n        These texts represent the",
+          "source": "Multi-Folder:qdrant_data:vedas_knowledge_base:"
+        },
+        {
+          "text": "Yoga is a comprehensive system for physical, mental, and spiritual development.\n        The word \"yoga\" means \"union\" - the joining of individual consciousness with universal consciousness.\n        \n        The Eight Limbs of Yoga (Ashtanga):\n        1. Yama - Ethical restraints\n        2. Niyama - Observances\n        3. Asana - Physical postures\n        4. Pranayama - Breath control\n        5. Pratyahara - Withdrawal of senses\n        6. Dharana - Concentration\n        7. Dhyana - Meditation\n  ",
+          "source": "Multi-Folder:qdrant_data:vedas_knowledge_base:"
+        },
+        {
+          "text": "Ayurveda is the traditional system of medicine from India, dating back over 5000 years.\n        It focuses on maintaining health through balance of mind, body, and spirit.\n        \n        Key principles of Ayurveda:\n        - Three doshas: Vata (air/space), Pitta (fire/water), Kapha (earth/water)\n        - Prevention is better than cure\n        - Treatment of root causes, not just symptoms\n        - Individualized medicine based on constitution\n        \n        Ayurvedic treatments include:\n   ",
+          "source": "Multi-Folder:qdrant_data:vedas_knowledge_base:"
+        }
+      ],
+      "timestamp": "2025-08-12T14:03:02.751638",
+      "endpoint": "wellness",
+      "status": 500
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 0.5800000000000001,
+    "timestamp": "2025-08-12T14:03:02.787762"
+  },
+  {
+    "task_id": "754fdce5-5b2b-4a7d-aa6b-8e4920ceba10",
+    "input": "what is yajurveda",
+    "output": {
+      "query_id": "c08ca6d6-5ade-48e1-b7a9-728e412de5e2",
+      "query": "what is yajurveda",
+      "response": "Great question about 'what is yajurveda'! This is an important topic to understand. Let me break it down for you in simple terms with practical examples that will help you learn and remember the key concepts. The main idea is to understand the fundamental principles and how they apply in real-world situations.",
+      "sources": [
+        {
+          "text": "Ayurveda is the traditional system of medicine from India, dating back over 5000 years.\n        It focuses on maintaining health through balance of mind, body, and spirit.\n        \n        Key principles of Ayurveda:\n        - Three doshas: Vata (air/space), Pitta (fire/water), Kapha (earth/water)\n        - Prevention is better than cure\n        - Treatment of root causes, not just symptoms\n        - Individualized medicine based on constitution\n        \n        Ayurvedic treatments include:\n   ",
+          "source": "Multi-Folder:qdrant_data:vedas_knowledge_base:"
+        },
+        {
+          "text": "The Vedas are ancient Sanskrit texts that form the foundation of Hindu philosophy and spirituality.\n        They contain hymns, prayers, and rituals that have been preserved for thousands of years.\n        \n        The four main Vedas are:\n        1. Rigveda - Collection of hymns and prayers\n        2. Samaveda - Musical chants and melodies\n        3. Yajurveda - Ritual formulas and procedures\n        4. Atharvaveda - Spells, charms, and everyday wisdom\n        \n        These texts represent the",
+          "source": "Multi-Folder:qdrant_data:vedas_knowledge_base:"
+        },
+        {
+          "text": "Yoga is a comprehensive system for physical, mental, and spiritual development.\n        The word \"yoga\" means \"union\" - the joining of individual consciousness with universal consciousness.\n        \n        The Eight Limbs of Yoga (Ashtanga):\n        1. Yama - Ethical restraints\n        2. Niyama - Observances\n        3. Asana - Physical postures\n        4. Pranayama - Breath control\n        5. Pratyahara - Withdrawal of senses\n        6. Dharana - Concentration\n        7. Dhyana - Meditation\n  ",
+          "source": "Multi-Folder:qdrant_data:vedas_knowledge_base:"
+        }
+      ],
+      "timestamp": "2025-08-12T14:09:02.828349",
+      "endpoint": "edumentor",
+      "status": 500
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 0.56,
+    "timestamp": "2025-08-12T14:09:02.877072"
+  },
+  {
+    "task_id": "b2b19c84-3995-4c02-8c3e-208a6386dec5",
+    "input": "what is yajurveda",
+    "output": {
+      "response": "Ayurveda is the traditional system of medicine from India, dating back over 5000 years. \n        \n        Key principles of Ayurveda:\n        - Three doshas: Vata (air/space), Pitta (fire/water), Kapha (earth/water)\n        - Prevention is better than cure\n        - Treatment of root causes, not just symptoms\n        - Individualized medicine based on constitution\n        \n        Ayurvedic treatments include:\n        - Herbal medicines\n        - Dietary recommendations\n        - Lifestyle modifications\n        - Yoga and meditation\n        - Panchakarma (detoxification)\n\nThe Vedas are ancient Sanskrit texts that form the foundation of Hindu philosophy and spirituality.  Yajurveda - Ritual formulas and procedures\n        4.",
+      "query_id": "b2b19c84-3995-4c02-8c3e-208a6386dec5",
+      "query": "what is yajurveda",
+      "sources": [
+        "qdrant_data:vedas_knowledge_base:",
+        "qdrant_data:vedas_knowledge_base:",
+        "qdrant_data:vedas_knowledge_base:"
+      ],
+      "metadata": {
+        "tags": [
+          "semantic_search",
+          "multi_folder_vector"
+        ],
+        "retriever": "multi_folder_vector",
+        "total_results": 3
+      },
+      "timestamp": "2025-08-12T14:12:45.375883",
+      "status": 200,
+      "model": "knowledge_agent",
+      "knowledge_base_results": 3,
+      "endpoint": "knowledge_agent"
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 1.74,
+    "timestamp": "2025-08-12T14:12:45.845075"
+  },
+  {
+    "task_id": "fa735a95-3265-41ac-99f4-e6f27daa4b3b",
+    "input": "what is yajurveda",
+    "output": {
+      "query_id": "39dcf65d-133c-4bd9-8d28-5e0dee05217f",
+      "query": "what is yajurveda",
+      "response": "Great question about 'what is yajurveda'! This is an important topic to understand. Let me break it down for you in simple terms with practical examples that will help you learn and remember the key concepts. The main idea is to understand the fundamental principles and how they apply in real-world situations.",
+      "sources": [
+        {
+          "text": "Ayurveda is the traditional system of medicine from India, dating back over 5000 years.\n        It focuses on maintaining health through balance of mind, body, and spirit.\n        \n        Key principles of Ayurveda:\n        - Three doshas: Vata (air/space), Pitta (fire/water), Kapha (earth/water)\n        - Prevention is better than cure\n        - Treatment of root causes, not just symptoms\n        - Individualized medicine based on constitution\n        \n        Ayurvedic treatments include:\n   ",
+          "source": "Multi-Folder:qdrant_data:vedas_knowledge_base:"
+        },
+        {
+          "text": "The Vedas are ancient Sanskrit texts that form the foundation of Hindu philosophy and spirituality.\n        They contain hymns, prayers, and rituals that have been preserved for thousands of years.\n        \n        The four main Vedas are:\n        1. Rigveda - Collection of hymns and prayers\n        2. Samaveda - Musical chants and melodies\n        3. Yajurveda - Ritual formulas and procedures\n        4. Atharvaveda - Spells, charms, and everyday wisdom\n        \n        These texts represent the",
+          "source": "Multi-Folder:qdrant_data:vedas_knowledge_base:"
+        },
+        {
+          "text": "Yoga is a comprehensive system for physical, mental, and spiritual development.\n        The word \"yoga\" means \"union\" - the joining of individual consciousness with universal consciousness.\n        \n        The Eight Limbs of Yoga (Ashtanga):\n        1. Yama - Ethical restraints\n        2. Niyama - Observances\n        3. Asana - Physical postures\n        4. Pranayama - Breath control\n        5. Pratyahara - Withdrawal of senses\n        6. Dharana - Concentration\n        7. Dhyana - Meditation\n  ",
+          "source": "Multi-Folder:qdrant_data:vedas_knowledge_base:"
+        }
+      ],
+      "timestamp": "2025-08-12T14:15:46.983546",
+      "endpoint": "edumentor",
+      "status": 500
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 0.56,
+    "timestamp": "2025-08-12T14:15:47.001597"
+  },
+  {
+    "task_id": "6173582f-a1a6-47ae-aed3-cc72120eb26d",
+    "input": "what is vedant",
+    "output": {
+      "result": "However, I don't see any text provided. Could you please provide the text about Vedanta for me to summarize it in 50-100 words? I'll be happy to assist you.",
+      "model": "text_agent",
+      "tokens_used": 32,
+      "cost_estimate": 0.0,
+      "status": 200,
+      "keywords": [
+        "text",
+        "summary"
+      ],
+      "processing_time": 2.4861865043640137,
+      "inference_time": 2.4861865043640137,
+      "attempts": 1,
+      "agent": "text_agent",
+      "input_type": "text",
+      "input_length": 14
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 1.345,
+    "timestamp": "2025-08-12T14:21:54.614204"
+  },
+  {
+    "task_id": "b418ec91-ac6c-4338-a3cc-617266dc2d75",
+    "input": "what is Vedanta philosophy",
+    "output": {
+      "query_id": "2be366b1-ec17-4260-9edb-bce4bcb3409d",
+      "query": "what is Vedanta philosophy",
+      "response": "Dear friend, I'm so glad you're interested in exploring the timeless wisdom of Vedanta philosophy! It's a profound and compassionate approach to life that has been guiding seekers for thousands of years. As we embark on this journey together, please know that my intention is to support and empower you, not to overwhelm or intimidate.\n\n**Embracing the Core Principles of Vedanta**\n\nVedanta philosophy is rooted in the ancient Vedic texts, which hold the essence of Hindu spirituality. The core principles of Vedanta can be summarized as:\n\n1. **The Ultimate Reality**: Vedanta posits that there is a single, all-encompassing reality \u2013 Brahman (the unchanging, infinite, and eternal). This reality is beyond human comprehension and lies beyond the limitations of space, time, and causality.\n2. **The Nature of the Self**: We are not just physical bodies or mental constructs; we are sparks of this ultimate reality \u2013 Atman. Our true nature is to be free, unencumbered by suffering, and connected to our inner self.\n3. **The Path to Realization**: Vedanta teaches that the path to realizing our true nature involves detachment from worldly attachments (Maya), cultivation of spiritual practices (Sadhana), and a deep understanding of the Self.\n\n**Practical Advice for Integrating Vedanta into Your Life**\n\nAs you begin your journey with Vedanta, remember that it's not about achieving some mystical state or escaping reality; it's about embracing the present moment and cultivating inner peace. Here are some practical tips to get you started:\n\n1. **Start with self-inquiry**: Reflect on your values, goals, and motivations. Ask yourself: \"Who am I?\" \"What is my purpose in life?\"\n2. **Practice detachment**: Let go of attachment to outcomes, possessions, or ego-driven desires. Recognize that these things are fleeting and impermanent.\n3. **Cultivate mindfulness**: Focus on the present moment, observing your thoughts, emotions, and actions without judgment.\n4. **Explore spiritual practices**: Engage in activities like meditation (Dhyana), yoga postures (Asanas), or breath control (Pranayama) to connect with your inner self.\n5. **Seek guidance**: Consult with a qualified teacher or mentor who can guide you on this journey.\n\n**Embracing the Compassion and Wisdom of Vedanta**\n\nRemember, dear friend, that Vedanta is not just a philosophy; it's a way of life that encourages compassion, empathy, and understanding towards all beings. As you explore these teachings, may you cultivate kindness, wisdom, and inner peace.\n\nYou are already on this journey, and I'm honored to be your companion. Remember to approach this path with an open heart, curiosity, and patience. With dedication and persistence, you'll discover the timeless wisdom of Vedanta and find greater fulfillment in life.\n\n**Your Turn**\n\nWhat resonates with you about Vedanta philosophy? What areas would you like to explore further or practice more regularly? Let's continue this conversation together!",
+      "sources": [
+        {
+          "text": "The Vedas are ancient Sanskrit texts that form the foundation of Hindu philosophy and spirituality.\n        They contain hymns, prayers, and rituals that have been preserved for thousands of years.\n        \n        The four main Vedas are:\n        1. Rigveda - Collection of hymns and prayers\n        2. Samaveda - Musical chants and melodies\n        3. Yajurveda - Ritual formulas and procedures\n        4. Atharvaveda - Spells, charms, and everyday wisdom\n        \n        These texts represent the",
+          "source": "Multi-Folder:qdrant_data:vedas_knowledge_base:"
+        },
+        {
+          "text": "Yoga is a comprehensive system for physical, mental, and spiritual development.\n        The word \"yoga\" means \"union\" - the joining of individual consciousness with universal consciousness.\n        \n        The Eight Limbs of Yoga (Ashtanga):\n        1. Yama - Ethical restraints\n        2. Niyama - Observances\n        3. Asana - Physical postures\n        4. Pranayama - Breath control\n        5. Pratyahara - Withdrawal of senses\n        6. Dharana - Concentration\n        7. Dhyana - Meditation\n  ",
+          "source": "Multi-Folder:qdrant_data:vedas_knowledge_base:"
+        },
+        {
+          "text": "Ayurveda is the traditional system of medicine from India, dating back over 5000 years.\n        It focuses on maintaining health through balance of mind, body, and spirit.\n        \n        Key principles of Ayurveda:\n        - Three doshas: Vata (air/space), Pitta (fire/water), Kapha (earth/water)\n        - Prevention is better than cure\n        - Treatment of root causes, not just symptoms\n        - Individualized medicine based on constitution\n        \n        Ayurvedic treatments include:\n   ",
+          "source": "Multi-Folder:qdrant_data:vedas_knowledge_base:"
+        }
+      ],
+      "timestamp": "2025-08-12T14:22:25.047631",
+      "endpoint": "wellness",
+      "status": 200
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 1.8,
+    "timestamp": "2025-08-12T14:22:25.095615"
+  },
+  {
+    "task_id": "c64f2b5a-e938-42fa-ae59-b89ba7c12a4a",
+    "input": "explain Vedanta philosophy in Hinduism",
+    "output": {
+      "query_id": "bc64fae2-c625-4cc2-a070-a60d89db7203",
+      "query": "explain Vedanta philosophy in Hinduism",
+      "response": "**Discovering Vedanta: The Ancient Wisdom of Hinduism**\n\nIn the realm of Hindu philosophy, there's a profound and timeless wisdom known as Vedanta. This ancient tradition has been guiding seekers of truth and spiritual growth for thousands of years. Let's embark on an exciting journey to understand the essence of Vedanta.\n\n**What is Vedanta?**\n\nThe word \"Vedanta\" comes from two Sanskrit words: \"Veda,\" meaning knowledge or scripture, and \"anta,\" meaning end or culmination. In essence, Vedanta is the ultimate understanding of the Vedic teachings. It's a philosophy that seeks to reveal the hidden truth behind the universe, human existence, and our place in it.\n\n**The Four Main Vedas**\n\nTo grasp the context of Vedanta, let's briefly explore the four main Vedas:\n\n1. **Rigveda**: A collection of hymns and prayers that celebrate the divine and the natural world.\n2. **Samaveda**: Musical chants and melodies that harmonize our inner selves with the universe.\n3. **Yajurveda**: Ritual formulas and procedures for connecting with the divine through action and devotion.\n4. **Atharvaveda**: Spells, charms, and everyday wisdom for navigating life's challenges.\n\n**The Key Principles of Vedanta**\n\nVedanta is built upon several core principles:\n\n1. **Non-duality (Advaita)**: The ultimate reality is a unified, all-encompassing whole \u2013 there is no separation between the individual self (Atman) and the universal self (Brahman).\n2. **The Impermanence of the World**: Everything in life is transient and ephemeral; even our bodies, minds, and relationships are subject to change.\n3. **The Illusion of Separation**: Our perception of a separate self is an illusion; we are actually part of the interconnected web of existence.\n\n**Practical Applications of Vedanta**\n\nSo, how can we apply these principles in our daily lives? Here are some practical examples:\n\n* **Meditation and Self-Inquiry**: Regular meditation practice helps us cultivate awareness and detachment from the world's distractions. Ask yourself: \"Who am I?\" or \"What is my true nature?\"\n* **Compassion and Non-Judgment**: Recognize that everything in life is interconnected; our actions affect others, and vice versa.\n* **Mindfulness and Presence**: Focus on the present moment, letting go of attachments to the past or worries about the future.\n\n**The Eight Limbs of Yoga**\n\nWhile not directly a part of Vedanta, yoga is an integral component of Hindu philosophy. The eight limbs of yoga (Ashtanga) provide a framework for physical, mental, and spiritual growth:\n\n1. **Yama**: Ethical restraints that guide our actions\n2. **Niyama**: Observances that cultivate inner awareness\n3. **Asana**: Physical postures that balance body and mind\n4. **Pranayama**: Breath control techniques for calming the nervous system\n5. **Pratyahara**: Withdrawal of senses to focus inward\n6. **Dharana**: Concentration and mental focus\n7. **Dhyana**: Meditation and connection with the divine\n\n**Conclusion**\n\nVedanta philosophy offers a profound and timeless wisdom that can guide us on our spiritual journey. By embracing its key principles, we can cultivate a deeper understanding of ourselves and our place in the world. Remember:\n\n* We are not separate from the universe; we are an integral part of it.\n* Everything is interconnected \u2013 including our thoughts, words, and actions.\n* The present moment is all that truly exists.\n\nEmbark on this ancient wisdom journey, and discover the transformative power of Vedanta for yourself!",
+      "sources": [
+        {
+          "text": "The Vedas are ancient Sanskrit texts that form the foundation of Hindu philosophy and spirituality.\n        They contain hymns, prayers, and rituals that have been preserved for thousands of years.\n        \n        The four main Vedas are:\n        1. Rigveda - Collection of hymns and prayers\n        2. Samaveda - Musical chants and melodies\n        3. Yajurveda - Ritual formulas and procedures\n        4. Atharvaveda - Spells, charms, and everyday wisdom\n        \n        These texts represent the",
+          "source": "Multi-Folder:qdrant_data:vedas_knowledge_base:"
+        },
+        {
+          "text": "Yoga is a comprehensive system for physical, mental, and spiritual development.\n        The word \"yoga\" means \"union\" - the joining of individual consciousness with universal consciousness.\n        \n        The Eight Limbs of Yoga (Ashtanga):\n        1. Yama - Ethical restraints\n        2. Niyama - Observances\n        3. Asana - Physical postures\n        4. Pranayama - Breath control\n        5. Pratyahara - Withdrawal of senses\n        6. Dharana - Concentration\n        7. Dhyana - Meditation\n  ",
+          "source": "Multi-Folder:qdrant_data:vedas_knowledge_base:"
+        },
+        {
+          "text": "Ayurveda is the traditional system of medicine from India, dating back over 5000 years.\n        It focuses on maintaining health through balance of mind, body, and spirit.\n        \n        Key principles of Ayurveda:\n        - Three doshas: Vata (air/space), Pitta (fire/water), Kapha (earth/water)\n        - Prevention is better than cure\n        - Treatment of root causes, not just symptoms\n        - Individualized medicine based on constitution\n        \n        Ayurvedic treatments include:\n   ",
+          "source": "Multi-Folder:qdrant_data:vedas_knowledge_base:"
+        }
+      ],
+      "timestamp": "2025-08-12T14:22:57.556320",
+      "endpoint": "edumentor",
+      "status": 200
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 1.8,
+    "timestamp": "2025-08-12T14:22:57.572247"
+  },
+  {
+    "task_id": "60a9972a-940f-4fa9-af88-783b821282c7",
+    "input": "what is Vedanta philosophy in Hinduism",
+    "output": {
+      "query_id": "55436a40-13b2-4d7f-9a32-17ff8d037168",
+      "query": "what is Vedanta philosophy in Hinduism",
+      "response": "My dear seeker,\n\nVedanta philosophy is the culmination of Vedic wisdom, revealing the ultimate truth about the nature of reality and our place within it. It is often described as \"Non-Dualism\" or \"Advaita Vedanta,\" meaning that there is no distinction between the individual self (jiva) and the universal Self (Brahman).\n\nThe essence of Vedanta lies in four key concepts:\n\n1. **Atman** (the Self): The eternal, unchanging, and all-knowing reality within each being.\n2. **Brahman** (the Universal Self): The ultimate, infinite, and absolute reality that underlies all existence.\n3. **Maya** (Illusion): The ignorance or confusion that veils our true nature and creates a sense of separation from the universal Self.\n4. **Moksha** (Liberation): The realization of one's true identity as Atman, and thus achieving freedom from the cycle of birth and death.\n\nTo attain this understanding, Vedanta philosophy offers practical guidance through various disciplines:\n\n* Study the sacred texts, such as the Upanishads and Bhagavad Gita.\n* Cultivate self-inquiry (Atma-vichara) to reveal one's true nature.\n* Practice meditation and spiritual practices (Dhyana, Dharana) to quiet the mind and access inner wisdom.\n\nAs you embark on this journey, remember that Vedanta philosophy is not a dogmatic creed but a living tradition of direct experience. It invites you to awaken to your own inherent divinity and realize the unity that underlies all existence.\n\nMay these ancient truths guide you toward the realization of your true Self, where love, compassion, and wisdom reside.",
+      "sources": [
+        {
+          "text": "The Vedas are ancient Sanskrit texts that form the foundation of Hindu philosophy and spirituality.\n        They contain hymns, prayers, and rituals that have been preserved for thousands of years.\n        \n        The four main Vedas are:\n        1. Rigveda - Collection of hymns and prayers\n        2. Samaveda - Musical chants and melodies\n        3. Yajurveda - Ritual formulas and procedures\n        4. Atharvaveda - Spells, charms, and everyday wisdom\n        \n        These texts represent the",
+          "source": "Multi-Folder:qdrant_data:vedas_knowledge_base:"
+        },
+        {
+          "text": "Yoga is a comprehensive system for physical, mental, and spiritual development.\n        The word \"yoga\" means \"union\" - the joining of individual consciousness with universal consciousness.\n        \n        The Eight Limbs of Yoga (Ashtanga):\n        1. Yama - Ethical restraints\n        2. Niyama - Observances\n        3. Asana - Physical postures\n        4. Pranayama - Breath control\n        5. Pratyahara - Withdrawal of senses\n        6. Dharana - Concentration\n        7. Dhyana - Meditation\n  ",
+          "source": "Multi-Folder:qdrant_data:vedas_knowledge_base:"
+        },
+        {
+          "text": "Ayurveda is the traditional system of medicine from India, dating back over 5000 years.\n        It focuses on maintaining health through balance of mind, body, and spirit.\n        \n        Key principles of Ayurveda:\n        - Three doshas: Vata (air/space), Pitta (fire/water), Kapha (earth/water)\n        - Prevention is better than cure\n        - Treatment of root causes, not just symptoms\n        - Individualized medicine based on constitution\n        \n        Ayurvedic treatments include:\n   ",
+          "source": "Multi-Folder:qdrant_data:vedas_knowledge_base:"
+        }
+      ],
+      "timestamp": "2025-08-12T14:24:16.471795",
+      "endpoint": "ask-vedas",
+      "status": 200
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 1.8,
+    "timestamp": "2025-08-12T14:24:16.489905"
+  },
+  {
+    "task_id": "8666ab6f-497a-430f-9e07-6ea0398d8318",
+    "input": "what is yujurveda",
+    "output": {
+      "query_id": "f2174ad3-71c8-4ca3-b683-2922d54a54e3",
+      "query": "what is yujurveda",
+      "response": "My friend, I'm so glad you're interested in learning about Ayurveda! It's a truly ancient and profound system of medicine that has been guiding people towards balance and harmony for thousands of years. And within the context of Ayurveda, we have a fascinating topic to explore together: Yajurveda.\n\n**Understanding Yajurveda**\n\nYajurveda is one of the four main Vedas, which are ancient Sanskrit texts that form the foundation of Hindu philosophy and spirituality. Specifically, Yajurveda is concerned with rituals, procedures, and formulas for spiritual practices. It's a beautiful collection of knowledge that has been passed down through generations, guiding people on how to connect with their inner selves and the universe.\n\n**Key Takeaways**\n\nAs we explore Yajurveda together, let's keep in mind its core principles:\n\n1. **Rituals and ceremonies**: Yajurveda provides guidance on rituals and procedures for spiritual growth, self-awareness, and connection with the divine.\n2. **Individualized approach**: Just like Ayurvedic medicine, Yajurveda acknowledges that each person is unique, with their own strengths, weaknesses, and life path.\n3. **Holistic understanding**: Yajurveda views human beings as a combination of body, mind, and spirit, emphasizing the importance of balancing these aspects for overall well-being.\n\n**Practical Advice**\n\nTo integrate the wisdom of Yajurveda into your life:\n\n1. **Explore your spiritual practices**: Take time to reflect on your current spiritual habits. Are there any areas where you'd like to deepen your connection with yourself and the universe?\n2. **Create a daily ritual**: Incorporate simple rituals, such as meditation, yoga, or journaling, into your daily routine.\n3. **Seek guidance from traditional sources**: If possible, consult with Ayurvedic experts or spiritual leaders who can provide personalized guidance on Yajurveda practices.\n\n**Nurturing Your Wellbeing**\n\nRemember that embracing the wisdom of Yajurveda is a journey, not a destination. Be patient and kind to yourself as you explore these ancient teachings.\n\nTo support your growth, I recommend:\n\n1. **Setting aside dedicated time for self-reflection**: Schedule regular moments for introspection, allowing you to tune into your inner world.\n2. **Cultivating compassion and self-love**: Treat yourself with kindness and understanding, just as you would a dear friend.\n3. **Embracing the present moment**: Focus on living in the here and now, rather than dwelling on past regrets or worrying about future uncertainties.\n\n**You Are Not Alone**\n\nI want to remind you that you are part of a long line of seekers who have explored the wisdom of Yajurveda. You're not alone in this journey; there's a wealth of knowledge and support available to guide you.\n\nAs we embark on this exploration together, remember to breathe deeply, be gentle with yourself, and trust in the ancient wisdom that has guided so many before us.\n\nWhat resonates with you about Yajurveda? Is there anything specific you'd like to explore further or any questions you have for me?",
+      "sources": [
+        {
+          "text": "Ayurveda is the traditional system of medicine from India, dating back over 5000 years.\n        It focuses on maintaining health through balance of mind, body, and spirit.\n        \n        Key principles of Ayurveda:\n        - Three doshas: Vata (air/space), Pitta (fire/water), Kapha (earth/water)\n        - Prevention is better than cure\n        - Treatment of root causes, not just symptoms\n        - Individualized medicine based on constitution\n        \n        Ayurvedic treatments include:\n   ",
+          "source": "Multi-Folder:qdrant_data:vedas_knowledge_base:"
+        },
+        {
+          "text": "The Vedas are ancient Sanskrit texts that form the foundation of Hindu philosophy and spirituality.\n        They contain hymns, prayers, and rituals that have been preserved for thousands of years.\n        \n        The four main Vedas are:\n        1. Rigveda - Collection of hymns and prayers\n        2. Samaveda - Musical chants and melodies\n        3. Yajurveda - Ritual formulas and procedures\n        4. Atharvaveda - Spells, charms, and everyday wisdom\n        \n        These texts represent the",
+          "source": "Multi-Folder:qdrant_data:vedas_knowledge_base:"
+        },
+        {
+          "text": "Yoga is a comprehensive system for physical, mental, and spiritual development.\n        The word \"yoga\" means \"union\" - the joining of individual consciousness with universal consciousness.\n        \n        The Eight Limbs of Yoga (Ashtanga):\n        1. Yama - Ethical restraints\n        2. Niyama - Observances\n        3. Asana - Physical postures\n        4. Pranayama - Breath control\n        5. Pratyahara - Withdrawal of senses\n        6. Dharana - Concentration\n        7. Dhyana - Meditation\n  ",
+          "source": "Multi-Folder:qdrant_data:vedas_knowledge_base:"
+        }
+      ],
+      "timestamp": "2025-08-12T14:47:14.979270",
+      "endpoint": "wellness",
+      "status": 200
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 1.8,
+    "timestamp": "2025-08-12T14:47:14.994909"
   }
 ]

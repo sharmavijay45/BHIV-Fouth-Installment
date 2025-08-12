@@ -1,9 +1,18 @@
-/venv
+# Virtual environments
+/venv/
+venv/
 /.env
-env
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
 __pycache__/
+**/__pycache__/
 *.py[cod]
 *$py.class
+*.so
+.Python
 
 # Distribution / packaging
 dist/
@@ -21,6 +30,19 @@ knowledge_cache.json
 # Qdrant data
 qdrant_data/
 qdrant_storage/
+*.qdrant
+*.mmap
+*.dat
+open-*
+
+# Large binary files
+*.bin
+*.h5
+*.pkl
+*.model
+*.pt
+*.pth
+*.weights
 
 # Local storage
 local_setup/
@@ -29,6 +51,13 @@ temp/
 
 # NAS cache
 cache/nas_cache/
+
+# Vector embeddings
+*.vec
+*.embedding
+*.embeddings
+vector_store/
+embeddings/
 
 # OS specific
 .DS_Store

@@ -16,7 +16,7 @@ logger = get_logger(__name__)
 class ArchiveAgent:
     """Agent for processing PDF archives using Ollama."""
     def __init__(self):
-        self.ollama_url = "https://449e35ca1138.ngrok-free.app/api/generate"
+        self.ollama_url = os.getenv("OLLAMA_URL", "http://localhost:11434/api/generate")
         self.model_name = "llama3.1"
         self.timeout = 30
         self.model_config = MODEL_CONFIG.get("edumentor_agent", {})

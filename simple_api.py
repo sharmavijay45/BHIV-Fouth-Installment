@@ -99,6 +99,21 @@ class SimpleOrchestrationEngine:
         self.embedding_model = HuggingFaceEmbeddings(
             model_name="sentence-transformers/all-MiniLM-L6-v2"
         )
+        
+        # First try to load from NAS-based Qdrant
+        try:
+            from example.nas_retriever import NASKnowledgeRetriever
+            nas_retriever = NASKnowledgeRetriever("vedas", qdrant_url="localhost:6333")
+            if nas_retriever.qdrant_available:
+                # Create a wrapper for NAS retriever to work with existing code
+                self.vector_stores["nas_vedas"] = nas_retriever
+                logger.info("✅ Loaded NAS-based vector store for vedas")
+            else:
+                logger.warning("⚠️ NAS Qdrant not available, trying local FAISS stores")
+        except Exception as e:
+            logger.warning(f"NAS retriever not available: {e}")
+        
+        # Try local FAISS vector stores as fallback
         vector_store_dir = Path("vector_stores")
         store_names = ['vedas_index', 'wellness_index', 'educational_index', 'unified_index']
         for store_name in store_names:
@@ -120,15 +135,15 @@ class SimpleOrchestrationEngine:
         return self.model_providers[endpoint].generate_response(prompt, fallback)
     
     def search_documents(self, query: str, store_type: str = "unified") -> list:
-        # First try NAS-based knowledge base
+        # First try NAS-based knowledge base with Qdrant
         try:
             from bhiv_knowledge_base import BHIVKnowledgeBase
             nas_path = os.getenv("NAS_PATH", r"\\192.168.0.94\Guruukul_DB")
 
             # Initialize knowledge base (cached)
             if not hasattr(self, '_nas_kb'):
-                self._nas_kb = BHIVKnowledgeBase(nas_path, use_qdrant=False)
-                logger.info("✅ NAS Knowledge Base initialized")
+                self._nas_kb = BHIVKnowledgeBase(nas_path, use_qdrant=True)  # Enable Qdrant
+                logger.info("✅ NAS Knowledge Base initialized with Qdrant")
 
             # Search in NAS knowledge base
             nas_results = self._nas_kb.search(query, limit=3)
@@ -145,6 +160,24 @@ class SimpleOrchestrationEngine:
 
         except Exception as e:
             logger.error(f"NAS Knowledge Base search error: {e}")
+
+        # Try NAS retriever from vector stores
+        if "nas_vedas" in self.vector_stores:
+            try:
+                nas_retriever = self.vector_stores["nas_vedas"]
+                nas_results = nas_retriever.query(query, top_k=3)
+                if nas_results:
+                    formatted_results = [
+                        {
+                            "text": result["content"][:500],
+                            "source": f"NAS-Qdrant:{result.get('document_id', 'unknown')}"
+                        }
+                        for result in nas_results
+                    ]
+                    logger.info(f"NAS-Qdrant search found {len(formatted_results)} results for '{query}'")
+                    return formatted_results
+            except Exception as e:
+                logger.error(f"NAS retriever search error: {e}")
 
         # Fallback to FAISS vector stores (if available)
         if store_type in self.vector_stores:
@@ -344,8 +377,20 @@ Provide supportive guidance that:
 
 # ==================== KNOWLEDGE BASE ENDPOINTS ====================
 
-# Initialize KnowledgeAgent
-knowledge_agent = KnowledgeAgent()
+# Initialize KnowledgeAgent with NAS support
+try:
+    from example.nas_retriever import NASKnowledgeRetriever
+    # Try to initialize with NAS retriever first
+    nas_retriever = NASKnowledgeRetriever("vedas", qdrant_url="localhost:6333")
+    if nas_retriever.qdrant_available:
+        logger.info("✅ NAS retriever available, initializing KnowledgeAgent with NAS support")
+        knowledge_agent = KnowledgeAgent()
+    else:
+        logger.warning("⚠️ NAS retriever not available, using fallback KnowledgeAgent")
+        knowledge_agent = KnowledgeAgent()
+except Exception as e:
+    logger.warning(f"Failed to initialize NAS retriever: {e}, using fallback KnowledgeAgent")
+    knowledge_agent = KnowledgeAgent()
 
 # Initialize NAS Knowledge Base
 nas_kb = None
@@ -356,8 +401,8 @@ def get_nas_kb():
     if nas_kb is None:
         from bhiv_knowledge_base import BHIVKnowledgeBase
         nas_path = os.getenv("NAS_PATH", r"\\192.168.0.94\Guruukul_DB")
-        nas_kb = BHIVKnowledgeBase(nas_path, use_qdrant=False)
-        logger.info("✅ NAS Knowledge Base initialized for API")
+        nas_kb = BHIVKnowledgeBase(nas_path, use_qdrant=True)  # Enable Qdrant
+        logger.info("✅ NAS Knowledge Base initialized for API with Qdrant")
     return nas_kb
 
 @app.get("/query-kb")

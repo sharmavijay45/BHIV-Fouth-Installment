@@ -724,3 +724,134 @@ UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 
 2025-08-11 17:15:39,653 - INFO - utils.file_based_retriever - Semantic search found 5 results for: what is life
 2025-08-11 17:15:42,343 - ERROR - agents.KnowledgeAgent - LLM enhancement failed: HTTPConnectionPool(host='https', port=80): Max retries exceeded with url: /69cce035eef6.ngrok-free.app/api/generate (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x000001B646D82B90>: Failed to resolve 'https' ([Errno 11001] getaddrinfo failed)"))
 2025-08-11 17:15:42,421 - INFO - __main__ - Knowledge base query 89155ba0-76cf-4ff9-b5a3-0bcd6662b6f0: what is life -> 200 (2.71s)
+2025-08-11 17:21:25,794 - INFO - utils.file_utils - SecureFileAccess initialized with paths: ['C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment', 'C:\\mnt\\vedabase', '\\\\nas\\vedabase', 'Z:\\vedabase', '\\\\your-company-nas\\vedabase', '\\\\your-company-nas\\shared\\vedabase', 'Y:\\vedabase'], read_only: True
+2025-08-11 17:21:25,796 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-11 17:21:25,796 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-11 17:21:28,963 - INFO - utils.file_based_retriever - FileBasedRetriever initialized with SentenceTransformer
+2025-08-11 17:21:28,997 - INFO - utils.file_based_retriever - Loaded knowledge base from cache: 168 chunks
+2025-08-11 17:21:29,784 - INFO - utils.mongo_logger - MongoDB logger initialized successfully
+2025-08-11 17:21:29,785 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for ask-vedas at http://https://69cce035eef6.ngrok-free.app/api/generate
+2025-08-11 17:21:29,785 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for edumentor at http://https://69cce035eef6.ngrok-free.app/api/generate
+2025-08-11 17:21:29,786 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for wellness at http://https://69cce035eef6.ngrok-free.app/api/generate
+2025-08-11 17:21:29,786 - INFO - __main__ - Initializing embedding model...
+2025-08-11 17:21:29,787 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-11 17:21:29,788 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-11 17:21:32,951 - INFO - __main__ - Initialized with 0 vector stores
+2025-08-11 17:21:32,958 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-11 17:21:32,958 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-11 17:21:36,147 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-11 17:21:36,164 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-11 17:21:36,181 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-11 17:21:36,183 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-11 17:21:36,183 - INFO - example.nas_retriever - 📊 Collection has 202 points
+2025-08-11 17:21:36,183 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with NAS+Qdrant support
+2025-08-11 17:21:36,226 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-11 17:21:36,251 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-11 17:21:36,252 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-11 17:21:39,655 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with Qdrant support
+2025-08-11 17:21:39,681 - INFO - __main__ - Starting Simple Orchestration API...
+2025-08-11 17:21:39,682 - INFO - __main__ - Initializing embedding model...
+2025-08-11 17:21:39,683 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-11 17:21:39,683 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-11 17:21:42,647 - INFO - __main__ - Initialized with 0 vector stores
+2025-08-11 17:21:42,648 - INFO - __main__ - Simple Orchestration API ready!
+2025-08-11 17:21:42,649 - INFO - __main__ - Shutting down Simple Orchestration API...
+2025-08-11 17:22:06,149 - INFO - __main__ - Shutting down Simple Orchestration API...
+2025-08-11 17:22:23,462 - INFO - utils.file_utils - SecureFileAccess initialized with paths: ['C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment', 'C:\\mnt\\vedabase', '\\\\nas\\vedabase', 'Z:\\vedabase', '\\\\your-company-nas\\vedabase', '\\\\your-company-nas\\shared\\vedabase', 'Y:\\vedabase'], read_only: True
+2025-08-11 17:22:23,464 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-11 17:22:23,464 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-11 17:22:26,526 - INFO - utils.file_based_retriever - FileBasedRetriever initialized with SentenceTransformer
+2025-08-11 17:22:26,563 - INFO - utils.file_based_retriever - Loaded knowledge base from cache: 168 chunks
+2025-08-11 17:22:27,316 - INFO - utils.mongo_logger - MongoDB logger initialized successfully
+2025-08-11 17:22:27,319 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for ask-vedas at http://https://69cce035eef6.ngrok-free.app/api/generate
+2025-08-11 17:22:27,319 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for edumentor at http://https://69cce035eef6.ngrok-free.app/api/generate
+2025-08-11 17:22:27,319 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for wellness at http://https://69cce035eef6.ngrok-free.app/api/generate
+2025-08-11 17:22:27,320 - INFO - __main__ - Initializing embedding model...
+2025-08-11 17:22:27,321 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-11 17:22:27,322 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-11 17:22:30,274 - INFO - __main__ - Initialized with 0 vector stores
+2025-08-11 17:22:30,280 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-11 17:22:30,281 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-11 17:22:33,256 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-11 17:22:33,273 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-11 17:22:33,289 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-11 17:22:33,290 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-11 17:22:33,291 - INFO - example.nas_retriever - 📊 Collection has 202 points
+2025-08-11 17:22:33,291 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with NAS+Qdrant support
+2025-08-11 17:22:33,335 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-11 17:22:33,337 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-11 17:22:33,338 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-11 17:22:36,322 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with Qdrant support
+2025-08-11 17:22:36,350 - INFO - __main__ - Starting Simple Orchestration API...
+2025-08-11 17:22:36,351 - INFO - __main__ - Initializing embedding model...
+2025-08-11 17:22:36,353 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-11 17:22:36,353 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-11 17:22:39,269 - INFO - __main__ - Initialized with 0 vector stores
+2025-08-11 17:22:39,269 - INFO - __main__ - Simple Orchestration API ready!
+2025-08-11 17:22:55,427 - INFO - agents.KnowledgeAgent - KnowledgeAgent processing task 5f3bf57c-f8b8-4631-9562-354085168c66, query: what is life
+2025-08-11 17:22:55,428 - INFO - agents.KnowledgeAgent - KnowledgeAgent query 5f3bf57c-f8b8-4631-9562-354085168c66: Using file-based retriever (primary)
+2025-08-11 17:22:55,448 - INFO - utils.file_based_retriever - Semantic search found 5 results for: what is life
+2025-08-11 17:22:58,135 - ERROR - agents.KnowledgeAgent - LLM enhancement failed: HTTPConnectionPool(host='https', port=80): Max retries exceeded with url: /69cce035eef6.ngrok-free.app/api/generate (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x000001C3C523EB10>: Failed to resolve 'https' ([Errno 11001] getaddrinfo failed)"))
+2025-08-11 17:22:58,140 - INFO - __main__ - Knowledge base query 5f3bf57c-f8b8-4631-9562-354085168c66: what is life -> 200 (2.71s)
+2025-08-11 17:24:56,534 - INFO - utils.file_utils - SecureFileAccess initialized with paths: ['C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment', 'C:\\mnt\\vedabase', '\\\\nas\\vedabase', 'Z:\\vedabase', '\\\\your-company-nas\\vedabase', '\\\\your-company-nas\\shared\\vedabase', 'Y:\\vedabase'], read_only: True
+2025-08-11 17:24:56,536 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-11 17:24:56,536 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-11 17:24:59,544 - INFO - utils.file_based_retriever - FileBasedRetriever initialized with SentenceTransformer
+2025-08-11 17:24:59,586 - INFO - utils.file_based_retriever - Loaded knowledge base from cache: 168 chunks
+2025-08-11 17:25:00,331 - INFO - utils.mongo_logger - MongoDB logger initialized successfully
+2025-08-11 17:25:00,333 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for ask-vedas at http://https://69cce035eef6.ngrok-free.app/api/generate
+2025-08-11 17:25:00,333 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for edumentor at http://https://69cce035eef6.ngrok-free.app/api/generate
+2025-08-11 17:25:00,333 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for wellness at http://https://69cce035eef6.ngrok-free.app/api/generate
+2025-08-11 17:25:00,334 - INFO - __main__ - Initializing embedding model...
+2025-08-11 17:25:00,335 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-11 17:25:00,335 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-11 17:25:03,295 - INFO - __main__ - Initialized with 0 vector stores
+2025-08-11 17:25:03,302 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-11 17:25:03,303 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-11 17:25:06,325 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-11 17:25:06,340 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-11 17:25:06,357 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-11 17:25:06,359 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-11 17:25:06,359 - INFO - example.nas_retriever - 📊 Collection has 202 points
+2025-08-11 17:25:06,360 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with NAS+Qdrant support
+2025-08-11 17:25:06,402 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-11 17:25:06,404 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-11 17:25:06,405 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-11 17:25:09,506 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with Qdrant support
+2025-08-11 17:25:09,532 - INFO - __main__ - Starting Simple Orchestration API...
+2025-08-11 17:25:09,532 - INFO - __main__ - Initializing embedding model...
+2025-08-11 17:25:09,534 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-11 17:25:09,534 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-11 17:25:12,492 - INFO - __main__ - Initialized with 0 vector stores
+2025-08-11 17:25:12,493 - INFO - __main__ - Simple Orchestration API ready!
+2025-08-11 17:30:17,407 - INFO - utils.file_utils - SecureFileAccess initialized with paths: ['C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment', 'C:\\mnt\\vedabase', '\\\\nas\\vedabase', 'Z:\\vedabase', '\\\\your-company-nas\\vedabase', '\\\\your-company-nas\\shared\\vedabase', 'Y:\\vedabase'], read_only: True
+2025-08-11 17:30:17,409 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-11 17:30:17,409 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-11 17:30:20,389 - INFO - utils.file_based_retriever - FileBasedRetriever initialized with SentenceTransformer
+2025-08-11 17:30:20,422 - INFO - utils.file_based_retriever - Loaded knowledge base from cache: 168 chunks
+2025-08-11 17:30:21,174 - INFO - utils.mongo_logger - MongoDB logger initialized successfully
+2025-08-11 17:30:21,175 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for ask-vedas at http://https://69cce035eef6.ngrok-free.app/api/generate
+2025-08-11 17:30:21,175 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for edumentor at http://https://69cce035eef6.ngrok-free.app/api/generate
+2025-08-11 17:30:21,176 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for wellness at http://https://69cce035eef6.ngrok-free.app/api/generate
+2025-08-11 17:30:21,176 - INFO - __main__ - Initializing embedding model...
+2025-08-11 17:30:21,177 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-11 17:30:21,177 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-11 17:30:24,451 - INFO - __main__ - Initialized with 0 vector stores
+2025-08-11 17:30:24,457 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-11 17:30:24,458 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-11 17:30:27,399 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-11 17:30:27,415 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-11 17:30:27,431 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-11 17:30:27,433 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-11 17:30:27,433 - INFO - example.nas_retriever - 📊 Collection has 202 points
+2025-08-11 17:30:27,435 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with NAS+Qdrant support
+2025-08-11 17:30:27,477 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-11 17:30:27,479 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-11 17:30:27,479 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-11 17:30:30,362 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with Qdrant support
+2025-08-11 17:30:30,385 - INFO - __main__ - Starting Simple Orchestration API...
+2025-08-11 17:30:30,386 - INFO - __main__ - Initializing embedding model...
+2025-08-11 17:30:30,387 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-11 17:30:30,387 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-11 17:30:33,285 - INFO - __main__ - Initialized with 0 vector stores
+2025-08-11 17:30:33,285 - INFO - __main__ - Simple Orchestration API ready!

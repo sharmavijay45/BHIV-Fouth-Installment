@@ -74,14 +74,98 @@ class KnowledgeAgent:
         if filters:
             print(f"🎯 [FILTERS] {filters}")
 
-        # Always try file-based retriever first (more reliable)
+        # Try NAS+Qdrant retriever first (most advanced)
+        if self.nas_available and self.nas_retriever:
+            print(f"🚀 [NAS RETRIEVER] Searching NAS-based Qdrant knowledge base...")
+            logger.info(f"KnowledgeAgent query {task_id}: Using NAS+Qdrant retriever (primary)")
+            try:
+                nas_results = self.nas_retriever.query(query_text, top_k=5)
+                if nas_results:
+                    print(f"✅ [FOUND] {len(nas_results)} relevant chunks in NAS knowledge base")
+                    # Format results for consistency
+                    formatted_results = [result['content'] for result in nas_results]
+                    sources = [f"NAS-Qdrant:{result.get('document_id', 'unknown')}" for result in nas_results]
+
+                    return {
+                        "query_id": task_id,
+                        "query": query_text,
+                        "response": formatted_results,
+                        "sources": sources,
+                        "timestamp": datetime.now().isoformat(),
+                        "endpoint": "knowledge",
+                        "status": 200,
+                        "metadata": {
+                            "tags": ["semantic_search", "nas_qdrant"],
+                            "retriever": "nas_qdrant",
+                            "total_results": len(nas_results)
+                        }
+                    }
+                else:
+                    print(f"⚠️ [NO RESULTS] NAS retriever found no results, trying Qdrant...")
+            except Exception as e:
+                logger.error(f"NAS retriever failed: {str(e)}")
+                print(f"❌ [NAS ERROR] {str(e)}, trying Qdrant...")
+
+        # Try Qdrant-based retriever as secondary option
+        if self.qdrant_available and self.retriever:
+            print(f"🔍 [QDRANT RETRIEVER] Searching Qdrant knowledge base...")
+            logger.info(f"KnowledgeAgent query {task_id}: Using Qdrant retriever (secondary)")
+            try:
+                results = self.retriever.get_relevant_docs(query_text, filters)
+                if results:
+                    print(f"✅ [FOUND] {len(results) if isinstance(results, list) else 1} results in Qdrant")
+                    
+                    # Format results for consistency - extract text content
+                    if isinstance(results, list):
+                        formatted_results = []
+                        sources = []
+                        for result in results:
+                            if isinstance(result, dict):
+                                text_content = result.get("text", str(result))
+                                source = result.get("source", "unknown")
+                                formatted_results.append(text_content)
+                                sources.append(source)
+                            else:
+                                formatted_results.append(str(result))
+                                sources.append("unknown")
+                    else:
+                        formatted_results = [str(results)]
+                        sources = ["unknown"]
+                    
+                    response = {
+                        "query_id": task_id,
+                        "query": query_text,
+                        "response": formatted_results,
+                        "sources": sources,
+                        "timestamp": datetime.now().isoformat(),
+                        "endpoint": "knowledge",
+                        "status": 200,
+                        "metadata": {"tags": ["semantic_search", "qdrant"]}
+                    }
+                    reward = get_reward_from_output(response, task_id)
+                    self.rl_context.log_action(
+                        task_id=task_id,
+                        agent="knowledge_agent",
+                        model="none",
+                        action="query_vedabase",
+                        metadata={"query": query_text, "filters": filters}
+                    )
+                    logger.info(f"KnowledgeAgent query {task_id}: {len(formatted_results)} results")
+                    return response
+                else:
+                    print(f"⚠️ [NO RESULTS] Qdrant found no results, trying file-based...")
+            except Exception as e:
+                logger.error(f"Qdrant retriever failed: {str(e)}")
+                print(f"❌ [QDRANT ERROR] {str(e)}, trying file-based...")
+
+        # Fallback to file-based retriever (least preferred)
         if self.file_retriever_available:
-            print(f"📚 [FILE RETRIEVER] Searching knowledge base...")
-            logger.info(f"KnowledgeAgent query {task_id}: Using file-based retriever (primary)")
+            print(f"📚 [FILE RETRIEVER] Searching file-based knowledge base (fallback)...")
+            logger.info(f"KnowledgeAgent query {task_id}: Using file-based retriever (fallback)")
             try:
                 file_results = file_retriever.search(query_text, limit=5)
                 if file_results:
-                    print(f"✅ [FOUND] {len(file_results)} relevant chunks in knowledge base")
+                    print(f"✅ [FOUND] {len(file_results)} relevant chunks in file-based knowledge base")
                     # Format results for consistency
                     formatted_results = [result['text'] for result in file_results]
                     sources = [result['source'] for result in file_results]
@@ -110,7 +194,7 @@ class KnowledgeAgent:
                         "timestamp": datetime.now().isoformat(),
                         "endpoint": "knowledge",
                         "status": 200,
-                        "metadata": {"tags": ["semantic_search", "vedabase"], "fallback_mode": True}
+                        "metadata": {"tags": ["semantic_search", "file_based"], "fallback_mode": True}
                     }
             except Exception as e:
                 logger.error(f"File-based retriever failed: {str(e)}")
@@ -122,52 +206,31 @@ class KnowledgeAgent:
                     "timestamp": datetime.now().isoformat(),
                     "endpoint": "knowledge",
                     "status": 200,
-                    "metadata": {"tags": ["semantic_search", "vedabase"], "fallback_mode": True}
+                    "metadata": {"tags": ["semantic_search", "file_based"], "fallback_mode": True}
                 }
 
-        try:
-            results = self.retriever.get_relevant_docs(query_text, filters)
-            response = {
-                "query_id": task_id,
-                "query": query_text,
-                "response": results,
-                "sources": [],
-                "timestamp": datetime.now().isoformat(),
-                "endpoint": "knowledge",
-                "status": 200,
-                "metadata": {"tags": ["semantic_search", "vedabase"]}
-            }
-            reward = get_reward_from_output(response, task_id)
-            self.rl_context.log_action(
-                task_id=task_id,
-                agent="knowledge_agent",
-                model="none",
-                action="query_vedabase",
-                metadata={"query": query_text, "filters": filters}
-            )
-            logger.info(f"KnowledgeAgent query {task_id}: {len(results) if isinstance(results, list) else 1} results")
-            return response
-        except Exception as e:
-            logger.error(f"KnowledgeAgent query {task_id} failed: {str(e)}")
-            return {
-                "query_id": task_id,
-                "query": query_text,
-                "response": [],
-                "sources": [],
-                "timestamp": datetime.now().isoformat(),
-                "endpoint": "knowledge",
-                "status": 200,
-                "metadata": {"tags": ["semantic_search", "vedabase"], "fallback_mode": True},
-                "error": str(e)
-            }
+        # Final fallback if no retrievers are available
+        print(f"❌ [NO RETRIEVERS] No retrievers available, returning empty response")
+        logger.warning(f"KnowledgeAgent query {task_id}: No retrievers available")
+        return {
+            "query_id": task_id,
+            "query": query_text,
+            "response": [],
+            "sources": [],
+            "timestamp": datetime.now().isoformat(),
+            "endpoint": "knowledge",
+            "status": 200,
+            "metadata": {"tags": ["semantic_search", "no_retriever"], "fallback_mode": True}
+        }
+
 
     def enhance_with_llm(self, query: str, knowledge_context: str) -> str:
         """Enhanced response using Ollama fallback if configured, else local formatting."""
         try:
             # Try Ollama when configured
             import requests
-            ollama_url = os.getenv("OLLAMA_URL", "")
-            ollama_model = os.getenv("OLLAMA_MODEL", "")
+            ollama_url = os.getenv("OLLAMA_URL", "http://localhost:11434/api/generate")
+            ollama_model = os.getenv("OLLAMA_MODEL", "llama3-8b-8192")
             if ollama_url and ollama_model:
                 prompt = (
                     "You are a helpful assistant. Use the following knowledge context if available to answer the query.\n\n"
@@ -183,12 +246,31 @@ class KnowledgeAgent:
                     text = data.get("response") or data.get("message", {}).get("content")
                     if text:
                         return text.strip()
-            # Fallback: local formatting only
+
+            # Fallback: local formatting and summarization
             if knowledge_context.strip():
-                return (
-                    "Based on the available knowledge:\n\n" + knowledge_context +
-                    f"\n\nThis information addresses your query about: {query}"
-                )
+                # Simple summarization: find sentences with the most query words
+                query_words = set(query.lower().split())
+                sentences = knowledge_context.split('.')
+                sentence_scores = []
+                for sentence in sentences:
+                    if not sentence.strip():
+                        continue
+                    sentence_words = set(sentence.lower().split())
+                    score = len(query_words.intersection(sentence_words))
+                    sentence_scores.append((score, sentence))
+
+                sentence_scores.sort(key=lambda x: x[0], reverse=True)
+
+                # Return the top 3 sentences
+                top_sentences = [s for score, s in sentence_scores[:3] if score > 0]
+
+                if top_sentences:
+                    return ". ".join(top_sentences).strip() + "."
+                else:
+                    # If no sentences have query words, return the first 3 sentences
+                    return ". ".join(sentences[:3]).strip() + "."
+
             return f"I don't have specific information about '{query}' in the knowledge base."
         except Exception as e:
             logger.error(f"LLM enhancement failed: {str(e)}")

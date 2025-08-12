@@ -16,7 +16,7 @@ class TransformerAdapter:
     def __init__(self):
         self.model_config = MODEL_CONFIG
         self.calculator = Calculator()
-        self.ollama_url = "https://449e35ca1138.ngrok-free.app/api/generate"
+        self.ollama_url = os.getenv("OLLAMA_URL", "http://localhost:11434/api/generate")
         self.model_name = "llama3.1"
         self.timeout = 30
         # Fallback hierarchy for models

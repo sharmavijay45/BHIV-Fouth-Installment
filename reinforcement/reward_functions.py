@@ -16,7 +16,14 @@ def get_reward_from_output(output: Dict[str, Any], task_id: str) -> float:
         clarity_score = 0.0
         tag_count = 0
         if result:
-            word_count = len(result.split())
+            # Handle both string and list responses
+            if isinstance(result, str):
+                word_count = len(result.split())
+            elif isinstance(result, list):
+                word_count = sum(len(str(item).split()) for item in result)
+            else:
+                word_count = len(str(result).split())
+            
             clarity_score = min(word_count / 100.0, 1.0)
             reward += clarity_score * 0.5
         if keywords:

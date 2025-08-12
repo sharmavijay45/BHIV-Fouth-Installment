@@ -153,7 +153,7 @@ class NASKnowledgeRetriever:
         """Query Qdrant vector database."""
         try:
             # Encode query
-            query_embedding = self.encoder.encode([query_text])
+            query_embedding = self.encoder.encode(query_text)
 
             # Prepare Qdrant filter if provided
             qdrant_filter = None
@@ -169,16 +169,19 @@ class NASKnowledgeRetriever:
                 if conditions:
                     qdrant_filter = Filter(must=conditions)
 
-            # Search in Qdrant
-            search_results = self.qdrant_client.search(
+            # Search in Qdrant using query_points (newer API)
+            search_results = self.qdrant_client.query_points(
                 collection_name=self.collection_name,
-                query_vector=query_embedding.tolist(),
+                query=query_embedding.tolist(),
                 query_filter=qdrant_filter,
                 limit=top_k
             )
 
             results = []
-            for i, result in enumerate(search_results):
+            # query_points returns QueryResponse with points attribute
+            points = search_results.points if hasattr(search_results, 'points') else search_results
+            
+            for i, result in enumerate(points):
                 payload = result.payload
                 content = payload.get("content", "")
 

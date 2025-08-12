@@ -3180,5 +3180,35 @@
     "model": "vedas_agent",
     "reward": 0.0,
     "timestamp": "2025-08-11T16:54:48.349883"
+  },
+  {
+    "task_id": "dbe1825f-9159-4227-a68d-09b2bd607ed2",
+    "input": "what is vedant",
+    "output": {
+      "query_id": "f17222b9-8e91-4eed-9fa6-90ca05260ea6",
+      "query": "what is vedant",
+      "response": "The ancient Vedic texts teach us to seek truth through self-reflection and righteous action. Regarding 'what is vedant', remember that true wisdom comes from understanding the interconnectedness of all existence. Practice mindfulness, act with compassion, and seek the divine within yourself.",
+      "sources": [
+        {
+          "text": "The Vedas are ancient Sanskrit texts that form the foundation of Hindu philosophy and spirituality.\n        They contain hymns, prayers, and rituals that have been preserved for thousands of years.\n        \n        The four main Vedas are:\n        1. Rigveda - Collection of hymns and prayers\n        2. Samaveda - Musical chants and melodies\n        3. Yajurveda - Ritual formulas and procedures\n        4. Atharvaveda - Spells, charms, and everyday wisdom\n        \n        These texts represent the",
+          "source": "NAS-Qdrant:unknown"
+        },
+        {
+          "text": "Yoga is a comprehensive system for physical, mental, and spiritual development.\n        The word \"yoga\" means \"union\" - the joining of individual consciousness with universal consciousness.\n        \n        The Eight Limbs of Yoga (Ashtanga):\n        1. Yama - Ethical restraints\n        2. Niyama - Observances\n        3. Asana - Physical postures\n        4. Pranayama - Breath control\n        5. Pratyahara - Withdrawal of senses\n        6. Dharana - Concentration\n        7. Dhyana - Meditation\n  ",
+          "source": "NAS-Qdrant:unknown"
+        },
+        {
+          "text": "Ayurveda is the traditional system of medicine from India, dating back over 5000 years.\n        It focuses on maintaining health through balance of mind, body, and spirit.\n        \n        Key principles of Ayurveda:\n        - Three doshas: Vata (air/space), Pitta (fire/water), Kapha (earth/water)\n        - Prevention is better than cure\n        - Treatment of root causes, not just symptoms\n        - Individualized medicine based on constitution\n        \n        Ayurvedic treatments include:\n   ",
+          "source": "NAS-Qdrant:unknown"
+        }
+      ],
+      "timestamp": "2025-08-12T13:11:11.604404",
+      "endpoint": "ask-vedas",
+      "status": 500
+    },
+    "agent": "knowledge_agent",
+    "model": "knowledge_agent",
+    "reward": 0.505,
+    "timestamp": "2025-08-12T13:11:11.678325"
   }
 ]

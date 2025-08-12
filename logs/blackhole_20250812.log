@@ -1,0 +1,609 @@
+2025-08-12 12:07:05,492 - INFO - utils.file_utils - SecureFileAccess initialized with paths: ['C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment', 'C:\\mnt\\vedabase', '\\\\nas\\vedabase', 'Z:\\vedabase', '\\\\your-company-nas\\vedabase', '\\\\your-company-nas\\shared\\vedabase', 'Y:\\vedabase'], read_only: True
+2025-08-12 12:07:05,495 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:07:05,495 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:07:09,277 - INFO - utils.file_based_retriever - FileBasedRetriever initialized with SentenceTransformer
+2025-08-12 12:07:09,310 - INFO - utils.file_based_retriever - Loaded knowledge base from cache: 168 chunks
+2025-08-12 12:07:10,210 - INFO - utils.mongo_logger - MongoDB logger initialized successfully
+2025-08-12 12:07:10,212 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for ask-vedas at http://https://69cce035eef6.ngrok-free.app/api/generate
+2025-08-12 12:07:10,212 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for edumentor at http://https://69cce035eef6.ngrok-free.app/api/generate
+2025-08-12 12:07:10,212 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for wellness at http://https://69cce035eef6.ngrok-free.app/api/generate
+2025-08-12 12:07:10,213 - INFO - __main__ - Initializing embedding model...
+2025-08-12 12:07:10,214 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:07:10,214 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-12 12:07:13,364 - INFO - __main__ - Initialized with 0 vector stores
+2025-08-12 12:07:13,370 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:07:13,370 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:07:25,393 - ERROR - example.nas_retriever - ❌ Failed to connect to Qdrant: [WinError 10061] No connection could be made because the target machine actively refused it
+2025-08-12 12:07:25,535 - WARNING - example.nas_retriever - ⚠️ NAS server is not accessible, trying local cache
+2025-08-12 12:07:25,536 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with NAS+Qdrant support
+2025-08-12 12:07:29,643 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:07:29,644 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:07:32,834 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with Qdrant support
+2025-08-12 12:07:32,916 - INFO - __main__ - Starting Simple Orchestration API...
+2025-08-12 12:07:32,916 - INFO - __main__ - Initializing embedding model...
+2025-08-12 12:07:32,918 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:07:32,918 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-12 12:07:36,695 - INFO - __main__ - Initialized with 0 vector stores
+2025-08-12 12:07:36,695 - INFO - __main__ - Simple Orchestration API ready!
+2025-08-12 12:16:51,656 - INFO - agents.KnowledgeAgent - KnowledgeAgent processing task bf4a14a3-f85c-432b-8310-071d89e62799, query: What is dharma
+2025-08-12 12:16:51,656 - INFO - agents.KnowledgeAgent - KnowledgeAgent query bf4a14a3-f85c-432b-8310-071d89e62799: Using file-based retriever (primary)
+2025-08-12 12:16:51,757 - INFO - utils.file_based_retriever - Semantic search found 5 results for: What is dharma
+2025-08-12 12:16:54,447 - ERROR - agents.KnowledgeAgent - LLM enhancement failed: HTTPConnectionPool(host='https', port=80): Max retries exceeded with url: /69cce035eef6.ngrok-free.app/api/generate (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x000001C7002DE810>: Failed to resolve 'https' ([Errno 11001] getaddrinfo failed)"))
+2025-08-12 12:16:54,499 - INFO - __main__ - Knowledge base query bf4a14a3-f85c-432b-8310-071d89e62799: What is dharma -> 200 (2.79s)
+2025-08-12 12:21:24,837 - INFO - __main__ - Shutting down Simple Orchestration API...
+2025-08-12 12:28:45,318 - INFO - __main__ - Using Qdrant data directory: C:\Users\abc1\Downloads\BHIV-Third-Installment\qdrant_data
+2025-08-12 12:28:45,318 - INFO - __main__ - Starting Qdrant with Docker...
+2025-08-12 12:28:45,449 - ERROR - __main__ - Failed to start Qdrant: docker: error during connect: Head "http://%2F%2F.%2Fpipe%2FdockerDesktopLinuxEngine/_ping": open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.
+
+Run 'docker run --help' for more information
+
+2025-08-12 12:29:33,858 - INFO - __main__ - Using Qdrant data directory: C:\Users\abc1\Downloads\BHIV-Third-Installment\qdrant_data
+2025-08-12 12:29:33,858 - INFO - __main__ - Starting Qdrant with Docker...
+2025-08-12 12:29:34,365 - INFO - __main__ - Qdrant container started successfully
+2025-08-12 12:29:35,398 - INFO - __main__ - Qdrant is ready and accessible
+2025-08-12 12:30:19,856 - INFO - utils.file_utils - SecureFileAccess initialized with paths: ['C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment', 'C:\\mnt\\vedabase', '\\\\nas\\vedabase', 'Z:\\vedabase', '\\\\your-company-nas\\vedabase', '\\\\your-company-nas\\shared\\vedabase', 'Y:\\vedabase'], read_only: True
+2025-08-12 12:30:19,858 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:30:19,858 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:30:25,064 - INFO - utils.file_based_retriever - FileBasedRetriever initialized with SentenceTransformer
+2025-08-12 12:30:25,100 - INFO - utils.file_based_retriever - Loaded knowledge base from cache: 168 chunks
+2025-08-12 12:30:26,848 - INFO - utils.mongo_logger - MongoDB logger initialized successfully
+2025-08-12 12:30:26,850 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for ask-vedas at https://769d44eefc7c.ngrok-free.app/api/generate
+2025-08-12 12:30:26,850 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for edumentor at https://769d44eefc7c.ngrok-free.app/api/generate
+2025-08-12 12:30:26,850 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for wellness at https://769d44eefc7c.ngrok-free.app/api/generate
+2025-08-12 12:30:26,850 - INFO - __main__ - Initializing embedding model...
+2025-08-12 12:30:26,852 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:30:26,852 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-12 12:30:30,018 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:30:30,018 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:30:33,209 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 12:30:33,223 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 12:30:33,226 - WARNING - example.nas_retriever - ⚠️ Qdrant collection not found: vedas_knowledge_base
+2025-08-12 12:30:33,290 - WARNING - example.nas_retriever - ⚠️ NAS server is not accessible, trying local cache
+2025-08-12 12:30:33,291 - WARNING - __main__ - ⚠️ NAS Qdrant not available, trying local FAISS stores
+2025-08-12 12:30:33,291 - INFO - __main__ - Initialized with 0 vector stores
+2025-08-12 12:30:33,299 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:30:33,299 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:30:36,521 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 12:30:36,538 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 12:30:36,538 - WARNING - example.nas_retriever - ⚠️ Qdrant collection not found: vedas_knowledge_base
+2025-08-12 12:30:36,539 - WARNING - example.nas_retriever - ⚠️ NAS server is not accessible, trying local cache
+2025-08-12 12:30:36,539 - WARNING - __main__ - ⚠️ NAS retriever not available, using fallback KnowledgeAgent
+2025-08-12 12:30:36,541 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:30:36,541 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:30:39,815 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 12:30:39,830 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 12:30:39,831 - WARNING - example.nas_retriever - ⚠️ Qdrant collection not found: vedas_knowledge_base
+2025-08-12 12:30:39,831 - WARNING - example.nas_retriever - ⚠️ NAS server is not accessible, trying local cache
+2025-08-12 12:30:39,832 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with NAS+Qdrant support
+2025-08-12 12:30:39,877 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 12:30:39,880 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:30:39,881 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:30:43,135 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with Qdrant support
+2025-08-12 12:30:43,251 - INFO - __main__ - Starting Simple Orchestration API...
+2025-08-12 12:30:43,251 - INFO - __main__ - Initializing embedding model...
+2025-08-12 12:30:43,253 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:30:43,253 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-12 12:30:46,494 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:30:46,494 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:30:50,096 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 12:30:50,111 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 12:30:50,111 - WARNING - example.nas_retriever - ⚠️ Qdrant collection not found: vedas_knowledge_base
+2025-08-12 12:30:50,111 - WARNING - example.nas_retriever - ⚠️ NAS server is not accessible, trying local cache
+2025-08-12 12:30:50,113 - WARNING - __main__ - ⚠️ NAS Qdrant not available, trying local FAISS stores
+2025-08-12 12:30:50,113 - INFO - __main__ - Initialized with 0 vector stores
+2025-08-12 12:30:50,113 - INFO - __main__ - Simple Orchestration API ready!
+2025-08-12 12:30:53,798 - INFO - agents.KnowledgeAgent - KnowledgeAgent processing task 1315eeff-9789-47ef-9bc8-d478f329b3a4, query: What is dharma
+2025-08-12 12:30:53,798 - INFO - agents.KnowledgeAgent - KnowledgeAgent query 1315eeff-9789-47ef-9bc8-d478f329b3a4: Using file-based retriever (primary)
+2025-08-12 12:30:53,889 - INFO - utils.file_based_retriever - Semantic search found 5 results for: What is dharma
+2025-08-12 12:30:53,970 - INFO - __main__ - Knowledge base query 1315eeff-9789-47ef-9bc8-d478f329b3a4: What is dharma -> 200 (0.16s)
+2025-08-12 12:52:25,710 - INFO - utils.file_utils - SecureFileAccess initialized with paths: ['C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment', 'C:\\mnt\\vedabase', '\\\\nas\\vedabase', 'Z:\\vedabase', '\\\\your-company-nas\\vedabase', '\\\\your-company-nas\\shared\\vedabase', 'Y:\\vedabase'], read_only: True
+2025-08-12 12:52:25,712 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:52:25,712 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:52:30,059 - INFO - utils.file_based_retriever - FileBasedRetriever initialized with SentenceTransformer
+2025-08-12 12:52:30,094 - INFO - utils.file_based_retriever - Loaded knowledge base from cache: 168 chunks
+2025-08-12 12:52:31,668 - INFO - utils.mongo_logger - MongoDB logger initialized successfully
+2025-08-12 12:52:31,670 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for ask-vedas at https://769d44eefc7c.ngrok-free.app/api/generate
+2025-08-12 12:52:31,670 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for edumentor at https://769d44eefc7c.ngrok-free.app/api/generate
+2025-08-12 12:52:31,671 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for wellness at https://769d44eefc7c.ngrok-free.app/api/generate
+2025-08-12 12:52:31,671 - INFO - __main__ - Initializing embedding model...
+2025-08-12 12:52:31,673 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:52:31,673 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-12 12:52:35,096 - INFO - __main__ - Shutting down Simple Orchestration API...
+2025-08-12 12:52:35,181 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:52:35,181 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:52:38,433 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 12:52:38,448 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 12:52:38,463 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 12:52:38,470 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 12:52:38,470 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 12:52:38,470 - INFO - __main__ - ✅ Loaded NAS-based vector store for vedas
+2025-08-12 12:52:38,471 - INFO - __main__ - Initialized with 1 vector stores
+2025-08-12 12:52:38,479 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:52:38,479 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:52:41,574 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 12:52:41,589 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 12:52:41,592 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 12:52:41,593 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 12:52:41,593 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 12:52:41,593 - INFO - __main__ - ✅ NAS retriever available, initializing KnowledgeAgent with NAS support
+2025-08-12 12:52:41,595 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:52:41,597 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:52:44,661 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 12:52:44,675 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 12:52:44,692 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 12:52:44,693 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 12:52:44,693 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 12:52:44,694 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with NAS+Qdrant support
+2025-08-12 12:52:44,739 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 12:52:44,742 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:52:44,742 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:52:47,831 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with Qdrant support
+2025-08-12 12:52:47,880 - INFO - __main__ - Starting Simple Orchestration API...
+2025-08-12 12:52:47,880 - INFO - __main__ - Initializing embedding model...
+2025-08-12 12:52:47,881 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:52:47,881 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-12 12:52:51,417 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:52:51,417 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:52:54,612 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 12:52:54,628 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 12:52:54,643 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 12:52:54,644 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 12:52:54,644 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 12:52:54,646 - INFO - __main__ - ✅ Loaded NAS-based vector store for vedas
+2025-08-12 12:52:54,646 - INFO - __main__ - Initialized with 1 vector stores
+2025-08-12 12:52:54,646 - INFO - __main__ - Simple Orchestration API ready!
+2025-08-12 12:53:21,000 - INFO - agents.KnowledgeAgent - KnowledgeAgent processing task 08abf475-319a-41c6-a6c7-5b5ab8a86f69, query: What is dharma
+2025-08-12 12:53:21,000 - INFO - agents.KnowledgeAgent - KnowledgeAgent query 08abf475-319a-41c6-a6c7-5b5ab8a86f69: Using file-based retriever (primary)
+2025-08-12 12:53:21,020 - INFO - utils.file_based_retriever - Semantic search found 5 results for: What is dharma
+2025-08-12 12:53:21,097 - INFO - __main__ - Knowledge base query 08abf475-319a-41c6-a6c7-5b5ab8a86f69: What is dharma -> 200 (0.09s)
+2025-08-12 12:55:27,955 - INFO - utils.file_utils - SecureFileAccess initialized with paths: ['C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment', 'C:\\mnt\\vedabase', '\\\\nas\\vedabase', 'Z:\\vedabase', '\\\\your-company-nas\\vedabase', '\\\\your-company-nas\\shared\\vedabase', 'Y:\\vedabase'], read_only: True
+2025-08-12 12:55:27,958 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:55:27,958 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:55:31,734 - INFO - utils.file_based_retriever - FileBasedRetriever initialized with SentenceTransformer
+2025-08-12 12:55:31,768 - INFO - utils.file_based_retriever - Loaded knowledge base from cache: 168 chunks
+2025-08-12 12:55:33,414 - INFO - utils.mongo_logger - MongoDB logger initialized successfully
+2025-08-12 12:55:33,416 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for ask-vedas at https://769d44eefc7c.ngrok-free.app/api/generate
+2025-08-12 12:55:33,416 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for edumentor at https://769d44eefc7c.ngrok-free.app/api/generate
+2025-08-12 12:55:33,416 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for wellness at https://769d44eefc7c.ngrok-free.app/api/generate
+2025-08-12 12:55:33,417 - INFO - __main__ - Initializing embedding model...
+2025-08-12 12:55:33,418 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:55:33,418 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-12 12:55:36,499 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:55:36,499 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:55:39,552 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 12:55:39,567 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 12:55:39,584 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 12:55:39,589 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 12:55:39,590 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 12:55:39,590 - INFO - __main__ - ✅ Loaded NAS-based vector store for vedas
+2025-08-12 12:55:39,590 - INFO - __main__ - Initialized with 1 vector stores
+2025-08-12 12:55:39,598 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:55:39,598 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:55:42,735 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 12:55:42,750 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 12:55:42,766 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 12:55:42,767 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 12:55:42,767 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 12:55:42,767 - INFO - __main__ - ✅ NAS retriever available, initializing KnowledgeAgent with NAS support
+2025-08-12 12:55:42,770 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:55:42,770 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:55:45,915 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 12:55:45,932 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 12:55:45,946 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 12:55:45,947 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 12:55:45,947 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 12:55:45,948 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with NAS+Qdrant support
+2025-08-12 12:55:45,994 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 12:55:45,996 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:55:45,997 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:55:49,029 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with Qdrant support
+2025-08-12 12:55:49,074 - INFO - __main__ - Starting Simple Orchestration API...
+2025-08-12 12:55:49,075 - INFO - __main__ - Initializing embedding model...
+2025-08-12 12:55:49,076 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:55:49,076 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-12 12:55:52,248 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:55:52,249 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:55:55,296 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 12:55:55,313 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 12:55:55,327 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 12:55:55,328 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 12:55:55,329 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 12:55:55,330 - INFO - __main__ - ✅ Loaded NAS-based vector store for vedas
+2025-08-12 12:55:55,330 - INFO - __main__ - Initialized with 1 vector stores
+2025-08-12 12:55:55,331 - INFO - __main__ - Simple Orchestration API ready!
+2025-08-12 12:55:59,956 - INFO - agents.KnowledgeAgent - KnowledgeAgent processing task 9679f623-3f7a-4ad8-a67a-ec507e70a973, query: What is dharma
+2025-08-12 12:55:59,957 - INFO - agents.KnowledgeAgent - KnowledgeAgent query 9679f623-3f7a-4ad8-a67a-ec507e70a973: Using NAS+Qdrant retriever (primary)
+2025-08-12 12:55:59,975 - ERROR - example.nas_retriever - ❌ Qdrant query failed: 3 validation errors for SearchRequest
+vector.list[float].0
+  Input should be a valid number [type=float_type, input_value=[-0.0642441138625145, -0...., -0.002845938317477703], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.5/v/float_type
+vector.NamedVector
+  Input should be a valid dictionary or instance of NamedVector [type=model_type, input_value=[[-0.0642441138625145, -0... -0.002845938317477703]], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.5/v/model_type
+vector.NamedSparseVector
+  Input should be a valid dictionary or instance of NamedSparseVector [type=model_type, input_value=[[-0.0642441138625145, -0... -0.002845938317477703]], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.5/v/model_type
+2025-08-12 12:55:59,977 - ERROR - example.nas_retriever - ❌ Query failed: 3 validation errors for SearchRequest
+vector.list[float].0
+  Input should be a valid number [type=float_type, input_value=[-0.0642441138625145, -0...., -0.002845938317477703], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.5/v/float_type
+vector.NamedVector
+  Input should be a valid dictionary or instance of NamedVector [type=model_type, input_value=[[-0.0642441138625145, -0... -0.002845938317477703]], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.5/v/model_type
+vector.NamedSparseVector
+  Input should be a valid dictionary or instance of NamedSparseVector [type=model_type, input_value=[[-0.0642441138625145, -0... -0.002845938317477703]], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.5/v/model_type
+2025-08-12 12:55:59,977 - INFO - example.nas_retriever - 🔄 Using fallback text search
+2025-08-12 12:55:59,977 - INFO - example.nas_retriever - 🔍 Found 0 results from fallback search
+2025-08-12 12:55:59,977 - INFO - agents.KnowledgeAgent - KnowledgeAgent query 9679f623-3f7a-4ad8-a67a-ec507e70a973: Using Qdrant retriever (secondary)
+2025-08-12 12:56:00,014 - INFO - httpx - HTTP Request: POST http://localhost:6333/collections/vedas_knowledge_base/points/search "HTTP/1.1 200 OK"
+2025-08-12 12:56:00,016 - INFO - vedabase_retriever - Retrieved 3 documents for query: 'What is dharma' with filters: {}
+2025-08-12 12:56:00,017 - ERROR - reinforcement.reward_functions - Error computing reward for task 9679f623-3f7a-4ad8-a67a-ec507e70a973: 'list' object has no attribute 'split'
+2025-08-12 12:56:00,017 - INFO - reinforcement.rl_context - Logged RL reward: {'task_id': '9679f623-3f7a-4ad8-a67a-ec507e70a973', 'reward': 0.0, 'metrics': {'error': "'list' object has no attribute 'split'", 'status': 200}, 'timestamp': '2025-08-12T12:56:00.017960'}
+2025-08-12 12:56:00,018 - INFO - reinforcement.rl_context - Logged RL action: {'task_id': '9679f623-3f7a-4ad8-a67a-ec507e70a973', 'agent': 'knowledge_agent', 'model': 'none', 'action': 'query_vedabase', 'metadata': {'query': 'What is dharma', 'filters': None}, 'timestamp': '2025-08-12T12:56:00.018478'}
+2025-08-12 12:56:00,018 - INFO - agents.KnowledgeAgent - KnowledgeAgent query 9679f623-3f7a-4ad8-a67a-ec507e70a973: 3 results
+2025-08-12 12:56:00,018 - ERROR - __main__ - Error in knowledge base query: sequence item 0: expected str instance, dict found
+2025-08-12 12:57:30,912 - INFO - utils.file_utils - SecureFileAccess initialized with paths: ['C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment', 'C:\\mnt\\vedabase', '\\\\nas\\vedabase', 'Z:\\vedabase', '\\\\your-company-nas\\vedabase', '\\\\your-company-nas\\shared\\vedabase', 'Y:\\vedabase'], read_only: True
+2025-08-12 12:57:30,914 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:57:30,914 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:57:34,718 - INFO - utils.file_based_retriever - FileBasedRetriever initialized with SentenceTransformer
+2025-08-12 12:57:34,753 - INFO - utils.file_based_retriever - Loaded knowledge base from cache: 168 chunks
+2025-08-12 12:57:36,332 - INFO - utils.mongo_logger - MongoDB logger initialized successfully
+2025-08-12 12:57:36,334 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for ask-vedas at https://769d44eefc7c.ngrok-free.app/api/generate
+2025-08-12 12:57:36,334 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for edumentor at https://769d44eefc7c.ngrok-free.app/api/generate
+2025-08-12 12:57:36,334 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for wellness at https://769d44eefc7c.ngrok-free.app/api/generate
+2025-08-12 12:57:36,334 - INFO - __main__ - Initializing embedding model...
+2025-08-12 12:57:36,336 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:57:36,336 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-12 12:57:39,413 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:57:39,414 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:57:42,983 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 12:57:42,998 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 12:57:43,014 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 12:57:43,020 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 12:57:43,020 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 12:57:43,021 - INFO - __main__ - ✅ Loaded NAS-based vector store for vedas
+2025-08-12 12:57:43,021 - INFO - __main__ - Initialized with 1 vector stores
+2025-08-12 12:57:43,029 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:57:43,029 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:57:46,240 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 12:57:46,256 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 12:57:46,272 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 12:57:46,273 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 12:57:46,273 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 12:57:46,273 - INFO - __main__ - ✅ NAS retriever available, initializing KnowledgeAgent with NAS support
+2025-08-12 12:57:46,276 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:57:46,276 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:57:49,977 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 12:57:49,994 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 12:57:50,009 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 12:57:50,010 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 12:57:50,010 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 12:57:50,010 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with NAS+Qdrant support
+2025-08-12 12:57:50,057 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 12:57:50,059 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:57:50,059 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:57:53,183 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with Qdrant support
+2025-08-12 12:57:53,228 - INFO - __main__ - Starting Simple Orchestration API...
+2025-08-12 12:57:53,228 - INFO - __main__ - Initializing embedding model...
+2025-08-12 12:57:53,230 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:57:53,230 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-12 12:57:56,523 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:57:56,523 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:57:59,597 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 12:57:59,613 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 12:57:59,629 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 12:57:59,629 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 12:57:59,630 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 12:57:59,631 - INFO - __main__ - ✅ Loaded NAS-based vector store for vedas
+2025-08-12 12:57:59,632 - INFO - __main__ - Initialized with 1 vector stores
+2025-08-12 12:57:59,632 - INFO - __main__ - Simple Orchestration API ready!
+2025-08-12 12:58:07,910 - INFO - agents.KnowledgeAgent - KnowledgeAgent processing task 27400715-e8e3-4c8e-80e6-8e8edb75bcaf, query: What is dharma
+2025-08-12 12:58:07,910 - INFO - agents.KnowledgeAgent - KnowledgeAgent query 27400715-e8e3-4c8e-80e6-8e8edb75bcaf: Using NAS+Qdrant retriever (primary)
+2025-08-12 12:58:07,929 - ERROR - example.nas_retriever - ❌ Qdrant query failed: Unknown arguments: ['query_vector']
+2025-08-12 12:58:07,929 - ERROR - example.nas_retriever - ❌ Query failed: Unknown arguments: ['query_vector']
+2025-08-12 12:58:07,930 - INFO - example.nas_retriever - 🔄 Using fallback text search
+2025-08-12 12:58:07,930 - INFO - example.nas_retriever - 🔍 Found 0 results from fallback search
+2025-08-12 12:58:07,930 - INFO - agents.KnowledgeAgent - KnowledgeAgent query 27400715-e8e3-4c8e-80e6-8e8edb75bcaf: Using Qdrant retriever (secondary)
+2025-08-12 12:58:07,971 - INFO - httpx - HTTP Request: POST http://localhost:6333/collections/vedas_knowledge_base/points/search "HTTP/1.1 200 OK"
+2025-08-12 12:58:07,974 - INFO - vedabase_retriever - Retrieved 3 documents for query: 'What is dharma' with filters: {}
+2025-08-12 12:58:07,974 - INFO - reinforcement.reward_functions - Computed reward 1.3 for task 27400715-e8e3-4c8e-80e6-8e8edb75bcaf
+2025-08-12 12:58:07,974 - INFO - reinforcement.rl_context - Logged RL reward: {'task_id': '27400715-e8e3-4c8e-80e6-8e8edb75bcaf', 'reward': 1.3, 'metrics': {'clarity_score': 0.0, 'tag_count': 3, 'status': 200}, 'timestamp': '2025-08-12T12:58:07.974937'}
+2025-08-12 12:58:07,975 - INFO - reinforcement.rl_context - Logged RL action: {'task_id': '27400715-e8e3-4c8e-80e6-8e8edb75bcaf', 'agent': 'knowledge_agent', 'model': 'none', 'action': 'query_vedabase', 'metadata': {'query': 'What is dharma', 'filters': None}, 'timestamp': '2025-08-12T12:58:07.975458'}
+2025-08-12 12:58:07,975 - INFO - agents.KnowledgeAgent - KnowledgeAgent query 27400715-e8e3-4c8e-80e6-8e8edb75bcaf: 3 results
+2025-08-12 12:58:08,104 - INFO - __main__ - Knowledge base query 27400715-e8e3-4c8e-80e6-8e8edb75bcaf: What is dharma -> 200 (0.17s)
+2025-08-12 12:58:49,204 - INFO - utils.file_utils - SecureFileAccess initialized with paths: ['C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment', 'C:\\mnt\\vedabase', '\\\\nas\\vedabase', 'Z:\\vedabase', '\\\\your-company-nas\\vedabase', '\\\\your-company-nas\\shared\\vedabase', 'Y:\\vedabase'], read_only: True
+2025-08-12 12:58:49,207 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:58:49,207 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:58:53,044 - INFO - utils.file_based_retriever - FileBasedRetriever initialized with SentenceTransformer
+2025-08-12 12:58:53,088 - INFO - utils.file_based_retriever - Loaded knowledge base from cache: 168 chunks
+2025-08-12 12:58:54,654 - INFO - utils.mongo_logger - MongoDB logger initialized successfully
+2025-08-12 12:58:54,656 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for ask-vedas at https://769d44eefc7c.ngrok-free.app/api/generate
+2025-08-12 12:58:54,656 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for edumentor at https://769d44eefc7c.ngrok-free.app/api/generate
+2025-08-12 12:58:54,656 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for wellness at https://769d44eefc7c.ngrok-free.app/api/generate
+2025-08-12 12:58:54,657 - INFO - __main__ - Initializing embedding model...
+2025-08-12 12:58:54,658 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:58:54,658 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-12 12:58:58,070 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:58:58,070 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:59:01,126 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 12:59:01,142 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 12:59:01,157 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 12:59:01,163 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 12:59:01,163 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 12:59:01,164 - INFO - __main__ - ✅ Loaded NAS-based vector store for vedas
+2025-08-12 12:59:01,164 - INFO - __main__ - Initialized with 1 vector stores
+2025-08-12 12:59:01,172 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:59:01,172 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:59:04,881 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 12:59:04,895 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 12:59:04,911 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 12:59:04,913 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 12:59:04,913 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 12:59:04,914 - INFO - __main__ - ✅ NAS retriever available, initializing KnowledgeAgent with NAS support
+2025-08-12 12:59:04,915 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:59:04,916 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:59:08,009 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 12:59:08,024 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 12:59:08,039 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 12:59:08,040 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 12:59:08,040 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 12:59:08,041 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with NAS+Qdrant support
+2025-08-12 12:59:08,086 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 12:59:08,088 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:59:08,088 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:59:11,157 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with Qdrant support
+2025-08-12 12:59:11,208 - INFO - __main__ - Starting Simple Orchestration API...
+2025-08-12 12:59:11,209 - INFO - __main__ - Initializing embedding model...
+2025-08-12 12:59:11,210 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:59:11,210 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-12 12:59:14,336 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 12:59:14,336 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 12:59:17,380 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 12:59:17,393 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 12:59:17,410 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 12:59:17,410 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 12:59:17,411 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 12:59:17,412 - INFO - __main__ - ✅ Loaded NAS-based vector store for vedas
+2025-08-12 12:59:17,412 - INFO - __main__ - Initialized with 1 vector stores
+2025-08-12 12:59:17,413 - INFO - __main__ - Simple Orchestration API ready!
+2025-08-12 12:59:34,549 - INFO - agents.KnowledgeAgent - KnowledgeAgent processing task 336dc53d-d5ba-4e8f-afe6-8e081777d5ad, query: What is dharma
+2025-08-12 12:59:34,550 - INFO - agents.KnowledgeAgent - KnowledgeAgent query 336dc53d-d5ba-4e8f-afe6-8e081777d5ad: Using NAS+Qdrant retriever (primary)
+2025-08-12 12:59:34,568 - ERROR - example.nas_retriever - ❌ Qdrant query failed: Unknown arguments: ['vector']
+2025-08-12 12:59:34,568 - ERROR - example.nas_retriever - ❌ Query failed: Unknown arguments: ['vector']
+2025-08-12 12:59:34,568 - INFO - example.nas_retriever - 🔄 Using fallback text search
+2025-08-12 12:59:34,569 - INFO - example.nas_retriever - 🔍 Found 0 results from fallback search
+2025-08-12 12:59:34,569 - INFO - agents.KnowledgeAgent - KnowledgeAgent query 336dc53d-d5ba-4e8f-afe6-8e081777d5ad: Using Qdrant retriever (secondary)
+2025-08-12 12:59:34,588 - INFO - httpx - HTTP Request: POST http://localhost:6333/collections/vedas_knowledge_base/points/search "HTTP/1.1 200 OK"
+2025-08-12 12:59:34,592 - INFO - vedabase_retriever - Retrieved 3 documents for query: 'What is dharma' with filters: {}
+2025-08-12 12:59:34,592 - INFO - reinforcement.reward_functions - Computed reward 1.3 for task 336dc53d-d5ba-4e8f-afe6-8e081777d5ad
+2025-08-12 12:59:34,592 - INFO - reinforcement.rl_context - Logged RL reward: {'task_id': '336dc53d-d5ba-4e8f-afe6-8e081777d5ad', 'reward': 1.3, 'metrics': {'clarity_score': 0.0, 'tag_count': 3, 'status': 200}, 'timestamp': '2025-08-12T12:59:34.592524'}
+2025-08-12 12:59:34,593 - INFO - reinforcement.rl_context - Logged RL action: {'task_id': '336dc53d-d5ba-4e8f-afe6-8e081777d5ad', 'agent': 'knowledge_agent', 'model': 'none', 'action': 'query_vedabase', 'metadata': {'query': 'What is dharma', 'filters': None}, 'timestamp': '2025-08-12T12:59:34.593057'}
+2025-08-12 12:59:34,593 - INFO - agents.KnowledgeAgent - KnowledgeAgent query 336dc53d-d5ba-4e8f-afe6-8e081777d5ad: 3 results
+2025-08-12 12:59:34,713 - INFO - __main__ - Knowledge base query 336dc53d-d5ba-4e8f-afe6-8e081777d5ad: What is dharma -> 200 (0.13s)
+2025-08-12 13:00:43,964 - INFO - utils.file_utils - SecureFileAccess initialized with paths: ['C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment', 'C:\\mnt\\vedabase', '\\\\nas\\vedabase', 'Z:\\vedabase', '\\\\your-company-nas\\vedabase', '\\\\your-company-nas\\shared\\vedabase', 'Y:\\vedabase'], read_only: True
+2025-08-12 13:00:43,966 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 13:00:43,966 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 13:00:47,761 - INFO - utils.file_based_retriever - FileBasedRetriever initialized with SentenceTransformer
+2025-08-12 13:00:47,801 - INFO - utils.file_based_retriever - Loaded knowledge base from cache: 168 chunks
+2025-08-12 13:00:49,365 - INFO - utils.mongo_logger - MongoDB logger initialized successfully
+2025-08-12 13:00:49,367 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for ask-vedas at https://769d44eefc7c.ngrok-free.app/api/generate
+2025-08-12 13:00:49,367 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for edumentor at https://769d44eefc7c.ngrok-free.app/api/generate
+2025-08-12 13:00:49,368 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for wellness at https://769d44eefc7c.ngrok-free.app/api/generate
+2025-08-12 13:00:49,368 - INFO - __main__ - Initializing embedding model...
+2025-08-12 13:00:49,369 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 13:00:49,370 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-12 13:00:52,548 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 13:00:52,548 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 13:00:56,198 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 13:00:56,213 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 13:00:56,229 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 13:00:56,234 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 13:00:56,234 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 13:00:56,235 - INFO - __main__ - ✅ Loaded NAS-based vector store for vedas
+2025-08-12 13:00:56,235 - INFO - __main__ - Initialized with 1 vector stores
+2025-08-12 13:00:56,242 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 13:00:56,242 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 13:00:59,418 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 13:00:59,434 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 13:00:59,449 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 13:00:59,450 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 13:00:59,450 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 13:00:59,450 - INFO - __main__ - ✅ NAS retriever available, initializing KnowledgeAgent with NAS support
+2025-08-12 13:00:59,453 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 13:00:59,453 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 13:01:02,897 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 13:01:02,912 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 13:01:02,928 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 13:01:02,929 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 13:01:02,930 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 13:01:02,930 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with NAS+Qdrant support
+2025-08-12 13:01:02,975 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 13:01:02,977 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 13:01:02,977 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 13:01:06,092 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with Qdrant support
+2025-08-12 13:01:06,139 - INFO - __main__ - Starting Simple Orchestration API...
+2025-08-12 13:01:06,139 - INFO - __main__ - Initializing embedding model...
+2025-08-12 13:01:06,141 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 13:01:06,141 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-12 13:01:09,271 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 13:01:09,271 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 13:01:13,352 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 13:01:13,368 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 13:01:13,385 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 13:01:13,385 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 13:01:13,386 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 13:01:13,387 - INFO - __main__ - ✅ Loaded NAS-based vector store for vedas
+2025-08-12 13:01:13,387 - INFO - __main__ - Initialized with 1 vector stores
+2025-08-12 13:01:13,388 - INFO - __main__ - Simple Orchestration API ready!
+2025-08-12 13:01:24,146 - INFO - agents.KnowledgeAgent - KnowledgeAgent processing task 0176f4a9-8031-40c0-8cf7-0b8422c3e659, query: What is dharma
+2025-08-12 13:01:24,147 - INFO - agents.KnowledgeAgent - KnowledgeAgent query 0176f4a9-8031-40c0-8cf7-0b8422c3e659: Using NAS+Qdrant retriever (primary)
+2025-08-12 13:01:24,221 - INFO - httpx - HTTP Request: POST http://localhost:6333/collections/vedas_knowledge_base/points/query "HTTP/1.1 200 OK"
+2025-08-12 13:01:24,225 - ERROR - example.nas_retriever - ❌ Qdrant query failed: 'tuple' object has no attribute 'payload'
+2025-08-12 13:01:24,225 - ERROR - example.nas_retriever - ❌ Query failed: 'tuple' object has no attribute 'payload'
+2025-08-12 13:01:24,225 - INFO - example.nas_retriever - 🔄 Using fallback text search
+2025-08-12 13:01:24,226 - INFO - example.nas_retriever - 🔍 Found 0 results from fallback search
+2025-08-12 13:01:24,226 - INFO - agents.KnowledgeAgent - KnowledgeAgent query 0176f4a9-8031-40c0-8cf7-0b8422c3e659: Using Qdrant retriever (secondary)
+2025-08-12 13:01:24,252 - INFO - httpx - HTTP Request: POST http://localhost:6333/collections/vedas_knowledge_base/points/search "HTTP/1.1 200 OK"
+2025-08-12 13:01:24,254 - INFO - vedabase_retriever - Retrieved 3 documents for query: 'What is dharma' with filters: {}
+2025-08-12 13:01:24,255 - INFO - reinforcement.reward_functions - Computed reward 1.3 for task 0176f4a9-8031-40c0-8cf7-0b8422c3e659
+2025-08-12 13:01:24,255 - INFO - reinforcement.rl_context - Logged RL reward: {'task_id': '0176f4a9-8031-40c0-8cf7-0b8422c3e659', 'reward': 1.3, 'metrics': {'clarity_score': 0.0, 'tag_count': 3, 'status': 200}, 'timestamp': '2025-08-12T13:01:24.255443'}
+2025-08-12 13:01:24,255 - INFO - reinforcement.rl_context - Logged RL action: {'task_id': '0176f4a9-8031-40c0-8cf7-0b8422c3e659', 'agent': 'knowledge_agent', 'model': 'none', 'action': 'query_vedabase', 'metadata': {'query': 'What is dharma', 'filters': None}, 'timestamp': '2025-08-12T13:01:24.255966'}
+2025-08-12 13:01:24,256 - INFO - agents.KnowledgeAgent - KnowledgeAgent query 0176f4a9-8031-40c0-8cf7-0b8422c3e659: 3 results
+2025-08-12 13:01:24,346 - INFO - __main__ - Knowledge base query 0176f4a9-8031-40c0-8cf7-0b8422c3e659: What is dharma -> 200 (0.17s)
+2025-08-12 13:02:58,251 - INFO - utils.file_utils - SecureFileAccess initialized with paths: ['C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment', 'C:\\mnt\\vedabase', '\\\\nas\\vedabase', 'Z:\\vedabase', '\\\\your-company-nas\\vedabase', '\\\\your-company-nas\\shared\\vedabase', 'Y:\\vedabase'], read_only: True
+2025-08-12 13:02:58,253 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 13:02:58,253 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 13:03:02,134 - INFO - utils.file_based_retriever - FileBasedRetriever initialized with SentenceTransformer
+2025-08-12 13:03:02,169 - INFO - utils.file_based_retriever - Loaded knowledge base from cache: 168 chunks
+2025-08-12 13:03:03,733 - INFO - utils.mongo_logger - MongoDB logger initialized successfully
+2025-08-12 13:03:03,734 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for ask-vedas at https://769d44eefc7c.ngrok-free.app/api/generate
+2025-08-12 13:03:03,734 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for edumentor at https://769d44eefc7c.ngrok-free.app/api/generate
+2025-08-12 13:03:03,734 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for wellness at https://769d44eefc7c.ngrok-free.app/api/generate
+2025-08-12 13:03:03,735 - INFO - __main__ - Initializing embedding model...
+2025-08-12 13:03:03,736 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 13:03:03,736 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-12 13:03:07,001 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 13:03:07,002 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 13:03:10,364 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 13:03:10,378 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 13:03:10,394 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 13:03:10,400 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 13:03:10,400 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 13:03:10,400 - INFO - __main__ - ✅ Loaded NAS-based vector store for vedas
+2025-08-12 13:03:10,401 - INFO - __main__ - Initialized with 1 vector stores
+2025-08-12 13:03:10,409 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 13:03:10,409 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 13:03:13,706 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 13:03:13,722 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 13:03:13,738 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 13:03:13,738 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 13:03:13,738 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 13:03:13,739 - INFO - __main__ - ✅ NAS retriever available, initializing KnowledgeAgent with NAS support
+2025-08-12 13:03:13,741 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 13:03:13,741 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 13:03:16,874 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 13:03:16,889 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 13:03:16,906 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 13:03:16,906 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 13:03:16,907 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 13:03:16,907 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with NAS+Qdrant support
+2025-08-12 13:03:16,954 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 13:03:16,956 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 13:03:16,957 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 13:03:20,419 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with Qdrant support
+2025-08-12 13:03:20,464 - INFO - __main__ - Starting Simple Orchestration API...
+2025-08-12 13:03:20,464 - INFO - __main__ - Initializing embedding model...
+2025-08-12 13:03:20,466 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 13:03:20,467 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-12 13:03:24,025 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 13:03:24,026 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 13:03:27,107 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 13:03:27,128 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 13:03:27,145 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 13:03:27,146 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 13:03:27,146 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 13:03:27,148 - INFO - __main__ - ✅ Loaded NAS-based vector store for vedas
+2025-08-12 13:03:27,148 - INFO - __main__ - Initialized with 1 vector stores
+2025-08-12 13:03:27,149 - INFO - __main__ - Simple Orchestration API ready!
+2025-08-12 13:03:39,115 - INFO - agents.KnowledgeAgent - KnowledgeAgent processing task d37fc796-14ee-48ee-b5f9-92ac735d6060, query: What is dharma
+2025-08-12 13:03:39,115 - INFO - agents.KnowledgeAgent - KnowledgeAgent query d37fc796-14ee-48ee-b5f9-92ac735d6060: Using NAS+Qdrant retriever (primary)
+2025-08-12 13:03:39,141 - INFO - httpx - HTTP Request: POST http://localhost:6333/collections/vedas_knowledge_base/points/query "HTTP/1.1 200 OK"
+2025-08-12 13:03:39,143 - INFO - example.nas_retriever - 🔍 Found 3 results from Qdrant for query: 'What is dharma...'
+2025-08-12 13:03:39,275 - INFO - __main__ - Knowledge base query d37fc796-14ee-48ee-b5f9-92ac735d6060: What is dharma -> 200 (0.13s)
+2025-08-12 13:06:56,607 - INFO - agents.KnowledgeAgent - KnowledgeAgent processing task 06e8ab30-e711-4474-8c00-183a33ae7493, query: What is yoga philosophy
+2025-08-12 13:06:56,607 - INFO - agents.KnowledgeAgent - KnowledgeAgent query 06e8ab30-e711-4474-8c00-183a33ae7493: Using NAS+Qdrant retriever (primary)
+2025-08-12 13:06:56,641 - INFO - httpx - HTTP Request: POST http://localhost:6333/collections/vedas_knowledge_base/points/query "HTTP/1.1 200 OK"
+2025-08-12 13:06:56,642 - INFO - example.nas_retriever - 🔍 Found 3 results from Qdrant for query: 'What is yoga philosophy...'
+2025-08-12 13:06:56,939 - INFO - __main__ - Knowledge base query 06e8ab30-e711-4474-8c00-183a33ae7493: What is yoga philosophy -> 200 (0.33s)
+2025-08-12 13:07:07,101 - ERROR - knowledge_base_manager - Failed to create directories: [WinError 1272] You can't access this shared folder because your organization's security policies block unauthenticated guest access. These policies help protect your PC from unsafe or malicious devices on the network: '\\\\192.168.0.94\\Guruukul_DB\\knowledge_base'
+2025-08-12 13:07:07,102 - ERROR - __main__ - NAS Knowledge Base search error: [WinError 1272] You can't access this shared folder because your organization's security policies block unauthenticated guest access. These policies help protect your PC from unsafe or malicious devices on the network: '\\\\192.168.0.94\\Guruukul_DB\\knowledge_base'
+2025-08-12 13:07:07,122 - INFO - httpx - HTTP Request: POST http://localhost:6333/collections/vedas_knowledge_base/points/query "HTTP/1.1 200 OK"
+2025-08-12 13:07:07,123 - INFO - example.nas_retriever - 🔍 Found 3 results from Qdrant for query: 'What is dharma...'
+2025-08-12 13:07:07,123 - INFO - __main__ - NAS-Qdrant search found 3 results for 'What is dharma'
+2025-08-12 13:07:07,124 - INFO - __main__ - Calling Ollama API for ask-vedas...
+2025-08-12 13:07:07,225 - ERROR - __main__ - Ollama API error for ask-vedas: 404 - {"error":"model 'llama3-8b-8192' not found"}
+2025-08-12 13:08:13,820 - INFO - utils.file_utils - SecureFileAccess initialized with paths: ['C:\\Users\\abc1\\Downloads\\BHIV-Third-Installment', 'C:\\mnt\\vedabase', '\\\\nas\\vedabase', 'Z:\\vedabase', '\\\\your-company-nas\\vedabase', '\\\\your-company-nas\\shared\\vedabase', 'Y:\\vedabase'], read_only: True
+2025-08-12 13:08:13,822 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 13:08:13,822 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 13:08:17,071 - INFO - utils.file_based_retriever - FileBasedRetriever initialized with SentenceTransformer
+2025-08-12 13:08:17,105 - INFO - utils.file_based_retriever - Loaded knowledge base from cache: 168 chunks
+2025-08-12 13:08:17,850 - INFO - utils.mongo_logger - MongoDB logger initialized successfully
+2025-08-12 13:08:17,852 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for ask-vedas at https://769d44eefc7c.ngrok-free.app/api/generate
+2025-08-12 13:08:17,852 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for edumentor at https://769d44eefc7c.ngrok-free.app/api/generate
+2025-08-12 13:08:17,853 - INFO - __main__ - Initialized Ollama model: llama3-8b-8192 for wellness at https://769d44eefc7c.ngrok-free.app/api/generate
+2025-08-12 13:08:17,853 - INFO - __main__ - Initializing embedding model...
+2025-08-12 13:08:17,854 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 13:08:17,855 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-12 13:08:21,400 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 13:08:21,401 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 13:08:24,710 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 13:08:24,716 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 13:08:24,730 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 13:08:24,734 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 13:08:24,734 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 13:08:24,734 - INFO - __main__ - ✅ Loaded NAS-based vector store for vedas
+2025-08-12 13:08:24,734 - INFO - __main__ - Initialized with 1 vector stores
+2025-08-12 13:08:24,740 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 13:08:24,740 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 13:08:27,869 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 13:08:27,885 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 13:08:27,899 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 13:08:27,900 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 13:08:27,900 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 13:08:27,901 - INFO - __main__ - ✅ NAS retriever available, initializing KnowledgeAgent with NAS support
+2025-08-12 13:08:27,902 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 13:08:27,902 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 13:08:31,048 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 13:08:31,064 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 13:08:31,067 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 13:08:31,069 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 13:08:31,069 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 13:08:31,069 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with NAS+Qdrant support
+2025-08-12 13:08:31,111 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 13:08:31,112 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 13:08:31,112 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 13:08:34,264 - INFO - agents.KnowledgeAgent - KnowledgeAgent initialized with Qdrant support
+2025-08-12 13:08:34,291 - INFO - __main__ - Starting Simple Orchestration API...
+2025-08-12 13:08:34,291 - INFO - __main__ - Initializing embedding model...
+2025-08-12 13:08:34,292 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 13:08:34,293 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-08-12 13:08:37,408 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-08-12 13:08:37,409 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-12 13:08:40,509 - INFO - httpx - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 13:08:40,524 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections "HTTP/1.1 200 OK"
+2025-08-12 13:08:40,540 - INFO - httpx - HTTP Request: GET http://localhost:6333/collections/vedas_knowledge_base "HTTP/1.1 200 OK"
+2025-08-12 13:08:40,541 - INFO - example.nas_retriever - ✅ Connected to Qdrant collection: vedas_knowledge_base
+2025-08-12 13:08:40,541 - INFO - example.nas_retriever - 📊 Collection has 3 points
+2025-08-12 13:08:40,542 - INFO - __main__ - ✅ Loaded NAS-based vector store for vedas
+2025-08-12 13:08:40,543 - INFO - __main__ - Initialized with 1 vector stores
+2025-08-12 13:08:40,543 - INFO - __main__ - Simple Orchestration API ready!
+2025-08-12 13:09:23,248 - INFO - reinforcement.replay_buffer - Loaded replay buffer from logs/learning_log.json
+2025-08-12 13:09:23,248 - INFO - agents.agent_registry - Loaded 9 agents from config/agent_configs.json
+2025-08-12 13:09:23,251 - INFO - utils.mongo_logger - MongoDB logger initialized successfully
+2025-08-12 13:11:07,255 - INFO - reinforcement.replay_buffer - Loaded replay buffer from logs/learning_log.json
+2025-08-12 13:11:07,256 - INFO - __main__ - RL Configuration: use_rl=True, exploration_rate=0.2
+2025-08-12 13:11:09,368 - INFO - mcp_bridge - [MCP_BRIDGE] Task ID: dbe1825f-9159-4227-a68d-09b2bd607ed2 | Agent: knowledge_agent | Input: what is vedant... | File:  | Type: text | Tags: []
+2025-08-12 13:11:09,369 - INFO - reinforcement.agent_selector - Exploration (rate=0.199): selected vedas_agent for text task dbe1825f-9159-4227-a68d-09b2bd607ed2
+2025-08-12 13:11:09,369 - INFO - reinforcement.rl_context - Logged RL action: {'task_id': 'dbe1825f-9159-4227-a68d-09b2bd607ed2', 'agent': 'vedas_agent', 'model': 'none', 'action': 'select_agent', 'metadata': {'task': 'process', 'input_type': 'text'}, 'timestamp': '2025-08-12T13:11:09.369467'}
+2025-08-12 13:11:09,369 - INFO - agents.agent_registry - RL selected agent: vedas_agent for task: process
+2025-08-12 13:11:11,475 - ERROR - knowledge_base_manager - Failed to create directories: [WinError 1272] You can't access this shared folder because your organization's security policies block unauthenticated guest access. These policies help protect your PC from unsafe or malicious devices on the network: '\\\\192.168.0.94\\Guruukul_DB\\knowledge_base'
+2025-08-12 13:11:11,476 - ERROR - __main__ - NAS Knowledge Base search error: [WinError 1272] You can't access this shared folder because your organization's security policies block unauthenticated guest access. These policies help protect your PC from unsafe or malicious devices on the network: '\\\\192.168.0.94\\Guruukul_DB\\knowledge_base'
+2025-08-12 13:11:11,519 - INFO - httpx - HTTP Request: POST http://localhost:6333/collections/vedas_knowledge_base/points/query "HTTP/1.1 200 OK"
+2025-08-12 13:11:11,521 - INFO - example.nas_retriever - 🔍 Found 3 results from Qdrant for query: 'what is vedant...'
+2025-08-12 13:11:11,521 - INFO - __main__ - NAS-Qdrant search found 3 results for 'what is vedant'
+2025-08-12 13:11:11,522 - INFO - __main__ - Calling Ollama API for ask-vedas...
+2025-08-12 13:11:11,603 - ERROR - __main__ - Ollama API error for ask-vedas: 404 - {"error":"model 'llama3-8b-8192' not found"}
+2025-08-12 13:11:11,663 - ERROR - utils.mongo_logger - Error logging task execution: E11000 duplicate key error collection: bhiv_core.task_logs index: _id_ dup key: { _id: ObjectId('689af017ff74154d0b5ed46f') }, full error: {'index': 0, 'code': 11000, 'errmsg': "E11000 duplicate key error collection: bhiv_core.task_logs index: _id_ dup key: { _id: ObjectId('689af017ff74154d0b5ed46f') }", 'keyPattern': {'_id': 1}, 'keyValue': {'_id': ObjectId('689af017ff74154d0b5ed46f')}}
+2025-08-12 13:11:11,663 - INFO - reinforcement.reward_functions - Computed reward 0.505 for task dbe1825f-9159-4227-a68d-09b2bd607ed2
+2025-08-12 13:11:11,663 - INFO - reinforcement.rl_context - Logged RL reward: {'task_id': 'dbe1825f-9159-4227-a68d-09b2bd607ed2', 'reward': 0.505, 'metrics': {'clarity_score': 0.41, 'tag_count': 3, 'status': 500}, 'timestamp': '2025-08-12T13:11:11.663758'}
+2025-08-12 13:11:11,675 - INFO - reinforcement.replay_buffer - Saved replay buffer to logs/learning_log.json
+2025-08-12 13:11:11,675 - INFO - reinforcement.replay_buffer - Added run to replay buffer: dbe1825f-9159-4227-a68d-09b2bd607ed2
+2025-08-12 13:11:11,676 - INFO - reinforcement.rl_context - Logged RL task: {'task_id': 'dbe1825f-9159-4227-a68d-09b2bd607ed2', 'input': 'what is vedant', 'output': {'query_id': 'f17222b9-8e91-4eed-9fa6-90ca05260ea6', 'query': 'what is vedant', 'response': "The ancient Vedic texts teach us to seek truth through self-reflection and righteous action. Regarding 'what is vedant', remember that true wisdom comes from understanding the interconnectedness of all existence. Practice mindfulness, act with compassion, and seek the divine within yourself.", 'sources': [{'text': 'The Vedas are ancient Sanskrit texts that form the foundation of Hindu philosophy and spirituality.\n        They contain hymns, prayers, and rituals that have been preserved for thousands of years.\n        \n        The four main Vedas are:\n        1. Rigveda - Collection of hymns and prayers\n        2. Samaveda - Musical chants and melodies\n        3. Yajurveda - Ritual formulas and procedures\n        4. Atharvaveda - Spells, charms, and everyday wisdom\n        \n        These texts represent the', 'source': 'NAS-Qdrant:unknown'}, {'text': 'Yoga is a comprehensive system for physical, mental, and spiritual development.\n        The word "yoga" means "union" - the joining of individual consciousness with universal consciousness.\n        \n        The Eight Limbs of Yoga (Ashtanga):\n        1. Yama - Ethical restraints\n        2. Niyama - Observances\n        3. Asana - Physical postures\n        4. Pranayama - Breath control\n        5. Pratyahara - Withdrawal of senses\n        6. Dharana - Concentration\n        7. Dhyana - Meditation\n  ', 'source': 'NAS-Qdrant:unknown'}, {'text': 'Ayurveda is the traditional system of medicine from India, dating back over 5000 years.\n        It focuses on maintaining health through balance of mind, body, and spirit.\n        \n        Key principles of Ayurveda:\n        - Three doshas: Vata (air/space), Pitta (fire/water), Kapha (earth/water)\n        - Prevention is better than cure\n        - Treatment of root causes, not just symptoms\n        - Individualized medicine based on constitution\n        \n        Ayurvedic treatments include:\n   ', 'source': 'NAS-Qdrant:unknown'}], 'timestamp': '2025-08-12T13:11:11.604404', 'endpoint': 'ask-vedas', 'status': 500}, 'agent': 'vedas_agent', 'model': 'knowledge_agent', 'timestamp': '2025-08-12T13:11:11.676324'}
+2025-08-12 13:11:11,676 - INFO - reinforcement.rl_context - Logged RL action: {'task_id': 'dbe1825f-9159-4227-a68d-09b2bd607ed2', 'agent': 'vedas_agent', 'model': 'knowledge_agent', 'action': 'process_task', 'metadata': {'input_type': 'text', 'tags': []}, 'timestamp': '2025-08-12T13:11:11.676324'}
+2025-08-12 13:11:11,678 - INFO - __main__ - CLI task completed in 4.42s: dbe1825f-9159-4227-a68d-09b2bd607ed2
+2025-08-12 13:11:11,678 - INFO - reinforcement.reward_functions - Computed reward 0.505 for task dbe1825f-9159-4227-a68d-09b2bd607ed2
+2025-08-12 13:11:11,678 - INFO - reinforcement.rl_context - Logged RL reward: {'task_id': 'dbe1825f-9159-4227-a68d-09b2bd607ed2', 'reward': 0.505, 'metrics': {'clarity_score': 0.41, 'tag_count': 3, 'status': 500}, 'timestamp': '2025-08-12T13:11:11.678325'}
+2025-08-12 13:11:11,686 - INFO - reinforcement.replay_buffer - Saved replay buffer to logs/learning_log.json
+2025-08-12 13:11:11,686 - INFO - reinforcement.replay_buffer - Added run to replay buffer: dbe1825f-9159-4227-a68d-09b2bd607ed2
+2025-08-12 13:11:11,686 - INFO - reinforcement.rl_context - Logged RL task: {'task_id': 'dbe1825f-9159-4227-a68d-09b2bd607ed2', 'input': 'what is vedant', 'output': {'query_id': 'f17222b9-8e91-4eed-9fa6-90ca05260ea6', 'query': 'what is vedant', 'response': "The ancient Vedic texts teach us to seek truth through self-reflection and righteous action. Regarding 'what is vedant', remember that true wisdom comes from understanding the interconnectedness of all existence. Practice mindfulness, act with compassion, and seek the divine within yourself.", 'sources': [{'text': 'The Vedas are ancient Sanskrit texts that form the foundation of Hindu philosophy and spirituality.\n        They contain hymns, prayers, and rituals that have been preserved for thousands of years.\n        \n        The four main Vedas are:\n        1. Rigveda - Collection of hymns and prayers\n        2. Samaveda - Musical chants and melodies\n        3. Yajurveda - Ritual formulas and procedures\n        4. Atharvaveda - Spells, charms, and everyday wisdom\n        \n        These texts represent the', 'source': 'NAS-Qdrant:unknown'}, {'text': 'Yoga is a comprehensive system for physical, mental, and spiritual development.\n        The word "yoga" means "union" - the joining of individual consciousness with universal consciousness.\n        \n        The Eight Limbs of Yoga (Ashtanga):\n        1. Yama - Ethical restraints\n        2. Niyama - Observances\n        3. Asana - Physical postures\n        4. Pranayama - Breath control\n        5. Pratyahara - Withdrawal of senses\n        6. Dharana - Concentration\n        7. Dhyana - Meditation\n  ', 'source': 'NAS-Qdrant:unknown'}, {'text': 'Ayurveda is the traditional system of medicine from India, dating back over 5000 years.\n        It focuses on maintaining health through balance of mind, body, and spirit.\n        \n        Key principles of Ayurveda:\n        - Three doshas: Vata (air/space), Pitta (fire/water), Kapha (earth/water)\n        - Prevention is better than cure\n        - Treatment of root causes, not just symptoms\n        - Individualized medicine based on constitution\n        \n        Ayurvedic treatments include:\n   ', 'source': 'NAS-Qdrant:unknown'}], 'timestamp': '2025-08-12T13:11:11.604404', 'endpoint': 'ask-vedas', 'status': 500}, 'agent': 'knowledge_agent', 'model': 'knowledge_agent', 'timestamp': '2025-08-12T13:11:11.686345'}

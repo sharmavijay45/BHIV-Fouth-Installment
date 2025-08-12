@@ -7,7 +7,7 @@ import json
 
 def test_ollama_connection():
     """Test connection to Ollama via ngrok"""
-    ollama_url = "https://449e35ca1138.ngrok-free.app/api/generate"
+    ollama_url = os.getenv("OLLAMA_URL", "http://localhost:11434/api/generate")
     
     # Try different model names that might be available
     model_names = ["llama3.1", "llama3", "llama2", "llama", "mistral"]

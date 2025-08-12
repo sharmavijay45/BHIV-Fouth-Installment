@@ -1,4 +1,35 @@
 /venv
 /.env
 env
-_pycache_
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Logs and databases
+logs/
+*.log
+*.sqlite
+*.db
+knowledge_cache/
+knowledge_cache.json
+
+# Qdrant data
+qdrant_data/
+qdrant_storage/
+
+# Local storage
+local_setup/
+cache/
+temp/
+
+# NAS cache
+cache/nas_cache/
+
+# OS specific
+.DS_Store
+Thumbs.db

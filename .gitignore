@@ -62,3 +62,7 @@ embeddings/
 # OS specific
 .DS_Store
 Thumbs.db
+
+# Added by Gemini
+*.sqlite3
+lock (1)

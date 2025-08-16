@@ -1,0 +1,330 @@
+{
+    "vedas_agent": {
+        "id": "vedas_agent",
+        "name": "Vedas Agent",
+        "description": "Agent for spiritual wisdom from Vedic texts",
+        "connection_type": "http_api",
+        "endpoint": "http://localhost:8001/ask-vedas",
+        "headers": {"Content-Type": "application/json"},
+        "health_check": "http://localhost:8001/status",
+        "keywords": ["vedas", "spiritual", "wisdom"],
+        "patterns": ["vedas\\s+(.+)", "spiritual\\s+(.+)"],
+        "input_types": ["text", "json"],
+        "output_types": ["json"],
+        "enabled": true,
+        "created_at": "2025-07-16T15:59:09.872111",
+        "vaani_integration": {
+            "enabled": true,
+            "auto_translate": true,
+            "preferred_languages": ["en", "hi", "sa"],
+            "content_type": "devotional",
+            "voice_generation": true,
+            "tone": "devotional",
+            "supported_platforms": ["twitter", "instagram", "linkedin"],
+            "language_mappings": {
+                "hindi": {"code": "hi", "voice_tag": "hi_in_female_devotional"},
+                "sanskrit": {"code": "sa", "voice_tag": "sa_in_female_devotional"},
+                "english": {"code": "en", "voice_tag": "en_us_female_informative"}
+            },
+            "environment_config": {
+                "base_url": "VAANI_BASE_URL",
+                "username": "VAANI_USERNAME",
+                "password": "VAANI_PASSWORD",
+                "timeout": "VAANI_REQUEST_TIMEOUT",
+                "max_retries": "VAANI_MAX_RETRIES"
+            }
+        }
+    },
+    "edumentor_agent": {
+        "id": "edumentor_agent",
+        "name": "EduMentor Agent",
+        "description": "Agent for educational content",
+        "connection_type": "http_api",
+        "endpoint": "http://localhost:8001/edumentor",
+        "headers": {"Content-Type": "application/json"},
+        "health_check": "http://localhost:8001/status",
+        "keywords": ["education", "learning", "study"],
+        "patterns": ["education\\s+(.+)", "learning\\s+(.+)"],
+        "input_types": ["text", "json"],
+        "output_types": ["json"],
+        "enabled": true,
+        "created_at": "2025-07-16T15:59:09.872111",
+        "vaani_integration": {
+            "enabled": true,
+            "auto_translate": true,
+            "preferred_languages": ["en", "hi", "mr"],
+            "content_type": "educational",
+            "voice_generation": true,
+            "tone": "uplifting",
+            "supported_platforms": ["twitter", "instagram", "linkedin"],
+            "language_mappings": {
+                "hindi": {"code": "hi", "voice_tag": "hi_in_female_informative"},
+                "marathi": {"code": "mr", "voice_tag": "mr_in_female_informative"},
+                "english": {"code": "en", "voice_tag": "en_us_female_informative"}
+            },
+            "environment_config": {
+                "base_url": "VAANI_BASE_URL",
+                "username": "VAANI_USERNAME",
+                "password": "VAANI_PASSWORD",
+                "timeout": "VAANI_REQUEST_TIMEOUT",
+                "max_retries": "VAANI_MAX_RETRIES"
+            }
+        }
+    },
+    "wellness_agent": {
+        "id": "wellness_agent",
+        "name": "Wellness Agent",
+        "description": "Agent for wellness advice",
+        "connection_type": "http_api",
+        "endpoint": "http://localhost:8001/wellness",
+        "headers": {"Content-Type": "application/json"},
+        "health_check": "http://localhost:8001/status",
+        "keywords": ["wellness", "health", "wellbeing"],
+        "patterns": ["wellness\\s+(.+)", "health\\s+(.+)"],
+        "input_types": ["text", "json"],
+        "output_types": ["json"],
+        "enabled": true,
+        "created_at": "2025-07-16T15:59:09.872111",
+        "vaani_integration": {
+            "enabled": true,
+            "auto_translate": true,
+            "preferred_languages": ["en", "hi"],
+            "content_type": "wellness",
+            "voice_generation": true,
+            "tone": "uplifting",
+            "supported_platforms": ["twitter", "instagram", "linkedin"],
+            "language_mappings": {
+                "hindi": {"code": "hi", "voice_tag": "hi_in_female_calming"},
+                "english": {"code": "en", "voice_tag": "en_us_female_calming"}
+            },
+            "environment_config": {
+                "base_url": "VAANI_BASE_URL",
+                "username": "VAANI_USERNAME",
+                "password": "VAANI_PASSWORD",
+                "timeout": "VAANI_REQUEST_TIMEOUT",
+                "max_retries": "VAANI_MAX_RETRIES"
+            }
+        }
+    },
+    "archive_agent": {
+        "name": "Archive Agent",
+        "description": "PDF document processing",
+        "connection_type": "python_module",
+        "module_path": "agents.archive_agent",
+        "class_name": "ArchiveAgent",
+        "input_types": ["pdf"],
+        "rl_enabled": true,
+        "vaani_integration": {
+            "enabled": true,
+            "auto_translate": true,
+            "preferred_languages": ["en", "hi"],
+            "content_type": "informative",
+            "voice_generation": false,
+            "tone": "informative",
+            "supported_platforms": ["twitter", "instagram"],
+            "language_mappings": {
+                "hindi": {"code": "hi", "voice_tag": "hi_in_female_informative"},
+                "english": {"code": "en", "voice_tag": "en_us_female_informative"}
+            },
+            "environment_config": {
+                "base_url": "VAANI_BASE_URL",
+                "username": "VAANI_USERNAME",
+                "password": "VAANI_PASSWORD",
+                "timeout": "VAANI_REQUEST_TIMEOUT",
+                "max_retries": "VAANI_MAX_RETRIES"
+            }
+        }
+    },
+    "image_agent": {
+        "name": "Image Agent",
+        "description": "Image analysis and description",
+        "connection_type": "python_module", 
+        "module_path": "agents.image_agent",
+        "class_name": "ImageAgent",
+        "input_types": ["image"],
+        "rl_enabled": true,
+        "vaani_integration": {
+            "enabled": true,
+            "auto_translate": true,
+            "preferred_languages": ["en", "hi"],
+            "content_type": "descriptive",
+            "voice_generation": true,
+            "tone": "uplifting",
+            "supported_platforms": ["twitter", "instagram"],
+            "language_mappings": {
+                "hindi": {"code": "hi", "voice_tag": "hi_in_female_informative"},
+                "english": {"code": "en", "voice_tag": "en_us_female_informative"}
+            },
+            "environment_config": {
+                "base_url": "VAANI_BASE_URL",
+                "username": "VAANI_USERNAME",
+                "password": "VAANI_PASSWORD",
+                "timeout": "VAANI_REQUEST_TIMEOUT",
+                "max_retries": "VAANI_MAX_RETRIES"
+            }
+        }
+    },
+    "audio_agent": {
+        "name": "Audio Agent",
+        "description": "Audio transcription and processing",
+        "connection_type": "python_module",
+        "module_path": "agents.audio_agent", 
+        "class_name": "AudioAgent",
+        "input_types": ["audio"],
+        "rl_enabled": true,
+        "vaani_integration": {
+            "enabled": true,
+            "auto_translate": true,
+            "preferred_languages": ["en", "hi"],
+            "content_type": "transcript",
+            "voice_generation": true,
+            "tone": "uplifting",
+            "supported_platforms": ["twitter", "instagram"],
+            "language_mappings": {
+                "hindi": {"code": "hi", "voice_tag": "hi_in_female_informative"},
+                "english": {"code": "en", "voice_tag": "en_us_female_informative"}
+            },
+            "environment_config": {
+                "base_url": "VAANI_BASE_URL",
+                "username": "VAANI_USERNAME",
+                "password": "VAANI_PASSWORD",
+                "timeout": "VAANI_REQUEST_TIMEOUT",
+                "max_retries": "VAANI_MAX_RETRIES"
+            }
+        }
+    },
+    "text_agent": {
+        "name": "Text Agent",
+        "description": "General text processing",
+        "connection_type": "python_module",
+        "module_path": "agents.text_agent",
+        "class_name": "TextAgent", 
+        "input_types": ["text"],
+        "rl_enabled": true,
+        "vaani_integration": {
+            "enabled": true,
+            "auto_translate": true,
+            "preferred_languages": ["en", "hi", "sa", "mr"],
+            "content_type": "general",
+            "voice_generation": true,
+            "tone": "uplifting",
+            "supported_platforms": ["twitter", "instagram", "linkedin"],
+            "language_mappings": {
+                "hindi": {"code": "hi", "voice_tag": "hi_in_female_informative"},
+                "sanskrit": {"code": "sa", "voice_tag": "sa_in_female_formal"},
+                "marathi": {"code": "mr", "voice_tag": "mr_in_female_informative"},
+                "english": {"code": "en", "voice_tag": "en_us_female_informative"}
+            },
+            "environment_config": {
+                "base_url": "VAANI_BASE_URL",
+                "username": "VAANI_USERNAME",
+                "password": "VAANI_PASSWORD",
+                "timeout": "VAANI_REQUEST_TIMEOUT",
+                "max_retries": "VAANI_MAX_RETRIES"
+            }
+        }
+    },
+    "stream_transformer_agent": {
+        "name": "Stream Transformer Agent",
+        "description": "General purpose processing",
+        "connection_type": "python_module",
+        "module_path": "agents.stream_transformer_agent",
+        "class_name": "StreamTransformerAgent",
+        "input_types": ["text", "pdf", "image", "audio"],
+        "rl_enabled": true,
+        "vaani_integration": {
+            "enabled": true,
+            "auto_translate": true,
+            "preferred_languages": ["en", "hi", "sa"],
+            "content_type": "general",
+            "voice_generation": true,
+            "tone": "uplifting",
+            "supported_platforms": ["twitter", "instagram", "linkedin"],
+            "language_mappings": {
+                "hindi": {"code": "hi", "voice_tag": "hi_in_female_informative"},
+                "sanskrit": {"code": "sa", "voice_tag": "sa_in_female_formal"},
+                "english": {"code": "en", "voice_tag": "en_us_female_informative"}
+            },
+            "environment_config": {
+                "base_url": "VAANI_BASE_URL",
+                "username": "VAANI_USERNAME",
+                "password": "VAANI_PASSWORD",
+                "timeout": "VAANI_REQUEST_TIMEOUT",
+                "max_retries": "VAANI_MAX_RETRIES"
+            }
+        }
+    },
+    "knowledge_agent": {
+        "name": "Knowledge Agent",
+        "description": "Semantic search and knowledge base queries",
+        "connection_type": "python_module",
+        "module_path": "agents.KnowledgeAgent",
+        "class_name": "KnowledgeAgent",
+        "input_types": ["text"],
+        "tags": ["semantic_search", "vedabase", "knowledge_base"],
+        "rl_enabled": true,
+        "created_at": "2025-07-30T00:00:00.000000",
+        "vaani_integration": {
+            "enabled": true,
+            "auto_translate": true,
+            "preferred_languages": ["en", "hi", "sa"],
+            "content_type": "informative",
+            "voice_generation": false,
+            "tone": "uplifting",
+            "supported_platforms": ["twitter", "instagram"],
+            "language_mappings": {
+                "hindi": {"code": "hi", "voice_tag": "hi_in_female_informative"},
+                "sanskrit": {"code": "sa", "voice_tag": "sa_in_female_formal"},
+                "english": {"code": "en", "voice_tag": "en_us_female_informative"}
+            },
+            "environment_config": {
+                "base_url": "VAANI_BASE_URL",
+                "username": "VAANI_USERNAME",
+                "password": "VAANI_PASSWORD",
+                "timeout": "VAANI_REQUEST_TIMEOUT",
+                "max_retries": "VAANI_MAX_RETRIES"
+            }
+        }
+    },
+    "vaani_agent": {
+        "name": "Vaani Integration Agent",
+        "description": "Vaani Sentinel X integration for content generation, translation, and voice generation",
+        "connection_type": "python_module",
+        "module_path": "agents.vaani_agent",
+        "class_name": "VaaniAgent",
+        "input_types": ["text", "json"],
+        "rl_enabled": false,
+        "enabled": true,
+        "created_at": "2025-01-01T00:00:00.000000",
+        "vaani_integration": {
+            "enabled": true,
+            "auto_translate": true,
+            "preferred_languages": ["en", "hi", "sa", "mr"],
+            "content_type": "general",
+            "voice_generation": true,
+            "tone": "uplifting",
+            "supported_platforms": ["twitter", "instagram", "linkedin", "youtube"],
+            "language_mappings": {
+                "hindi": {"code": "hi", "voice_tag": "hi_in_female_informative"},
+                "sanskrit": {"code": "sa", "voice_tag": "sa_in_female_devotional"},
+                "marathi": {"code": "mr", "voice_tag": "mr_in_female_informative"},
+                "english": {"code": "en", "voice_tag": "en_us_female_informative"}
+            },
+            "specialized_features": {
+                "content_generation": true,
+                "multilingual_processing": true,
+                "voice_generation": true,
+                "platform_optimization": true,
+                "security_analysis": true,
+                "analytics_insights": true
+            },
+            "environment_config": {
+                "base_url": "VAANI_BASE_URL",
+                "username": "VAANI_USERNAME",
+                "password": "VAANI_PASSWORD",
+                "timeout": "VAANI_REQUEST_TIMEOUT",
+                "max_retries": "VAANI_MAX_RETRIES"
+            }
+        }
+    }
+}

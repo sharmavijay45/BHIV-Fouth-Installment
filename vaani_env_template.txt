@@ -1,0 +1,26 @@
+# Vaani Sentinel X Configuration Template
+# Copy these variables to your .env file and fill in your actual values
+
+# Base URL for Vaani API
+VAANI_BASE_URL=https://vaani-sentinel-gs6x.onrender.com
+
+# Authentication credentials
+VAANI_USERNAME=admin
+VAANI_PASSWORD=secret
+
+# Optional: Override default settings
+VAANI_REQUEST_TIMEOUT=30
+VAANI_AUTH_TIMEOUT=10
+VAANI_MAX_RETRIES=3
+
+# Other existing environment variables you might have...
+# OLLAMA_MODEL=llama3.1
+# OLLAMA_URL=http://localhost:11434/api/generate
+# OLLAMA_TIMEOUT=60
+# NAS_PATH=\\192.168.0.94\Guruukul_DB
+
+# Instructions:
+# 1. Copy this content to your .env file
+# 2. Replace the placeholder values with your actual Vaani credentials
+# 3. The system will automatically use these environment variables
+# 4. Each agent can have different Vaani configurations if needed
